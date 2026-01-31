@@ -15,27 +15,38 @@ Welcome to Stanford's ballroom dancing club!
 Learn more about us and how to join. Beginners always welcome :).
 {{< /lead >}}
 
-
 {{< alert icon="circle-info" iconColor="black" cardColor="#fef3c7" >}}
 Our site is under construction.
 
 You can find all information relevant to Cardinal Classic (April 4, 2026) under the "Cardinal Classic" menu.
 {{< /alert >}}
 
+{{< grid num-cols=3 >}}
+
+{{< item >}}
 {{< button href="https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford" target="_self" >}}
 {{< icon "link" >}}
 Mailing List
 {{< /button >}}
-<span style="padding: 8px"></span>
+{{< /item >}}
+
+{{< item >}}
 {{< button href="mailto:ballroom-at-stanford-owner@lists.stanford.edu" target="_self" >}}
 {{< icon "email" >}}
 Email
 {{< /button >}}
-<span style="padding: 8px"></span>
+{{< /item >}}
+
+{{< item >}}
 {{< button href="https://instagram.com/stanford.ballroom" target="_self" >}}
 {{< icon "instagram" >}}
 Instagram
 {{< /button >}}
+{{< /item >}}
+{{< /grid >}}
+
+<br>
+{{< carousel images="homepage-carousel/*" aspectRatio="16-9" interval="2500" >}}
 
 {{< figure
     src="CC26.png"

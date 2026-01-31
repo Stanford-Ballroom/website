@@ -1,0 +1,5 @@
+{{ $cols := .Get "cols" | default "1" }}
+
+<div class="contents col-span-{{ $cols }}">
+  {{ .Inner }}
+</div>

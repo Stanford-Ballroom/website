@@ -11,6 +11,8 @@ rtl = false
 dateFormat = "January 2, 2006"
 description = "Stanford University's ballroom dancing club"
 copyright = "Stanford Ballroom"
+logo = "logo-overlap.png"
 
 ["params.author"]
 name = "Stanford Ballroom"
+image = "logo-overlap.png"

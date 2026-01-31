@@ -1,0 +1,5 @@
+{{ $num_cols := .Get "num-cols" | default "1" }}
+
+<div class="mt-4 gap-4 grid grid-cols-1 md:grid-cols-{{ $num_cols }}">
+  {{ .Inner }}
+</div>
