@@ -1,6 +1,6 @@
 colorScheme = "marvel"
 defaultAppearance = "light"
-autoSwitchAppearance = true
+autoSwitchAppearance = false
 enableA11y = false
 enableSearch = true
 enableCodeCopy = false
