@@ -1,0 +1,35 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "About Us"
+pageRef = "about"
+identifier = "4ze4g2gR7z"
+weight = 9_999
+
+[[main]]
+name = "Class Schedule"
+pageRef = "schedule"
+identifier = "P2LMRY0wA1"
+weight = 9_999
+
+[[main]]
+name = "Notion"
+url = "https://stanford-ballroom.notion.site"
+identifier = "WswyMNHJde"
+weight = 9_999
+
+[[main]]
+name = "Miscellaneous"
+pageRef = "misc"
+identifier = "plSg1xf7jZ"
+weight = 9_999
+
+[[main]]
+name = "Cardinal Classic"
+pageRef = "cardinal_classic"
+identifier = "fzeVJXz7O2"
+weight = 9_999
+
+[[footer]]
+none = "none"

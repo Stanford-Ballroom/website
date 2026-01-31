@@ -1,0 +1,16 @@
+disabled = false
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Stanford Ballroom"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "January 2, 2006"
+description = "Stanford University's ballroom dancing club"
+copyright = "Stanford Ballroom"
+
+["params.author"]
+name = "Stanford Ballroom"
