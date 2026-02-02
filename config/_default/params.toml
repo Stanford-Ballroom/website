@@ -47,7 +47,7 @@ cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
 disableHeroImageFilter = true
-homepageImage = "logo-overlap.png"
+homepageImage = "logo.png"
 
 [article]
 showDate = true

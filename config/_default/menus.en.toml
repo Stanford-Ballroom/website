@@ -20,12 +20,6 @@ identifier = "WswyMNHJde"
 weight = 9_999
 
 [[main]]
-name = "Miscellaneous"
-pageRef = "misc"
-identifier = "plSg1xf7jZ"
-weight = 9_999
-
-[[main]]
 name = "Cardinal Classic"
 pageRef = "cardinal_classic"
 identifier = "fzeVJXz7O2"
