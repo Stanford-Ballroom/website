@@ -29,7 +29,7 @@ Mailing List
 {{< /item >}}
 
 {{< item >}}
-{{< button href="mailto:ballroom-at-stanford-owner@lists.stanford.edu" target="_self" >}}
+{{< button href="mailto:ballroom.stanford@gmail.com" target="_self" >}}
 {{< icon "email" >}}
 Email
 {{< /button >}}
