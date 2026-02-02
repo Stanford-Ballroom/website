@@ -1,0 +1,43 @@
+<div
+  class="flex flex-col rounded-xl border border-neutral-200 items-center"
+>
+
+  {{ with .Get "image" }}
+    {{ $img := resources.Get . }}
+    {{ if $img }}
+      <div class="mt-4 flex overflow-hidden items-center h-48">
+        <img
+          src="{{ $img.RelPermalink }}"
+          alt="{{ $.Get "name" }}"
+          loading="lazy"
+      class="h-full"
+        />
+      </div>
+    {{ else }}
+      {{ warnf "profile-card: image not found: %s" . }}
+      <div class="flex h-48 items-center justify-center">
+        <span class="text-sm text-neutral-400">Image not found</span>
+      </div>
+    {{ end }}
+  {{ end }}
+
+  <div class="flex flex-1 flex-col p-4 items-center">
+    <h3
+      class="mt-0"
+    >
+      {{ .Get "name" }}
+    </h3>
+
+    {{ with .Get "affiliation" }}
+      <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        {{ . }}
+      </p>
+    {{ end }}
+
+    {{ with .Inner }}
+      <p class="mt-0 mb-0 text-sm text-neutral-600 dark:text-neutral-300">
+        {{ . }}
+      </p>
+    {{ end }}
+  </div>
+</div>

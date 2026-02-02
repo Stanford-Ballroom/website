@@ -1,0 +1,8 @@
+{{ $cols := .Get "cols" | default "3" }}
+
+<div
+  class="grid gap-4
+         grid-cols-1
+         sm:grid-cols-{{ $cols }}">
+  {{ .Inner }}
+</div>
