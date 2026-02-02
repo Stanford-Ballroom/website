@@ -7,7 +7,9 @@ showDate: false
 Stanford Ballroom is a place where everyone can learn to dance in a fun, relaxed, and welcoming environment.
 {{< /lead >}}
 
+{{< gallery >}}
 <img src="/us.png">
+{{< /gallery >}}
 
 We are the official ballroom dancing club (VSO) at Stanford University! Our goal is to promote ballroom dancing (DanceSport) in a welcoming environment. We provide **weekly beginner and advanced lessons from professional coaches for the cheap price of $FREE.99**, and also **local competition support** (see us at UCSD, UCSB, Cal Poly, Berkeley and more)! We also engage with the community and organize socials :)
 
