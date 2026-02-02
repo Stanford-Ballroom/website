@@ -21,7 +21,7 @@ Whether you want to explore the world of ballroom dancing or win state and natio
 
 **INTERESTED?**
 Drop by our regularly scheduled lessons on Mondays, or check out our latest [events](https://stanford-ballroom.notion.site)!
-Please feel free to contact us via [email](mailto:ballroom.stanford@gmail.com) or [Instagram](https://instagram.com/stanford.ballroom) if you have any questions!
+Please feel free to contact us via [email: ballroom-vso@stanford.edu](mailto:ballroom-vso@stanford.edu) or [Instagram: @stanford.ballroom](https://instagram.com/stanford.ballroom) if you have any questions!
 
 ## Leadership Team
 
