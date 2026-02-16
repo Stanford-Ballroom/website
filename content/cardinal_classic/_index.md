@@ -38,7 +38,7 @@ Email us
 {{< /item >}}
 
 {{< item >}}
-{{< button href="https://facebook.com/" target="_self" >}}
+{{< button href="https://www.facebook.com/events/1264138905830232/" target="_self" >}}
 {{< icon "facebook" >}}
 Facebook
 {{< /button >}}
