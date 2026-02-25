@@ -5,25 +5,25 @@ none = "none"
 name = "About Us"
 pageRef = "about"
 identifier = "4ze4g2gR7z"
-weight = 9_999
+weight = 1
 
 [[main]]
-name = "Class Schedule"
+name = "Schedule"
 pageRef = "schedule"
 identifier = "P2LMRY0wA1"
-weight = 9_999
+weight = 2
 
 [[main]]
 name = "Notion"
 url = "https://stanford-ballroom.notion.site"
 identifier = "WswyMNHJde"
-weight = 9_999
+weight = 100
 
 [[main]]
 name = "Cardinal Classic"
 pageRef = "cardinal_classic"
 identifier = "fzeVJXz7O2"
-weight = 9_999
+weight = 3
 
 [[footer]]
 none = "none"
