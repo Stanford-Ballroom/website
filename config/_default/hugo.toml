@@ -7,6 +7,9 @@ buildFuture = false
 enableEmoji = true
 baseURL = "/"
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [pagination]
 pagerSize = 100
 
