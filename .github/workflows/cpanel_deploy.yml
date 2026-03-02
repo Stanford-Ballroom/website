@@ -1,0 +1,32 @@
+name: Deploy Hugo Site via FTP
+
+on:
+  push:
+    branches:
+      - main   # change if your deploy branch differs
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.rohitnema.su.domains
+          username: ${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}
+          password: ${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: /public_html/
