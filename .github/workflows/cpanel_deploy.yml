@@ -28,8 +28,9 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.rohitnema.su.domains
-          username: ${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}
-          password: ${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}
+          username: "${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}"
+          password: "${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}"
           protocol: ftps
+          dangerous-clean-slate: true
           local-dir: ./public/
-          server-dir: /public_html/
+          server-dir: /
