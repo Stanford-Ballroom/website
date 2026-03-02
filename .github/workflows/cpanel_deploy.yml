@@ -30,5 +30,6 @@ jobs:
           server: ftp.rohitnema.su.domains
           username: ${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}
           password: ${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}
+          protocol: ftps
           local-dir: ./public/
           server-dir: /public_html/
