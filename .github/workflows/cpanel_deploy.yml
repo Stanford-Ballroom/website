@@ -1,6 +1,7 @@
 name: Deploy Hugo Site via FTP
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main   # change if your deploy branch differs
