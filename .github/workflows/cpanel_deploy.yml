@@ -23,14 +23,44 @@ jobs:
 
       - name: Build site
         run: hugo --minify --baseURL="https://ballroom.stanford.edu"
-
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      
+      - name: Rsync Deployments Action
+        # You may pin to the exact commit or the version.
+        # uses: Burnett01/rsync-deployments@dc0d5d44c4728aad3f02154a87309809e62a960f
+        uses: Burnett01/rsync-deployments@v8
         with:
-          server: ftp.rohitnema.su.domains
-          username: "${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}"
-          password: "${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}"
-          protocol: ftps
-          dangerous-clean-slate: true
-          local-dir: ./public/
-          server-dir: /
+          # The switches
+          switches: -avzh
+          # The remote shell argument
+          # rsh: # optional, default is 
+          # Enables support for legacy RSA host keys on OpenSSH 8.8+
+          legacy_allow_rsa_hostkeys: # optional, default is false
+          # Controls strict host keys checking
+          strict_hostkeys_checking: # optional, default is false
+          # The local path
+          path: ./public/
+          # The remote path
+          remote_path: /home/rohitnem/ballroom.stanford.edu/
+          # The remote host
+          remote_host: "${{ secrets.STANFORD_DOMAINS_SSH_HOST }}"  
+          # The remote port
+          # remote_port: # optional, default is 22
+          # The remote user
+          remote_user: "${{ secrets.STANFORD_DOMAINS_SSH_USERNAME }}"
+          # The remote key
+          remote_key: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY }}"
+          # The remote key passphrase
+          remote_key_pass: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}"
+          # Debug the action
+          debug: true
+
+      # - name: Deploy via FTP
+      #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      #   with:
+      #     server: ftp.rohitnema.su.domains
+      #     username: "${{ secrets.STANFORD_DOMAINS_FTP_USERNAME }}"
+      #     password: "${{ secrets.STANFORD_DOMAINS_FTP_PASSWORD }}"
+      #     protocol: ftps
+      #     dangerous-clean-slate: true
+      #     local-dir: ./public/
+      #     server-dir: /
