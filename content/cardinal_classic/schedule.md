@@ -16,35 +16,44 @@ An online Heat List for detailed estimates of individual event start times will 
 ### Daytime Session
 
 #### American Smooth — 8:00 AM
-Newcomer 	Waltz 	Tango 	Foxtrot 	Viennese Waltz
-Bronze 	Waltz 	Tango 	Foxtrot 	Viennese Waltz
-Silver 	Waltz 	Tango 	Foxtrot 	Viennese Waltz
-Gold 	Waltz & Foxtrot 	Tango 	Viennese Waltz
-Rookie/Vet 	Waltz 	Tango 	Foxtrot 	Viennese Waltz
+| Level       | Event 1          | Event 2 | Event 3 | Event 4          |
+|-------------|------------------|---------|---------|------------------|
+| Newcomer    | Waltz            | Tango   | Foxtrot | Viennese Waltz   |
+| Bronze      | Waltz            | Tango   | Foxtrot | Viennese Waltz   |
+| Silver      | Waltz            | Tango   | Foxtrot | Viennese Waltz   |
+| Gold        | Waltz, Foxtrot   | Tango   | Viennese Waltz |           |
+| Rookie/Vet  | Waltz            | Tango   | Foxtrot | Viennese Waltz   |
 
 #### International Standard — 9:50 AM
-Newcomer 	Waltz 	Tango 	Viennese Waltz	Foxtrot	Quickstep
-Bronze 	Waltz 	Tango 	Viennese Waltz	Foxtrot	Quickstep
-Silver 	Waltz & Quickstep 	Tango 	Viennese Waltz 	Foxtrot
-Gold 	Waltz & Tango & Quickstep 	Foxtrot 	Viennese Waltz
-Rookie/Vet 	Waltz 	Tango 	Viennese Waltz	Foxtrot	Quickstep
+| Level       | Event 1                     | Event 2 | Event 3          | Event 4 | Event 5 |
+|-------------|-----------------------------|---------|------------------|---------|---------|
+| Newcomer    | Waltz                       | Tango   | Viennese Waltz   | Foxtrot | Quickstep |
+| Bronze      | Waltz                       | Tango   | Viennese Waltz   | Foxtrot | Quickstep |
+| Silver      | Waltz,  Quickstep           | Tango   | Viennese Waltz   | Foxtrot |         |
+| Gold        | Waltz, Tango,   Quickstep   | Foxtrot | Viennese Waltz   |         |         |
+| Rookie/Vet  | Waltz                       | Tango   | Viennese Waltz   | Foxtrot | Quickstep |
 
 ### Lunch Break (30 minutes) — 12:45 PM
 
 ### Afternoon Session
 
 #### American Rhythm – 1:15 PM
-Newcomer 	ChaCha 	Rumba 	Swing 	Bolero	Mambo
-Bronze 	ChaCha 	Rumba 	Swing 	Bolero 	Mambo
-Silver 	ChaCha & Rumba	Swing	Bolero	Mambo
-Gold 	ChaCha & Rumba & Swing 	Bolero 	Mambo
-Rookie/Vet 	ChaCha 	Rumba 	Swing 	Bolero 	Mambo
-International Latin – 3:10 PM
-Newcomer 	ChaCha 	Samba 	Rumba 	Paso Doble	Jive
-Bronze 	ChaCha 	Samba 	Rumba 	Paso Doble 	Jive
-Silver 	ChaCha & Rumba	Samba 	Paso Doble	Jive
-Gold 	ChaCha & Samba & Rumba 	Jive 	Paso Doble
-Rookie/Vet 	ChaCha 	Samba 	Rumba 	Paso Doble 	Jive
+| Level       | Event 1                   | Event 2 | Event 3 | Event 4 | Event 5 |
+|-------------|---------------------------|---------|---------|---------|---------|
+| Newcomer    | ChaCha                    | Rumba   | Swing   | Bolero  | Mambo   |
+| Bronze      | ChaCha                    | Rumba   | Swing   | Bolero  | Mambo   |
+| Silver      | ChaCha, Rumba             | Swing   | Bolero  | Mambo   |         |
+| Gold        | ChaCha, Rumba, Swing      | Bolero  | Mambo   |         |         |
+| Rookie/Vet  | ChaCha                    | Rumba   | Swing   | Bolero  | Mambo   |
+
+#### International Latin – 3:10 PM
+| Level       | Event 1                   | Event 2 | Event 3 | Event 4     | Event 5 |
+|-------------|---------------------------|---------|---------|-------------|---------|
+| Newcomer    | ChaCha                    | Samba   | Rumba   | Paso Doble  | Jive    |
+| Bronze      | ChaCha                    | Samba   | Rumba   | Paso Doble  | Jive    |
+| Silver      | ChaCha, Rumba             | Samba   | Paso Doble | Jive     |         |
+| Gold        | ChaCha, Samba, Rumba      | Jive    | Paso Doble |          |         |
+| Rookie/Vet  | ChaCha                    | Samba   | Rumba   | Paso Doble  | Jive    |
 
 ### Dinner Break — 6:00 PM
 
