@@ -51,19 +51,35 @@ Instagram
 {{< /button >}}
 {{< /item >}}
 
+{{< item >}}
+{{< button href="#payment" target="_self" >}}
+{{< icon "link" >}}
+Payment
+{{< /button >}}
+{{< /item >}}
+
+{{< item >}}
+{{< button href="#registration" target="_self" >}}
+{{< icon "edit" >}}
+Registration (TBA)
+{{< /button >}}
+{{< /item >}}
+
 {{< /grid >}}
 
 ## Latest Updates
 
 {{< timeline >}}
 
+
+{{< timelineItem icon="circle-info"  badge="payment" subheader="Eventbrite Live!" >}}
+Eventbrite payment link is now live! Please see the Payments section below. Registration coming soon.
+{{< /timelineItem >}}
+
 {{< timelineItem icon="circle-info"  badge="website" subheader="Event information and rules" >}}
 Event information and competition rules updated.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="circle-info"  badge="website" subheader="Save the date!" >}}
-Website launched! Save the date poster announced.
-{{< /timelineItem >}}
 
 {{< /timeline >}}
 
@@ -71,13 +87,18 @@ Website launched! Save the date poster announced.
 #### [Tentative Schedule]({{< ref "schedule.md" >}})
 #### [Rules]({{< ref "rules.md" >}})
 #### [Location & Parking]({{< ref "location.md" >}})
+<br>
 
 ## Payment
 
 > [!NOTE] Early payment and TBA
 Pay by March 27 to save $10! If you’d like to register as TBA, please fill out the [TBA form](https://docs.google.com/spreadsheets/d/1jFQd2NwFL22B3yekdzk1YNtkv3_-rop5B_VtQAQEnmo/edit?usp=sharing).
 
-Online purchases of competitor and spectator tickets are available through Eventbrite. Please note that payment and registration must be done separately. (See [below](#registration) for registration.) Payment must be submitted online by March 27 to qualify for the reduced pricing:
+Online purchases of competitor and spectator tickets are available through [Eventbrite](https://www.eventbrite.com/e/cardinal-classic-ballroom-dancing-competition-tickets-1981867185101).
+
+Plain link: https://www.eventbrite.com/e/cardinal-classic-ballroom-dancing-competition-tickets-1981867185101.
+
+ Please note that payment and registration must be done separately. (See [below](#registration) for registration.) Payment must be submitted online by March 27 to qualify for the reduced pricing:
 
 | Category                   | Early Deadline: March 27               | Late Deadline: April 4       |
 |----------------------------|----------------------------------------|------------------------------|
