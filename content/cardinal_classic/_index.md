@@ -16,7 +16,7 @@ Cardinal Classic 2026
 
 <h2>Saturday, April 4, 2026</h2>
 
-<h3>Stanford campus (exact location TBA)</h3>
+<h3><a href="location">ACSR Gym, Stanford University</a></h3>
 </center>
 
 {{< figure
@@ -83,10 +83,12 @@ Event information and competition rules updated.
 
 {{< /timeline >}}
 
+<hr>
+
 ## Event Information
-#### [Tentative Schedule]({{< ref "schedule.md" >}})
-#### [Rules]({{< ref "rules.md" >}})
-#### [Location & Parking]({{< ref "location.md" >}})
+#### [Tentative Schedule](schedule)
+#### [Rules](rules)
+#### [Location & Parking](location)
 <br>
 
 ## Payment
