@@ -61,19 +61,28 @@ Payment
 {{< item >}}
 {{< button href="#registration" target="_self" >}}
 {{< icon "edit" >}}
-Registration (TBA)
+Registration (now open!)
 {{< /button >}}
 {{< /item >}}
 
 {{< /grid >}}
 
+<hr>
+
 ## Latest Updates
 
 {{< timeline >}}
 
+{{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now open!" >}}
+
+Registration is now open! Please see the <a href="#registration">Registration section</a>. 
+<br>
+
+
+{{< /timelineItem >}}
 
 {{< timelineItem icon="circle-info"  badge="payment" subheader="Eventbrite Live!" >}}
-Eventbrite payment link is now live! Please see the Payments section below. Registration coming soon.
+Eventbrite payment link is now live! Please see the <a href="#payment">Payments section</a>. Registration coming soon.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="circle-info"  badge="website" subheader="Event information and rules" >}}
@@ -118,10 +127,18 @@ Cancellations made by March 27 will receive a full refund of the ticket price. N
 
 
 ## Registration
-{{< alert icon="circle-info" cardColor="#FFFFC5" iconColor="black">}}
-Coming soon.
-{{< /alert >}}
+Please make sure to read the [competition rules and information](rules) before registering.
 
+**Link to Callback registration: [cardinal.dance.am/pages/registration](https://cardinal.dance.am/pages/registration).**
+<br>
+**Mobile website: [m-cardinal.dance.am](https://m-cardinal.dance.am/).**
+
+
+This year, we are using Callback to manage registrations. You may already have an account e.g. if you created one for registering at Cal Poly Mustang Ball this year.
+<br>
+Please contact us via [email](mailto:cardinal-classic@ballroom.stanford.edu) with the subject prefixed by "[REGISTRATION]" for any registration-related questions :).
+
+<hr>
 
 ## FAQs
 > [!NOTE]- Can I pay at the door?
