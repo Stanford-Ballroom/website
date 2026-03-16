@@ -6,7 +6,7 @@ date: 2026-01-31
 lastmod: 2026-02-16
 ---
 
-The event times listed below are TENTATIVE estimates. While every effort will be made to follow these times, please be aware that events may run behind or up to 30 minutes ahead of schedule, so please check in and be ready to compete at least 30 minutes before your scheduled event start time.
+The event times listed below are TENTATIVE estimates. While every effort will be made to follow these times, please be aware that events may run behind or up to 30 minutes ahead of schedule, so please check in and be ready to compete at least 30 minutes before your scheduled event start time. Please see the table of contents for a shorter version of the schedule.
 
 An online Heat List for detailed estimates of individual event start times will be available on the day of competition.
 
@@ -67,7 +67,7 @@ An online Heat List for detailed estimates of individual event start times will 
 | Intermediate/Advanced | Salsa  | Nightclub Two-step | Polka | Merengue | Blues | West Coast Swing | Argentine Tango | Hustle | Bachata |
 
 
-#### Open Events — 8:00 PM
+#### Open Events & Team Matches — 8:00 PM
 *Note: The list of open events below is for information only and does not represent the actual order of open events. Please see our online Heat List for approximate open event order and start times.*
 
 **American Smooth**

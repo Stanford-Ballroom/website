@@ -95,7 +95,7 @@ Event information and competition rules updated.
 <hr>
 
 ## Event Information
-#### [Tentative Schedule](schedule)
+#### [Tentative Schedule and Breakdown of Events](schedule)
 #### [Rules](rules)
 #### [Location & Parking](location)
 <br>
