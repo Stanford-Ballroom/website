@@ -98,6 +98,7 @@ Event information and competition rules updated.
 #### [Tentative Schedule and Breakdown of Events](schedule)
 #### [Rules](rules)
 #### [Location & Parking](location)
+#### [Nearby Hotels and Accommodations](location)
 <br>
 
 ## Payment
