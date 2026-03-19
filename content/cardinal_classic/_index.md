@@ -97,7 +97,7 @@ Event information and competition rules updated.
 ## Event Information
 ### [Competition Rules & Information](rules)
 ### [Location & Parking](location)
-### [Nearby Hotels and Accommodations](location)
+### [Nearby Hotels and Accommodations](accommodations)
 ### [Tentative Schedule and Breakdown of Events](schedule)
 Please click the header above for a breakdown of events. Here's a summary of the schedule:
 
