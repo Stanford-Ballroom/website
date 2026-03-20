@@ -20,8 +20,8 @@ Cardinal Classic 2026
 </center>
 
 {{< figure
-    src="cc26-hero.png"
-    alt=""
+    src="cardinal-classic/cc26-hero.jpeg"
+    alt="Cardinal Classic 2026 on Saturday, April 4, 2026 in ACSR Gym, Stanford campus"
     caption=""
     >}}
 
