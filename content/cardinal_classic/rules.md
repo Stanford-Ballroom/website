@@ -3,6 +3,7 @@ title: "Competition Rules and Information"
 description: ""
 weight: 1
 date: 2026-01-31
+showDate: false
 lastmod: 2026-02-16
 ---
 

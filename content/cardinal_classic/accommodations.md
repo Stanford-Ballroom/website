@@ -2,7 +2,8 @@
 title: "Nearby Hotels and Accommodations"
 description: "Lodging is expensive near Stanford. Here's a list of the more affordable options."
 weight: 1
-date: 2026-03-15
+date: 2026-01-31
+showDate: false
 lastmod: 2026-03-15
 ---
 
