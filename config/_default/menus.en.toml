@@ -13,11 +13,11 @@ pageRef = "schedule"
 identifier = "P2LMRY0wA1"
 weight = 2
 
-[[main]]
-name = "Notion"
-url = "https://stanford-ballroom.notion.site"
-identifier = "WswyMNHJde"
-weight = 100
+# [[main]]
+# name = "Notion"
+# url = "https://stanford-ballroom.notion.site"
+# identifier = "WswyMNHJde"
+# weight = 100
 
 [[main]]
 name = "Cardinal Classic"
