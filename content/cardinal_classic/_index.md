@@ -75,7 +75,7 @@ Registration (now open!)
 
 {{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now open!" >}}
 
-Registration is now open! Please see the <a href="#registration">Registration section</a>. 
+Registration is now open! Please see the <a href="#registration">Registration section</a>.
 <br>
 
 
@@ -133,18 +133,20 @@ Online purchases of competitor and spectator tickets are available through [Even
 
 Plain link: https://www.eventbrite.com/e/cardinal-classic-ballroom-dancing-competition-tickets-1981867185101.
 
- Please note that payment and registration must be done separately. (See [below](#registration) for registration.) Payment must be submitted online by March 27 to qualify for the reduced pricing:
+**Spectator admission is free for Stanford affiliates with a valid Stanford ID!**
+
+ Please note that payment and registration must be done separately. (See [below](#registration) for registration.) Payment must be submitted online by March 27 to qualify for the reduced pricing. The Eventbrite processing fees are included in the pricing for general and nightclub competitors but NOT spectators:
 
 | Category                   | Early Deadline: March 27               | Late Deadline: April 4       |
 |----------------------------|----------------------------------------|------------------------------|
-| Competitors                | $47.5 (incl.     Eventbrite fees)      | $57.5 (incl. Eventbrite fees)|
-| Nightclub events only      | $15                                    | $20                          |
-| Spectators (student)       | $0                                     | $0                           |
+| Competitors                | $47.5                                  | $57.5                        |
+| Nightclub only (Stanford)  | $10                                    | $10                          |
+| Nightclub only (general)   | $15                                    | $20                          |
+| Spectators (Stanford)      | $0                                     | $0                           |
 | Spectators (general)       | $10                                    | $15                          |
 
 
 Each individual competitor must pay an entry fee to compete. The entry fee includes admission to the event. Competitors may enter as many events as they are qualified for (as determined by the level rules) with as many paid partners as they wish.
-Spectator admission is free for students with a valid student ID and $10 for general admission
 
 ### Cancellations & Refunds
 Cancellations made by March 27 will receive a full refund of the ticket price. No refunds are available after March 27. Eventbrite processing fees are not refundable.
