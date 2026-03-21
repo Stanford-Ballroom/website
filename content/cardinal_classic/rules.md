@@ -60,7 +60,7 @@ As mentioned below, Newcomer, Bronze, Silver and Gold levels are closed syllabus
 
 No lifts, drops, or aerials are allowed in any event at this competition.
 
-The Mustang Ball is a CDA Fair Level competition and will use fair level points to determine when couples are entered in a level that is too low for their calculated proficiency. You can look up your fair level points using the Fair Level Point Lookup Tool. Dancers who do not have fair level points should refer to the guidelines below to determine their appropriate level.
+Cardinal Classic is a [CDA Fair Level](http://www.collegiatedancesport.org/fairlevel/) competition and will use fair level points to determine when couples are entered in a level that is too low for their calculated proficiency. You can look up your fair level points using the [Fair Level Point Lookup Tool](http://www.collegiatedancesport.org/db/). Dancers who do not have fair level points should refer to the guidelines below to determine their appropriate level.
 
 #### Newcomer
 
