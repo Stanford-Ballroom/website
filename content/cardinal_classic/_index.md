@@ -73,6 +73,13 @@ Registration (now open!)
 
 {{< timeline >}}
 
+{{< timelineItem icon="circle-info"  badge="competition" subheader="Entry Roster" >}}
+<a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a> is now live.
+<br>
+Plain link: <a href="https://cardinal.dance.am/pages/entry_roster">https://cardinal.dance.am/pages/entry_roster</a>
+{{< /timelineItem >}}
+
+
 {{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now open!" >}}
 
 Registration is now open! Please see the <a href="#registration">Registration section</a>.
@@ -83,10 +90,6 @@ Registration is now open! Please see the <a href="#registration">Registration se
 
 {{< timelineItem icon="circle-info"  badge="payment" subheader="Eventbrite Live!" >}}
 Eventbrite payment link is now live! Please see the <a href="#payment">Payments section</a>. Registration coming soon.
-{{< /timelineItem >}}
-
-{{< timelineItem icon="circle-info"  badge="website" subheader="Event information and rules" >}}
-Event information and competition rules updated.
 {{< /timelineItem >}}
 
 
