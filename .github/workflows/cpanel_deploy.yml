@@ -1,4 +1,4 @@
-name: Deploy Hugo Site via FTP
+name: Deploy Hugo Site via SSH rsync
 
 on:
   workflow_dispatch:
