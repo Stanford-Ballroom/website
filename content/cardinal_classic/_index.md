@@ -61,7 +61,7 @@ Payment
 {{< item >}}
 {{< button href="#registration" target="_self" >}}
 {{< icon "edit" >}}
-Registration (now open!)
+Registration (closed)
 {{< /button >}}
 {{< /item >}}
 
@@ -73,18 +73,13 @@ Registration (now open!)
 
 {{< timeline >}}
 
-{{< timelineItem icon="circle-info"  badge="competition" subheader="Entry Roster" >}}
-<a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a> is now live.
+{{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now closed." >}}
+
+It is past the registration deadline. Please wait while we setup the initial heat list before we open the add/drop form. Any additions will be subject to scheduling constraints. 
 <br>
-Plain link: <a href="https://cardinal.dance.am/pages/entry_roster">https://cardinal.dance.am/pages/entry_roster</a>
-{{< /timelineItem >}}
-
-
-{{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now open!" >}}
-
-Registration is now open! Please see the <a href="#registration">Registration section</a>.
-<br>
-
+We expect this to be available on Wednesday. Stay tuned!
+<p>
+Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.)
 
 {{< /timelineItem >}}
 
