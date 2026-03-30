@@ -43,8 +43,8 @@ Instagram
 {{< /item >}}
 {{< /grid >}}
 
-> [!NOTE] Winter 2026 Lessons Update
-> Our lessons will take place every Monday, 6:30 – 8:30 pm in Roble 113. Please see our [Schedule](schedule) for the latest information.
+> [!NOTE] Spring 2026 Lessons Update
+> Our Spring lessons will take place every Monday, 6:30 – 8:30 pm in Roble 115. Please see our [Schedule](schedule) for the latest information.
 
 <br>
 {{< carousel images="homepage-carousel/*" aspectRatio="16-9" interval="2500" >}}
