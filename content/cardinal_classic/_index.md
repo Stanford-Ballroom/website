@@ -61,7 +61,7 @@ Payment
 {{< item >}}
 {{< button href="#registration" target="_self" >}}
 {{< icon "edit" >}}
-Registration (closed)
+Registration (reopened)
 {{< /button >}}
 {{< /item >}}
 
@@ -73,12 +73,12 @@ Registration (closed)
 
 {{< timeline >}}
 
-{{< timelineItem icon="circle-info"  badge="registration" subheader="Registration is now closed." >}}
+{{< timelineItem icon="circle-info"  badge="registration" subheader="Registration has reopened." >}}
 
-It is past the registration deadline. Please wait while we setup the initial heat list before we open the add/drop form. Any additions will be subject to scheduling constraints. 
+We have reopened registration for add/drop requests. Please note that any entry modifications are subject to approval and capacity constraints. Please monitor the portal for updates. It will remain open until the end of competition so please continue to use the same portal for add/drop requests on the day of as well.
+
 <br>
-We expect this to be available on Wednesday. Stay tuned!
-<p>
+Heat list coming soon.
 Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.)
 
 {{< /timelineItem >}}
@@ -152,6 +152,11 @@ Cancellations made by March 27 will receive a full refund of the ticket price. N
 
 ## Registration
 Please make sure to read the [competition rules and information](rules) before registering.
+
+>[!NOTE] Add/Drop Requests
+> We have reopened registration for add/drop requests. Please note that any entry modifications are subject to approval and capacity constraints. Please monitor the portal for updates. It will remain open until the end of competition so please continue to use the same portal for add/drop requests on the day of as well.
+> <br>
+> Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.)
 
 **Link to Callback registration: [cardinal.dance.am/pages/registration](https://cardinal.dance.am/pages/registration).**
 <br>
