@@ -65,6 +65,20 @@ Registration (reopened)
 {{< /button >}}
 {{< /item >}}
 
+{{< item >}}
+{{< button href="https://cardinal.dance.am/pages/schedule" target="_self" >}}
+{{< icon "link" >}}
+Final Schedule
+{{< /button >}}
+{{< /item >}}
+
+{{< item >}}
+{{< button href="https://cardinal.dance.am/pages/heatlists" target="_self" >}}
+{{< icon "fire" >}}
+Heat List
+{{< /button >}}
+{{< /item >}}
+
 {{< /grid >}}
 
 <hr>
@@ -73,13 +87,18 @@ Registration (reopened)
 
 {{< timeline >}}
 
+{{< timelineItem icon="circle-info"  badge="competition" subheader="Heat list is now out!" >}}
+
+<a href="https://cardinal.dance.am/pages/heatlists">Heat list</a> and <a href="https://cardinal.dance.am/pages/schedule">final schedule</a> are now live! Please check the timings for your entries. We will soon process all add/drop requests. Please understand that the schedule can longer be modified because we are capacity. We will include as many new entries as we can. All drops will be processed first to make space :).
+<br>
+Thanks for your patience and understanding!
+<br>
+Mobile website: <a href="https://m-cardinal.dance.am">m-cardinal.dance.am</a>
+
+{{< /timelineItem >}}
 {{< timelineItem icon="circle-info"  badge="registration" subheader="Registration has reopened." >}}
 
 We have reopened registration for add/drop requests. Please note that any entry modifications are subject to approval and capacity constraints. Please monitor the portal for updates. It will remain open until the end of competition so please continue to use the same portal for add/drop requests on the day of as well.
-
-<br>
-Heat list coming soon.
-Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.)
 
 {{< /timelineItem >}}
 
@@ -156,9 +175,9 @@ Please make sure to read the [competition rules and information](rules) before r
 >[!NOTE] Add/Drop Requests
 > We have reopened registration for add/drop requests. Please note that any entry modifications are subject to approval and capacity constraints. Please monitor the portal for updates. It will remain open until the end of competition so please continue to use the same portal for add/drop requests on the day of as well.
 > <br>
-> Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.)
+<!-- > Until then, please check your current entries on the <a href="https://cardinal.dance.am/pages/entry_roster">Entry Roster</a>. (Please note that this is not the heat list.) -->
 
-**Link to Callback registration: [cardinal.dance.am/pages/registration](https://cardinal.dance.am/pages/registration).**
+**Link to Callback registration and add/drop requests: [cardinal.dance.am/pages/registration](https://cardinal.dance.am/pages/registration).**
 <br>
 **Mobile website: [m-cardinal.dance.am](https://m-cardinal.dance.am/).**
 
