@@ -116,30 +116,8 @@ Eventbrite payment link is now live! Please see the <a href="#payment">Payments 
 ### [Location & Parking](location)
 ### [Nearby Hotels and Accommodations](accommodations)
 ### [Tentative Schedule and Breakdown of Events](schedule)
-Please click the header above for a breakdown of events. Here's a summary of the schedule:
-
-**7:15 AM** — Doors Open / Registration & Warm-up
-
-#### Daytime Session
-**8:00 AM** — American Smooth<br>
-**9:50 AM** — International Standard<br>
-
-**12:45 PM** — Lunch Break (30 minutes)
-
-#### Afternoon Session
-**1:15 PM** — American Rhythm<br>
-**3:10 PM** — International Latin
-
-**6:00 PM** — Dinner Break
-
-#### Evening Session
-**6:45 PM** — Nightclub<br>
-**8:00 PM** — Open Events & Team Matches<br>
-
-**10:40 PM** — End of Event
-
-
-<br>
+Please click the header above for a breakdown of events.
+The final schedule is <a href="https://cardinal.dance.am/pages/schedule">here</a>. (Updated: April 3, 2026)
 
 ## Payment
 
