@@ -34,5 +34,16 @@ For more information, check out the following:
 
 ## Nearby Food Options
 {{< alert icon="circle-info" cardColor="#FFFFC5" iconColor="black">}}
-coming soon.
+More options coming soon.
 {{< /alert >}}
+
+Please confirm the latest hours online. We recommend using Google Maps or their own website if available.
+
+- Coupa Cafe GSB (10 am – 2:00 pm), **4 min walk**
+- Coupa Cafe Green library (7:30 am – 7:00 pm), **8 min walk**
+- Tressider Student Center: CoHo (8 am - 8 pm), Starbucks, Subway, Sushi, Panda Express, Jamba Juice, Treehouse, Axe & Palm, **16 min walk**
+- Town & Country Shopping Center: In Palo Alto with a lot of options, **3 min drive**
+- Downtown Palo Alto: Lots of options, **5 min drive**
+- Stanford Shopping Center, **6 min drive**
+
+_Open late: The Melt at Stanford Shopping Center (burgers and grilled cheese, open until 2 am)_
