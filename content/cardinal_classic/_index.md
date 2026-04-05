@@ -52,30 +52,9 @@ Instagram
 {{< /item >}}
 
 {{< item >}}
-{{< button href="#payment" target="_self" >}}
-{{< icon "link" >}}
-Payment
-{{< /button >}}
-{{< /item >}}
-
-{{< item >}}
-{{< button href="#registration" target="_self" >}}
-{{< icon "edit" >}}
-Registration (reopened)
-{{< /button >}}
-{{< /item >}}
-
-{{< item >}}
-{{< button href="https://cardinal.dance.am/pages/schedule" target="_self" >}}
-{{< icon "link" >}}
-Final Schedule
-{{< /button >}}
-{{< /item >}}
-
-{{< item >}}
-{{< button href="https://cardinal.dance.am/pages/heatlists" target="_self" >}}
+{{< button href="https://cardinal.dance.am/pages/results" target="_self" >}}
 {{< icon "fire" >}}
-Heat List
+Results
 {{< /button >}}
 {{< /item >}}
 
