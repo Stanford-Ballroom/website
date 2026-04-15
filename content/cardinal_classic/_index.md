@@ -68,7 +68,7 @@ Results
 
 {{< timelineItem icon="circle-info"  badge="competition" subheader="Heat list is now out!" >}}
 
-<a href="https://cardinal.dance.am/pages/heatlists">Heat list</a> and <a href="https://cardinal.dance.am/pages/schedule">final schedule</a> are now live! Please check the timings for your entries. We will soon process all add/drop requests. Please understand that the schedule can longer be modified because we are capacity. We will include as many new entries as we can. All drops will be processed first to make space :).
+<a href="https://cardinal.dance.am/pages/heatlists">Heat list</a> and <a href="https://cardinal.dance.am/pages/schedule">final schedule</a> are now live! Please check the timings for your entries. We will soon process all add/drop requests. Please understand that the schedule can no longer be modified because we are at capacity. We will include as many new entries as we can. All drops will be processed first to make space :).
 <br>
 Thanks for your patience and understanding!
 <br>
