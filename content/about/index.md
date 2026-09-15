@@ -70,27 +70,27 @@ Please feel free to contact us via [email: contact@ballroom.stanford.edu](mailto
 {{< profile-cards cols="2" >}}
 
 {{< profile-card
-  image="/people/ikaika.png"
+  image="/people/ikaika.webp"
   name="'Ikaika Dowsett"
   affiliation="Intl. Standard Coach" >}}
 ‘Ikaika is a Professional International Standard dancer, coach and choreographer since 2002. He has numerous titles in the Standard ballroom, and as a coach, he has produced and currently works with over 30 US national champions. His coaching methodology is systems based and he enjoys coaching the dancers to think about frameworks, understand body mechanics, nutrition and cross-training, and how to think like an athlete.
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/stacey.png"
+  image="/people/stacey.webp"
   name="Stacey Chuang"
   affiliation="Intl. Latin Coach" >}}
 Stacey is a Professional International Latin dancer and instructor. Dancing since the age of 12, Stacey has been actively competing at the adult Amateur level in the U.S. and was ranked in the top 15 for Amateur Latin USA. She placed top 4 in Professional Rising Star at Vegas Open 2019, and was a consistent finalist in Open Amateur Latin Championships.
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/thomas.png"
+  image="/people/thomas.webp"
   name="Thomas Bilich"
   affiliation="Intl. Latin Assistant Coach" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/tatjana.png"
+  image="/people/tatjana.webp"
   name="Tatjana Bilich"
   affiliation="Intl. Latin Assistant Coach" >}}
 {{< /profile-card >}}
