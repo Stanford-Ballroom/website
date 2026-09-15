@@ -1,0 +1,16 @@
+{{- $src := .src -}}
+{{- $image := .page.Resources.GetMatch $src -}}
+{{- if not $image -}}{{- $image = resources.Get (strings.TrimPrefix "/" $src) -}}{{- end -}}
+{{- with $image -}}
+  {{- $width := int ($.width | default 1200) -}}
+  {{- $large := .Resize (printf "%dx webp q85" (int (math.Min .Width $width))) -}}
+  {{- $small := .Resize (printf "%dx webp q85" (int (math.Min .Width 640))) -}}
+  <img src="{{ $large.RelPermalink }}"
+    srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w"
+    sizes="{{ $.sizes | default `(min-width: 900px) 50vw, 100vw` }}"
+    width="{{ $large.Width }}" height="{{ $large.Height }}"
+    alt="{{ $.alt | default `` }}" class="{{ $.class | default `nozoom` }}"
+    {{ if $.eager }}loading="eager" fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async">
+{{- else -}}
+  {{- errorf "Ballroom image not found: %s on %s" $src .page.RelPermalink -}}
+{{- end -}}

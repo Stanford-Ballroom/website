@@ -1,0 +1,4 @@
+<aside class="ballroom-announcement" aria-labelledby="announcement-{{ .Ordinal }}">
+  <h2 id="announcement-{{ .Ordinal }}">{{ .Get "title" }}</h2>
+  <div>{{ .Inner | markdownify }}</div>
+</aside>

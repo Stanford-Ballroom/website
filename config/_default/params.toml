@@ -1,4 +1,4 @@
-colorScheme = "marvel"
+colorScheme = "ballroom"
 defaultAppearance = "light"
 autoSwitchAppearance = false
 enableA11y = false
@@ -28,7 +28,7 @@ highlightCurrentMenuArea = true
 smartTOC = true
 
 [header]
-layout = "fixed-fill-blur"
+layout = "ballroom"
 
 [footer]
 showMenu = true
@@ -38,7 +38,7 @@ showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "profile"
+layout = "ballroom"
 showRecent = false
 showRecentItems = 5
 showMoreLink = true

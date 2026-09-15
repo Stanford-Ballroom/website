@@ -1,0 +1,165 @@
+/* Stanford Ballroom: local design layer. Content stays in Markdown/shortcodes. */
+:root {
+  --ballroom-paper: #f8f5f0;
+  --ballroom-ink: #201d1a;
+  --ballroom-muted: #655d55;
+  --ballroom-cardinal: #8c1515;
+  --ballroom-rule: #d8cfc4;
+  --ballroom-wash: #eee8df;
+  --ballroom-display: Georgia, "Times New Roman", serif;
+  --ballroom-gutter: clamp(1.25rem, 4.5vw, 5rem);
+}
+html.dark {
+  --ballroom-paper: #201d1a;
+  --ballroom-ink: #f8f5f0;
+  --ballroom-muted: #c7baaa;
+  --ballroom-cardinal: #f19790;
+  --ballroom-rule: #50463e;
+  --ballroom-wash: #2c2722;
+}
+html { scroll-padding-top: 2rem; }
+body.ballroom-site {
+  width: 100%; max-width: none; margin: 0; padding: 0;
+  background: var(--ballroom-paper); color: var(--ballroom-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.ballroom-site *, .ballroom-site *::before, .ballroom-site *::after { box-sizing: border-box; }
+.ballroom-site a, .ballroom-site button { -webkit-tap-highlight-color: transparent; }
+.ballroom-site :focus-visible { outline: 3px solid var(--ballroom-cardinal); outline-offset: 5px; }
+.ballroom-site #the-top { z-index: 150; }
+.ballroom-header {
+  display: flex; align-items: center; gap: 2rem; min-height: 100px;
+  padding: 1rem var(--ballroom-gutter); border-bottom: 1px solid var(--ballroom-rule);
+}
+.ballroom-brand { display: flex; align-items: center; gap: 1rem; min-width: 0; text-decoration: none; }
+.ballroom-brand img { width: 52px; height: 52px; flex-shrink: 0; }
+.ballroom-brand span { font-family: var(--ballroom-display); font-size: clamp(1.3rem, 2vw, 1.8rem); letter-spacing: -.035em; }
+.ballroom-nav { display: flex; align-items: center; justify-content: flex-end; gap: clamp(1rem, 2.6vw, 2.5rem); margin-left: auto; }
+.ballroom-nav a { padding: .65rem 0; font-size: .95rem; text-decoration: none; white-space: nowrap; }
+.ballroom-nav a:hover, .ballroom-nav a[aria-current] { color: var(--ballroom-cardinal); text-decoration: underline; text-underline-offset: .4em; }
+.ballroom-tools { display: flex; gap: .3rem; }
+.ballroom-tools button { display: grid; place-items: center; width: 44px; height: 44px; cursor: pointer; border-radius: 50%; }
+.ballroom-tools button:hover { background: var(--ballroom-wash); color: var(--ballroom-cardinal); }
+.ballroom-tools .icon { width: 1rem; height: 1rem; }
+.ballroom-home-content { width: 100%; max-width: 1800px; margin-inline: auto; }
+.ballroom-hero { display: grid; grid-template-columns: 48% 52%; min-height: 620px; }
+.ballroom-hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem, 5vw, 6rem) var(--ballroom-gutter); }
+.ballroom-hero h1 {
+  margin: 0 0 2.25rem; max-width: 11ch; color: var(--ballroom-ink);
+  font-family: var(--ballroom-display); font-weight: 400;
+  font-size: clamp(3.75rem, 6.8vw, 7.6rem); line-height: .98; letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.ballroom-hero-body { max-width: 28rem; font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.55; }
+.ballroom-hero-body p { margin: 0; }
+.ballroom-hero-body p + p { display: flex; flex-wrap: wrap; align-items: center; column-gap: 1.7rem; row-gap: 1rem; margin-top: 2rem; }
+.ballroom-hero-body a { font-size: .95rem; color: var(--ballroom-cardinal); text-decoration: underline; text-underline-offset: .4em; padding-block: .75rem; }
+.ballroom-hero-body a:first-child { padding: .9rem 1.5rem; background: #8c1515; color: #fff; text-decoration: none; border: 1px solid #8c1515; transition: background .2s ease, transform .2s ease; }
+.ballroom-hero-body a:first-child:hover { background: #671010; transform: translateY(-2px); }
+.ballroom-hero-photo { position: relative; min-width: 0; overflow: hidden; background: #1c1b1a; }
+.ballroom-hero-photo img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: 51% center; }
+.ballroom-announcement { padding: 2.3rem var(--ballroom-gutter); background: #8c1515; color: #fff8f0; text-align: center; }
+.ballroom-announcement h2 { margin: 0 0 .8rem; font: 400 clamp(1.8rem, 2.8vw, 2.7rem)/1.1 var(--ballroom-display); letter-spacing: -.035em; }
+.ballroom-announcement p { margin: 0 auto; max-width: 75rem; font-size: 1rem; line-height: 1.65; }
+.ballroom-announcement a { text-decoration: underline; text-underline-offset: .2em; }
+.ballroom-announcement :focus-visible { outline-color: #fff; }
+.ballroom-photo-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; padding-block: 3px; }
+.ballroom-photo-strip img { width: 100%; aspect-ratio: 1.7; object-fit: cover; }
+.ballroom-faq { display: grid; grid-template-columns: 1fr 2.4fr; gap: clamp(2rem, 6vw, 7rem); padding: clamp(3rem, 6vw, 7rem) var(--ballroom-gutter); }
+.ballroom-faq > h2 { margin: 0; color: var(--ballroom-cardinal); font: 400 clamp(3.5rem, 7vw, 7rem)/1 var(--ballroom-display); letter-spacing: -.055em; }
+.ballroom-faq-items { min-width: 0; border-left: 1px solid var(--ballroom-rule); padding-left: clamp(1.5rem, 3vw, 3.5rem); }
+.ballroom-faq-item { border-bottom: 1px solid var(--ballroom-rule); padding: 1.3rem 0; }
+.ballroom-faq-item:first-child { padding-top: 0; }
+.ballroom-faq-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.ballroom-faq-item summary { display: flex; justify-content: space-between; gap: 1rem; padding-block: .25rem; font: 400 clamp(1.3rem, 1.8vw, 1.75rem)/1.3 var(--ballroom-display); cursor: pointer; list-style: none; }
+.ballroom-faq-item summary::-webkit-details-marker { display: none; }
+.ballroom-faq-item summary::after { content: "+"; flex-shrink: 0; color: var(--ballroom-cardinal); font-family: sans-serif; font-weight: 300; }
+.ballroom-faq-item[open] summary::after { content: "−"; }
+.ballroom-faq-item p { margin: .55rem 0 0; color: var(--ballroom-muted); font-size: 1rem; line-height: 1.75; }
+.ballroom-event { display: grid; grid-template-columns: 1fr 1fr; background: var(--ballroom-wash); border-block: 1px solid var(--ballroom-rule); }
+.ballroom-event-copy { display: flex; align-items: center; padding: var(--ballroom-gutter); }
+.ballroom-event h2 { max-width: 10ch; margin: 0; color: var(--ballroom-cardinal); font: 400 clamp(3rem, 5.5vw, 6rem)/1.04 var(--ballroom-display); letter-spacing: -.055em; text-wrap: balance; }
+.ballroom-event h2 a { text-decoration: none; }
+.ballroom-event h2 a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .12em; }
+.ballroom-event h2 span { display: block; font-size: .55em; margin-top: .7em; }
+.ballroom-event-art { display: flex; justify-content: center; padding: clamp(1.5rem, 3vw, 3rem); background: #181514; }
+.ballroom-event-art img { width: auto; height: auto; max-width: 100%; max-height: 650px; object-fit: contain; }
+.ballroom-photo-gallery { columns: 4; column-gap: 4px; padding-top: 4px; }
+.ballroom-photo-gallery img { display: block; width: 100%; height: auto; margin: 0 0 4px; break-inside: avoid; }
+.ballroom-site #site-footer { max-width: 1800px; width: 100%; margin-inline: auto; padding: 2.5rem var(--ballroom-gutter); border-top: 1px solid var(--ballroom-rule); }
+.ballroom-site #site-footer > div { justify-content: center; }
+.ballroom-site #site-footer nav:has(ul:empty) { display: none; }
+.ballroom-site #site-footer p { color: var(--ballroom-muted); }
+/* Shared typography and portraits make secondary pages feel like the same site. */
+.ballroom-page { width: 100%; max-width: 1320px; margin-inline: auto; padding: 3rem var(--ballroom-gutter); }
+.ballroom-page h1 { font-family: var(--ballroom-display); font-weight: 400; font-size: clamp(2.6rem, 5vw, 5rem); line-height: 1.05; letter-spacing: -.05em; }
+.ballroom-page .prose h2 { font-family: var(--ballroom-display); font-weight: 400; font-size: clamp(2rem, 3vw, 3rem); line-height: 1.15; letter-spacing: -.035em; }
+.ballroom-page .prose { --tw-prose-body: var(--ballroom-ink); --tw-prose-headings: var(--ballroom-ink); --tw-prose-links: var(--ballroom-cardinal); --tw-prose-invert-links: var(--ballroom-cardinal); }
+.ballroom-profiles { display: grid; grid-template-columns: repeat(var(--profile-columns, 2), minmax(0, 1fr)); gap: 2.5rem 1.5rem; margin-block: 2rem; }
+.ballroom-profile { min-width: 0; border-top: 1px solid var(--ballroom-rule); padding-top: 1rem; }
+.ballroom-profile > img { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; margin: 0; }
+.ballroom-profile-copy { padding: 1rem 0; }
+.ballroom-profile-copy h3 { margin: 0; font-family: var(--ballroom-display); font-weight: 400; font-size: 1.6rem; }
+.ballroom-profile-copy .ballroom-profile-role { margin: .3rem 0 .75rem; color: var(--ballroom-cardinal); font-size: .9rem; }
+.ballroom-profile-bio { font-size: .95rem; line-height: 1.65; }
+.ballroom-profile-bio p { margin: 0; }
+.ballroom-calendar { display: block; border: 0; width: 100%; height: clamp(650px, 80vh, 900px); }
+.ballroom-page:has(.ballroom-calendar) .article-content,
+.ballroom-page:has(.ballroom-calendar) .prose > div { width: 100%; max-width: 100%; }
+@media (min-width: 1800px) { .ballroom-header { padding-inline: max(var(--ballroom-gutter), calc((100vw - 1640px)/2)); } }
+@media (max-width: 1000px) {
+  .ballroom-header { gap: 1.2rem; }
+  .ballroom-nav { gap: 1rem; }
+  .ballroom-hero { min-height: 580px; }
+  .ballroom-hero h1 { font-size: clamp(3.4rem, 6.8vw, 4.5rem); }
+  .ballroom-hero-copy { padding-inline: 1.75rem; }
+  .ballroom-hero-body p + p { column-gap: 1rem; }
+  .ballroom-photo-gallery { columns: 3; }
+}
+@media (max-width: 760px) {
+  .ballroom-header { display: grid; grid-template-columns: 1fr auto; gap: .65rem 1rem; padding-block: .85rem .4rem; }
+  .ballroom-brand { gap: .7rem; }
+  .ballroom-brand img { width: 40px; height: 40px; }
+  .ballroom-nav { grid-row: 2; grid-column: 1 / -1; margin: 0; justify-content: space-between; gap: .75rem; border-top: 1px solid var(--ballroom-rule); }
+  .ballroom-nav a { font-size: .9rem; }
+  .ballroom-tools { grid-column: 2; grid-row: 1; }
+  .ballroom-tools button { width: 40px; height: 44px; }
+  .ballroom-hero { grid-template-columns: 1fr; }
+  .ballroom-hero-copy { padding: 2.75rem var(--ballroom-gutter) 2.5rem; }
+  .ballroom-hero h1 { max-width: 13ch; font-size: clamp(3.6rem, 9.6vw, 5.5rem); margin-bottom: 1.5rem; }
+  .ballroom-hero-body { max-width: 32rem; font-size: 1.1rem; }
+  .ballroom-hero-body p + p { margin-top: 1.5rem; gap: 1.5rem; }
+  .ballroom-hero-photo { aspect-ratio: 4/3; }
+  .ballroom-announcement { padding-block: 2rem; }
+  .ballroom-photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ballroom-photo-strip img { aspect-ratio: 1.25; }
+  .ballroom-faq { grid-template-columns: 1fr; gap: 2rem; }
+  .ballroom-faq-items { padding-left: 0; border-left: 0; }
+  .ballroom-faq-item summary { min-height: 44px; align-items: center; font-size: 1.4rem; }
+  .ballroom-event { grid-template-columns: 1fr; }
+  .ballroom-event-copy { padding-block: 2.75rem; }
+  .ballroom-event h2 { max-width: 14ch; font-size: clamp(3rem, 9vw, 4.6rem); }
+  .ballroom-event h2 span { display: inline; margin: 0; }
+  .ballroom-event-art { padding: 1.5rem; }
+  .ballroom-event-art img { max-height: 600px; }
+  .ballroom-photo-gallery { columns: 2; }
+  .ballroom-page { padding-block: 2rem; }
+}
+@media (max-width: 480px) {
+  .ballroom-profiles { grid-template-columns: 1fr; }
+  .ballroom-hero h1 { font-size: clamp(3rem, 11vw, 4rem); }
+  .ballroom-brand span { font-size: 1.2rem; }
+  .ballroom-tools { gap: 0; }
+  .ballroom-tools button { width: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .ballroom-site *, .ballroom-site *::before, .ballroom-site *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .ballroom-tools, .ballroom-nav { display: none; }
+  .ballroom-hero { min-height: 0; }
+  .ballroom-hero h1 { font-size: 42pt; }
+  .ballroom-faq-item { break-inside: avoid; }
+}

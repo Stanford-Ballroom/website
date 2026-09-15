@@ -1,0 +1,27 @@
+<header class="ballroom-header">
+  <a class="ballroom-brand" href="{{ "" | relLangURL }}">
+    {{ with resources.Get site.Params.logo }}
+      {{ $logo := .Resize "112x webp" }}
+      <img class="nozoom" src="{{ $logo.RelPermalink }}" width="56" height="56" alt="">
+    {{ end }}
+    <span>{{ site.Title }}</span>
+  </a>
+  <nav class="ballroom-nav" aria-label="Main">
+    {{ range site.Menus.main }}
+      {{ if .Name }}
+        <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    {{ end }}
+  </nav>
+  <div class="ballroom-tools">
+    {{ if site.Params.enableSearch }}
+      <button id="search-button" type="button" aria-label="Search" title="{{ i18n "search.open_button_title" }}">{{ partial "icon.html" "search" }}</button>
+    {{ end }}
+    {{ if site.Params.footer.showAppearanceSwitcher }}
+      <button id="appearance-switcher" type="button" aria-label="Dark mode switcher">
+        <span class="dark:hidden">{{ partial "icon.html" "moon" }}</span>
+        <span class="hidden dark:block">{{ partial "icon.html" "sun" }}</span>
+      </button>
+    {{ end }}
+  </div>
+</header>

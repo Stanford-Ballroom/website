@@ -1,0 +1,5 @@
+<div class="ballroom-photo-strip">
+  {{ range .Page.Resources.Match (.Get "images") }}
+    {{ partial "ballroom/image.html" (dict "page" $.Page "src" .Name "width" 800 "sizes" "(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw") }}
+  {{ end }}
+</div>

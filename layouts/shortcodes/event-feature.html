@@ -1,0 +1,8 @@
+<section class="ballroom-event" aria-labelledby="event-heading-{{ .Ordinal }}">
+  <div class="ballroom-event-copy">
+    <h2 id="event-heading-{{ .Ordinal }}"><a href="{{ .Get "href" | relURL }}">{{ .Get "title" }}<span aria-hidden="true"> ↗</span></a></h2>
+  </div>
+  <a class="ballroom-event-art" href="{{ .Get "href" | relURL }}">
+    {{ partial "ballroom/image.html" (dict "page" .Page "src" (.Get "image") "alt" (.Get "alt") "width" 1200) }}
+  </a>
+</section>
