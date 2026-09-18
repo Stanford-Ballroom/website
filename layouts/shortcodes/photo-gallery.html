@@ -1,0 +1,5 @@
+<div class="ballroom-photo-gallery">
+  {{ range resources.Match (.Get "images") }}
+    {{ partial "ballroom/image.html" (dict "page" $.Page "src" .Name "width" 800 "sizes" "(min-width: 900px) 25vw, (min-width: 600px) 33vw, 50vw" "class" "ballroom-gallery-image") }}
+  {{ end }}
+</div>

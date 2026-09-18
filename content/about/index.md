@@ -21,46 +21,46 @@ Whether you want to explore the world of ballroom dancing or win state and natio
 
 **INTERESTED?**
 Drop by our regularly scheduled lessons on Mondays, or check out our latest [events](https://stanford-ballroom.notion.site)!
-Please feel free to contact us via [email: contact@ballroom.stanford.edu](mailto:contact@ballroom.stanford.edu) or [Instagram: @stanford.ballroom](https://instagram.com/stanford.ballroom) if you have any questions!
+Please feel free to contact us via email: [ballroom-at-stanford-owner@lists.stanford.edu](mailto:ballroom-at-stanford-owner@lists.stanford.edu) or Instagram: [@stanford.ballroom](https://instagram.com/stanford.ballroom) if you have any questions!
 
 ## Leadership Team
 
 {{< profile-cards cols="2" >}}
 
 {{< profile-card
-  image="/people/ro.png"
-  name="Ro Nema"
+  image="/people/ro.jpeg"
+  name="Ro"
   affiliation="President" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/yijia.png"
-  name="Yijia Shao"
+  name="Yijia"
   affiliation="Vice-President" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/daria.png"
-  name="Daria Matviienko"
+  image="/people/andrew.jpeg"
+  name="Andrew"
   affiliation="Financial Officer" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/qing.png"
-  name="Qing Xu"
+  name="Qing"
   affiliation="Content Manager" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/millie.png"
-  name="Millie Trimm"
+  name="Millie"
   affiliation="Socials Manager" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/rebecca.png"
-  name="Rebecca Jiaxiu Liu"
-  affiliation="Social Media Manager" >}}
+  image="/people/bronte.jpeg"
+  name="Brontë"
+  affiliation="Socials Manager" >}}
 {{< /profile-card >}}
 
 {{< /profile-cards >}}
@@ -70,27 +70,27 @@ Please feel free to contact us via [email: contact@ballroom.stanford.edu](mailto
 {{< profile-cards cols="2" >}}
 
 {{< profile-card
-  image="/people/ikaika.png"
+  image="/people/ikaika.webp"
   name="'Ikaika Dowsett"
   affiliation="Intl. Standard Coach" >}}
 ‘Ikaika is a Professional International Standard dancer, coach and choreographer since 2002. He has numerous titles in the Standard ballroom, and as a coach, he has produced and currently works with over 30 US national champions. His coaching methodology is systems based and he enjoys coaching the dancers to think about frameworks, understand body mechanics, nutrition and cross-training, and how to think like an athlete.
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/stacey.png"
+  image="/people/stacey.webp"
   name="Stacey Chuang"
   affiliation="Intl. Latin Coach" >}}
 Stacey is a Professional International Latin dancer and instructor. Dancing since the age of 12, Stacey has been actively competing at the adult Amateur level in the U.S. and was ranked in the top 15 for Amateur Latin USA. She placed top 4 in Professional Rising Star at Vegas Open 2019, and was a consistent finalist in Open Amateur Latin Championships.
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/thomas.png"
+  image="/people/thomas.webp"
   name="Thomas Bilich"
   affiliation="Intl. Latin Assistant Coach" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/tatjana.png"
+  image="/people/tatjana.webp"
   name="Tatjana Bilich"
   affiliation="Intl. Latin Assistant Coach" >}}
 {{< /profile-card >}}
@@ -103,19 +103,7 @@ Stacey is a Professional International Latin dancer and instructor. Dancing sinc
 
 {{< profile-card
   image="/people/takara.png"
-  name="Takara Truong"
-  affiliation="Mentor" >}}
-{{< /profile-card >}}
-
-{{< profile-card
-  image="/people/franzi.png"
-  name="Franziska Mueller"
-  affiliation="Mentor" >}}
-{{< /profile-card >}}
-
-{{< profile-card
-  image="/people/romeo.png"
-  name="Romeo Valentin"
+  name="Takara"
   affiliation="Mentor" >}}
 {{< /profile-card >}}
 

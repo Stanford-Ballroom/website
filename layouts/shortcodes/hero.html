@@ -1,0 +1,9 @@
+<section class="ballroom-hero" aria-labelledby="home-heading">
+  <div class="ballroom-hero-copy">
+    <h1 id="home-heading">{{ .Get "heading" }}</h1>
+    <div class="ballroom-hero-body">{{ .Inner | markdownify }}</div>
+  </div>
+  <div class="ballroom-hero-photo">
+    {{ partial "ballroom/image.html" (dict "page" .Page "src" (.Get "image") "alt" (.Get "alt") "eager" true "width" 1600) }}
+  </div>
+</section>

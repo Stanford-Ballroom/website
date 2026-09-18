@@ -3,86 +3,45 @@ title: "Welcome to Stanford Ballroom!"
 description: "Stanford Ballroom is the ballroom dancing club at Stanford University. Learn more about us and how to join. Beginners always welcome :)."
 ---
 
-<h1>
-{{< typeit >}}
-Welcome to Stanford's ballroom dancing club!
-{{< /typeit >}}
-</h1>
-
-
-{{< gallery >}}
-<img src="logo.png" />
-{{< /gallery >}}
-
-
-{{< lead >}}
+{{< hero heading="Welcome to Stanford's ballroom dancing club!" image="gallery/06.png" alt="A ballroom couple dancing together." >}}
 Learn more about us and how to join. Beginners always welcome :).
-{{< /lead >}}
 
-{{< grid num-cols=3 >}}
+[Mailing List](https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford)
+[Email](mailto:ballroom-at-stanford-owner@lists.stanford.edu)
+[Instagram](https://instagram.com/stanford.ballroom)
+{{< /hero >}}
 
-{{< item >}}
-{{< button href="https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford" target="_self" >}}
-{{< icon "link" >}}
-Mailing List
-{{< /button >}}
-{{< /item >}}
+{{< announcement title="Fall 2026 Update" >}}
+Welcome new students! You're in the right place. Classes take place every Monday evening.  We're still awaiting our room bookings for the quarter so stay tuned for final time and location. Until then, subscribe to our mailing list. You can also see our [schedule](schedule) for the latest information.
+{{< /announcement >}}
 
-{{< item >}}
-{{< button href="mailto:contact@ballroom.stanford.edu" target="_self" >}}
-{{< icon "email" >}}
-Email
-{{< /button >}}
-{{< /item >}}
+{{< photo-strip images="homepage-carousel/*" >}}
 
-{{< item >}}
-{{< button href="https://instagram.com/stanford.ballroom" target="_self" >}}
-{{< icon "instagram" >}}
-Instagram
-{{< /button >}}
-{{< /item >}}
-{{< /grid >}}
+{{< faq-list title="FAQs" >}}
 
-> [!NOTE] Spring 2026 Lessons Update
-> Our Spring lessons will take place every Monday, 6:30 – 8:30 pm in Roble 115. Please see our [Schedule](schedule) for the latest information.
+{{< faq question="How to join?" >}}
+We are open to all Stanford affiliate! No registration required, just bring yourself :).
+{{< /faq >}}
 
-<br>
-{{< carousel images="homepage-carousel/*" aspectRatio="16-9" interval="2500" >}}
+{{< faq question="Do you cater to beginners?" >}}
+Absolutely! We provide lessons for both complete beginners (no dance experience at all) and more experienced dancers.
+{{< /faq >}}
 
+{{< faq question="Do I have to compete?" >}}
+There is no competition requirement and in fact many of us only dance leisurely, but we will support and train you if you would like to.
+{{< /faq >}}
 
-## FAQs
+{{< faq question="How should I dress for classes?" >}}
+Comfortable clothes, which allow wide movements + socks or non-marking dancing shoes/sneakers.
+{{< /faq >}}
 
-> [!NOTE]- How to join?
-> We are open to all Stanford affiliate! No registration required, just bring yourself :).
-{icon="circle-info"}
+{{< /faq-list >}}
 
-> [!NOTE]- Do you cater to beginners?
-> Absolutely! We provide lessons for both complete beginners (no dance experience at all) and more experienced dancers.
-{icon="circle-info"}
-
-> [!NOTE]- Do I have to compete?
-> There is no competition requirement and in fact many of us only dance leisurely, but we will support and train you if you would like to.
-{icon="circle-info"}
-
-> [!NOTE]- How should I dress for classes?
-> Comfortable clothes, which allow wide movements + socks or non-marking dancing shoes/sneakers.
-{icon="circle-info"}
-
-{{< figure
-    src="CC26.png"
+{{< event-feature
+    title="Stanford Cardinal Classic 2026"
+    image="CC26.png"
     alt="Cardinal Classic 2026 Save the Date poster. April 4, 2026. Two couples in 70's attire dancing next to a disco ball."
-    caption="Stanford Cardinal Classic 2026"
-    >}}
+    href="cardinal_classic/"
+>}}
 
-
-{{< gallery >}}
-<img src="gallery/01.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/02.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/03.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/04.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/05.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/06.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/07.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/08.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="gallery/09.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-{{< /gallery >}}
+{{< photo-gallery images="gallery/*" >}}
