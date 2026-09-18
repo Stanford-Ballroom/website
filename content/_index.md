@@ -3,7 +3,7 @@ title: "Welcome to Stanford Ballroom!"
 description: "Stanford Ballroom is the ballroom dancing club at Stanford University. Learn more about us and how to join. Beginners always welcome :)."
 ---
 
-{{< hero heading="Welcome to Stanford's ballroom dancing club!" image="gallery/03.png" alt="A ballroom couple dancing together." >}}
+{{< hero heading="Welcome to Stanford's ballroom dancing club!" image="gallery/06.png" alt="A ballroom couple dancing together." >}}
 Learn more about us and how to join. Beginners always welcome :).
 
 [Mailing List](https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford)

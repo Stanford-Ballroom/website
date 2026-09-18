@@ -28,39 +28,39 @@ Please feel free to contact us via [email: contact@ballroom.stanford.edu](mailto
 {{< profile-cards cols="2" >}}
 
 {{< profile-card
-  image="/people/ro.png"
-  name="Ro Nema"
+  image="/people/ro.jpeg"
+  name="Ro"
   affiliation="President" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/yijia.png"
-  name="Yijia Shao"
+  name="Yijia"
   affiliation="Vice-President" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/daria.png"
-  name="Daria Matviienko"
+  image="/people/andrew.jpeg"
+  name="Andrew"
   affiliation="Financial Officer" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/qing.png"
-  name="Qing Xu"
+  name="Qing"
   affiliation="Content Manager" >}}
 {{< /profile-card >}}
 
 {{< profile-card
   image="/people/millie.png"
-  name="Millie Trimm"
+  name="Millie"
   affiliation="Socials Manager" >}}
 {{< /profile-card >}}
 
 {{< profile-card
-  image="/people/rebecca.png"
-  name="Rebecca Jiaxiu Liu"
-  affiliation="Social Media Manager" >}}
+  image="/people/bronte.jpeg"
+  name="Brontë"
+  affiliation="Socials Manager" >}}
 {{< /profile-card >}}
 
 {{< /profile-cards >}}
@@ -103,19 +103,7 @@ Stacey is a Professional International Latin dancer and instructor. Dancing sinc
 
 {{< profile-card
   image="/people/takara.png"
-  name="Takara Truong"
-  affiliation="Mentor" >}}
-{{< /profile-card >}}
-
-{{< profile-card
-  image="/people/franzi.png"
-  name="Franziska Mueller"
-  affiliation="Mentor" >}}
-{{< /profile-card >}}
-
-{{< profile-card
-  image="/people/romeo.png"
-  name="Romeo Valentin"
+  name="Takara"
   affiliation="Mentor" >}}
 {{< /profile-card >}}
 
