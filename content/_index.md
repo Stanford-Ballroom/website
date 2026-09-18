@@ -7,12 +7,12 @@ description: "Stanford Ballroom is the ballroom dancing club at Stanford Univers
 Learn more about us and how to join. Beginners always welcome :).
 
 [Mailing List](https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford)
-[Email](mailto:contact@ballroom.stanford.edu)
+[Email](mailto:ballroom-at-stanford-owner@lists.stanford.edu)
 [Instagram](https://instagram.com/stanford.ballroom)
 {{< /hero >}}
 
-{{< announcement title="Spring 2026 Lessons Update" >}}
-Our Spring lessons will take place every Monday, 6:30 – 8:30 pm in Roble 115. Please see our [Schedule](schedule) for the latest information.
+{{< announcement title="Fall 2026 Update" >}}
+Welcome new students! You're in the right place. Classes take place every Monday evening.  We're still awaiting our room bookings for the quarter so stay tuned for final time and location. Until then, subscribe to our mailing list. You can also see our [schedule](schedule) for the latest information.
 {{< /announcement >}}
 
 {{< photo-strip images="homepage-carousel/*" >}}
