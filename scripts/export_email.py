@@ -40,7 +40,7 @@ class EmailHTML(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
-        hidden = self.hidden or tag in {"head", "style", "script"} or "email-preheader" in attrs.get("class", "").split()
+        hidden = self.hidden or tag in {"head", "style", "script"} or bool({"email-preheader", "email-logo-dark"}.intersection(attrs.get("class", "").split()))
         if tag == "script" or (tag == "link" and attrs.get("rel") == "stylesheet"):
             self.errors.append(f"Unexpected {tag}: email must not depend on JavaScript or external CSS")
         if any(key.startswith("on") for key in attrs):

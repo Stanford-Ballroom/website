@@ -168,10 +168,13 @@ PNG/JPEG/GIF for remote or static images, and avoid SVG. Photographs keep their
 aspect ratios. Prefer committed local assets or immutable remote URLs for a
 durable archive; a remote repository's `main` branch can change after sending.
 
-The header uses the already-public PNG from the original spring emails, configured
-as `logo_url` in `data/emails.yaml`. It loads in drafts and exports before any site
-deployment. When replacing it, use a publicly reachable HTTPS image URL; do not
-point it at an unpublished Hugo-generated image.
+The header uses the already-public PNGs from the original spring emails, configured
+as `logo_url` (black text) and `logo_dark_url` (white text) in `data/emails.yaml`.
+Light mode shows black text on white; supported dark-mode clients switch to white
+text on the same dark background as the email card. Clients without dark-mode CSS
+support retain the light version. Both images load in drafts and exports before
+any site deployment. When replacing them, use publicly reachable HTTPS image URLs;
+do not point them at unpublished Hugo-generated images.
 
 Normal Markdown images work too, with the optional title used as a caption:
 
@@ -241,8 +244,8 @@ Migration notes:
 
 The email shell uses presentation tables, system fonts, inline baseline styles,
 and an Outlook conditional width wrapper. Media queries enhance mobile/dark
-rendering; content and layout do not depend on them. The logo sits on a white
-backplate for legibility. This implementation does not guarantee identical
+rendering; content and layout do not depend on them. The logo and its background
+switch together in dark mode. This implementation does not guarantee identical
 rendering across mail clients, and an actual recipient-client test is still part
 of the workflow.
 

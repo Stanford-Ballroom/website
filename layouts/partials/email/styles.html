@@ -8,6 +8,9 @@
     .email-timetable th, .email-timetable td { padding:7px 5px !important; }
   }
   @media (prefers-color-scheme:dark) {
+    .email-logo-header { background:#202327 !important; }
+    .email-logo-light { display:none !important; max-height:0 !important; overflow:hidden !important; }
+    .email-logo-dark { display:block !important; max-height:none !important; overflow:visible !important; }
     .email-bg { background:#141619 !important; }
     .email-card { background:#202327 !important; color:#eeeeef !important; }
     .email-muted { color:#b8bbc1 !important; }
@@ -17,6 +20,9 @@
     .email-link { color:#ffb5b5 !important; }
     .email-button { background:#8c1515 !important; color:#ffffff !important; }
   }
+  [data-ogsc] .email-logo-header { background:#202327 !important; }
+  [data-ogsc] .email-logo-light { display:none !important; max-height:0 !important; overflow:hidden !important; }
+  [data-ogsc] .email-logo-dark { display:block !important; max-height:none !important; overflow:visible !important; }
   [data-ogsc] .email-card { background:#202327 !important; color:#eeeeef !important; }
   [data-ogsc] .email-muted { color:#b8bbc1 !important; }
   [data-ogsc] .email-heading { color:#f1d8d8 !important; }

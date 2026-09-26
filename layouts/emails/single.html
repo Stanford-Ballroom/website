@@ -24,8 +24,15 @@
       <tr><td align="center" style="padding:0 0 14px;font-size:12px;line-height:18px;">
         <a class="email-link" href="{{ $url }}" style="color:#8c1515;text-decoration:underline;">View in browser</a>
       </td></tr>
-      <tr><td align="center" bgcolor="#ffffff" style="padding:24px;background:#ffffff;border-top:4px solid #8c1515;">
-        <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+      <tr><td class="email-logo-header" align="center" bgcolor="#ffffff" style="padding:24px;background:#ffffff;border-top:4px solid #8c1515;">
+        <div class="email-logo-light" style="display:block;">
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+        </div>
+        {{ `<!--[if !mso]><!-->` | safeHTML }}
+        <div class="email-logo-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_dark_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+        </div>
+        {{ `<!--<![endif]-->` | safeHTML }}
       </td></tr>
       <tr><td class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:12px 24px 22px;color:#242421;">
         <p class="email-muted" style="margin:0 0 10px;color:#62615d;font-size:12px;line-height:18px;letter-spacing:1px;text-transform:uppercase;">{{ with .Params.quarter }}{{ . }} · {{ end }}{{ .Date.Format "January 2, 2006" }}</p>
