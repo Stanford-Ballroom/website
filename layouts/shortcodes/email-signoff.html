@@ -1,0 +1,3 @@
+<p style="margin:24px 0 0;">{{ .Get "closing" | default "Thanks, and see you on the dance floor!" }}<br />
+{{ .Get "name" | default .Page.Params.signer | default "Stanford Ballroom" }}<br />
+<a class="email-link" href="{{ site.Data.emails.base_url }}" style="color:#8c1515;text-decoration:underline;">{{ site.Data.emails.club }}</a></p>

@@ -1,0 +1,15 @@
+{{- /* Inline the simple tags emitted by Goldmark; hooks handle links/images/tables.
+     Apply once to the completed body, including nested shortcode Markdown. */ -}}
+{{- $html := string . -}}
+{{- $styles := dict
+  "p" "margin:0 0 16px;"
+  "ul" "margin:0 0 18px;padding-left:24px;"
+  "ol" "margin:0 0 18px;padding-left:24px;"
+  "li" "margin:0 0 8px;"
+  "blockquote" "margin:16px 0;padding:0 0 0 16px;border-left:3px solid #8c1515;"
+  "hr" "border:0;border-top:1px solid #dedbd5;margin:28px 0;"
+-}}
+{{- range $tag, $style := $styles -}}
+  {{- $html = replace $html (printf "<%s>" $tag) (printf "<%s style=%q>" $tag $style) -}}
+{{- end -}}
+{{- return ($html | safeHTML) -}}

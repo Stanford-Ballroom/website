@@ -1,0 +1,21 @@
+{{- $key := .Get "key" | default "lessons" -}}
+{{- $lesson := index .Page.Params $key -}}
+{{- if not $lesson }}{{ errorf "email-lessons: missing front matter %q at %s" $key .Position }}{{ end -}}
+{{- if or (not $lesson.tracks) (not $lesson.rows) }}{{ errorf "email-lessons needs tracks and rows at %s" .Position }}{{ end -}}
+{{ with $lesson.title }}<h2 class="email-heading" style="margin:28px 0 14px;font-size:23px;line-height:30px;color:#820000;">{{ . }}</h2>{{ end }}
+{{ with $lesson.intro }}{{ $.Page.RenderString (dict "display" "block") . }}{{ end }}
+<table class="email-timetable" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:16px 0;font-size:16px;line-height:23px;">
+  <caption style="text-align:left;font-weight:bold;margin-bottom:8px;">{{ $lesson.caption | default "Lesson schedule" }}</caption>
+  <thead><tr><th scope="col" style="border:1px solid #dedbd5;padding:10px 8px;background:#f5efee;text-align:left;">Time</th>
+    {{ range $lesson.tracks }}<th scope="col" style="border:1px solid #dedbd5;padding:10px 8px;background:#f5efee;text-align:left;">{{ .name }}{{ with .teacher }}<br /><span style="font-size:13px;font-weight:normal;">by {{ . }}</span>{{ end }}</th>{{ end }}
+  </tr></thead>
+  <tbody>{{ range $lesson.rows }}
+    {{ if and (not .note) (ne (len .classes) (len $lesson.tracks)) }}{{ errorf "email-lessons: row %q needs one class per track at %s" .time $.Position }}{{ end }}
+    <tr><th scope="row" style="border:1px solid #dedbd5;padding:10px 8px;text-align:left;font-weight:normal;vertical-align:top;">{{ .time }}</th>
+      {{ if .note }}<td colspan="{{ len $lesson.tracks }}" style="border:1px solid #dedbd5;padding:10px 8px;vertical-align:top;">{{ $.Page.RenderString .note }}</td>
+      {{ else }}{{ range .classes }}<td style="border:1px solid #dedbd5;padding:10px 8px;vertical-align:top;">{{ $.Page.RenderString . }}</td>{{ end }}{{ end }}
+    </tr>
+  {{ end }}</tbody>
+</table>
+{{ with $lesson.location }}<p style="margin:0 0 16px;"><strong>Where:</strong> {{ . }}</p>{{ end }}
+{{ with $lesson.after }}{{ $.Page.RenderString (dict "display" "block") . }}{{ end }}

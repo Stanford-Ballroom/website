@@ -1,0 +1,5 @@
+{{ $href := partial "email/url.html" (dict "url" (.Get "href") "page" .Page) }}
+{{ if not (.Get "label") }}{{ errorf "email-button needs label at %s" .Position }}{{ end }}
+<table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:20px 0;"><tr><td bgcolor="#8c1515" style="background:#8c1515;border-radius:4px;mso-padding-alt:12px 18px;">
+  <a class="email-button" href="{{ $href }}" style="display:inline-block;padding:12px 18px;border:1px solid #8c1515;border-radius:4px;font-size:16px;line-height:22px;font-weight:bold;text-decoration:none;color:#ffffff;background:#8c1515;">{{ .Get "label" }}</a>
+</td></tr></table>
