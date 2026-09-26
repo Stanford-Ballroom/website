@@ -249,10 +249,7 @@ Migration notes:
 | `scripts/check_emails.py` | Validate a directory of built email issues |
 
 The email shell uses presentation tables, system fonts, inline baseline styles,
-and an Outlook conditional width wrapper. The container has both `align="center"`
-and inline automatic side margins; logo/photo images also have automatic margins
-so they do not rely on parent-cell alignment in Apple Mail. Body text remains
-explicitly left-aligned. Media queries enhance mobile/dark
+and an Outlook conditional width wrapper. Media queries enhance mobile/dark
 rendering; content and layout do not depend on them. The logo and its background
 switch together in dark mode. This implementation does not guarantee identical
 rendering across mail clients, and an actual recipient-client test is still part
