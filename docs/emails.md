@@ -23,7 +23,9 @@ export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
 
 2. Edit the front matter and the Markdown underneath. `title` is the visible
    heading; `subject` optionally overrides the email subject (otherwise the
-   heading is used). `preheader` is the short inbox preview. `date` is the intended
+   heading is used). `preheader` is the short summary shown above the logo. It is
+   the first body text, so it can supply the inbox preview and survive copying
+   the rendered email. `date` is the intended
    send date; write an explicit offset such as `2026-09-28T09:00:00-07:00`.
    Future-dated issues are omitted by Hugo unless `--buildFuture` is used.
 
@@ -58,8 +60,12 @@ export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
    Some mail clients open EMLs as messages rather than editable drafts; use their
    “edit as new” function if available, or use your existing HTML insertion tool
    with the `.html` file. Ordinary paste of HTML source does not render it.
-   Copying a rendered browser page can lose head styles and the hidden preheader;
-   importing the full HTML or EML is preferable when the client supports it.
+   If copying the rendered page, select the entire email including the summary
+   above the logo. The summary is visible specifically so it travels with the
+   selection; it also starts the plain-text alternative. Copy/paste can still
+   lose head styles such as the dark-mode logo switch, so importing the full HTML
+   or EML is preferable when the client supports it. Inbox previews remain under
+   the recipient client's control, including any AI-generated summaries.
 
 5. Send yourself a test through your normal mail client. Confirm the subject,
    inbox preview, links, images, timetable, phone layout, and dark mode. New local
@@ -234,7 +240,7 @@ Migration notes:
 | --- | --- |
 | `archetypes/emails.md` | New-issue starter, including a schedule to review |
 | `data/emails.yaml` | Public origin, club name, public logo URL, mailing-list settings URL |
-| `layouts/emails/single.html` | Complete email document, preheader, header, footer |
+| `layouts/emails/single.html` | Complete email document, visible summary, header, footer |
 | `layouts/emails/list.html` | Archive pages within the existing website |
 | `layouts/emails/_markup/` | Email-specific Markdown links, headings, images, tables |
 | `layouts/partials/email/` | URL resolution, inline prose styles, photos, dark/mobile CSS |
@@ -243,7 +249,10 @@ Migration notes:
 | `scripts/check_emails.py` | Validate a directory of built email issues |
 
 The email shell uses presentation tables, system fonts, inline baseline styles,
-and an Outlook conditional width wrapper. Media queries enhance mobile/dark
+and an Outlook conditional width wrapper. The container has both `align="center"`
+and inline automatic side margins; logo/photo images also have automatic margins
+so they do not rely on parent-cell alignment in Apple Mail. Body text remains
+explicitly left-aligned. Media queries enhance mobile/dark
 rendering; content and layout do not depend on them. The logo and its background
 switch together in dark mode. This implementation does not guarantee identical
 rendering across mail clients, and an actual recipient-client test is still part

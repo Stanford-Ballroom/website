@@ -17,29 +17,30 @@
   {{ partial "email/styles.html" . }}
 </head>
 <body class="email-bg" style="margin:0;padding:0;background:#f2f1ee;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
-  <div class="email-preheader" style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;mso-hide:all;">{{ .Params.preheader }}</div>
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;"><tr><td class="email-shell" align="center" style="padding:28px 16px;">
+  <table role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin:0 auto;border-collapse:collapse;"><tr><td class="email-shell" align="center" style="padding:28px 16px;text-align:center;">
     {{ `<!--[if mso]><table role="presentation" width="600" align="center"><tr><td><![endif]-->` | safeHTML }}
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:26px;color:#242421;">
-      <tr><td align="center" style="padding:0 0 14px;font-size:12px;line-height:18px;">
+    <table class="email-container" role="presentation" align="center" width="100%" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;margin:0 auto;border-collapse:collapse;text-align:left;font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:26px;color:#242421;">
+      <tr><td align="center" style="padding:0 0 14px;text-align:center;font-size:12px;line-height:18px;">
+        {{/* Keep the summary visible and first so rendered copy/paste retains it. */}}
+        <p class="email-summary email-muted" style="margin:0 0 8px;color:#62615d;font-size:13px;line-height:20px;text-align:center;">{{ .Params.preheader }}</p>
         <a class="email-link" href="{{ $url }}" style="color:#8c1515;text-decoration:underline;">View in browser</a>
       </td></tr>
-      <tr><td class="email-logo-header" align="center" bgcolor="#ffffff" style="padding:24px;background:#ffffff;border-top:4px solid #8c1515;">
-        <div class="email-logo-light" style="display:block;">
-          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+      <tr><td class="email-logo-header" align="center" bgcolor="#ffffff" style="padding:24px;text-align:center;background:#ffffff;border-top:4px solid #8c1515;">
+        <div class="email-logo-light" style="display:block;text-align:center;">
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border:0;" /></a>
         </div>
         {{ `<!--[if !mso]><!-->` | safeHTML }}
-        <div class="email-logo-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_dark_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+        <div class="email-logo-dark" style="display:none;max-height:0;overflow:hidden;text-align:center;mso-hide:all;">
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_dark_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border:0;" /></a>
         </div>
         {{ `<!--<![endif]-->` | safeHTML }}
       </td></tr>
-      <tr><td class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:12px 24px 22px;color:#242421;">
+      <tr><td class="email-card email-content" align="left" bgcolor="#ffffff" style="background:#ffffff;padding:12px 24px 22px;text-align:left;color:#242421;">
         <p class="email-muted" style="margin:0 0 10px;color:#62615d;font-size:12px;line-height:18px;letter-spacing:1px;text-transform:uppercase;">{{ with .Params.quarter }}{{ . }} · {{ end }}{{ .Date.Format "January 2, 2006" }}</p>
         <h1 class="email-title email-heading" style="margin:0;font-family:Georgia,serif;font-size:30px;line-height:37px;color:#820000;font-weight:700;">{{ .Title }}</h1>
       </td></tr>
-      <tr><td class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:0 24px 24px;color:#242421;">{{ $body }}</td></tr>
-      <tr><td class="email-muted" align="center" style="padding:24px 16px;color:#62615d;font-size:13px;line-height:20px;">
+      <tr><td class="email-card email-content" align="left" bgcolor="#ffffff" style="background:#ffffff;padding:0 24px 24px;text-align:left;color:#242421;">{{ $body }}</td></tr>
+      <tr><td class="email-muted" align="center" style="padding:24px 16px;text-align:center;color:#62615d;font-size:13px;line-height:20px;">
         You're receiving this because you're subscribed to the {{ $data.club }} mailing list.<br />
         <a class="email-link" href="{{ $data.list_settings }}" style="color:#8c1515;text-decoration:underline;">Mailing list settings</a>
         · <a class="email-link" href="{{ $data.base_url }}/emails/" style="color:#8c1515;text-decoration:underline;">Announcement archive</a>

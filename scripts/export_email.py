@@ -110,6 +110,8 @@ def inspect_email(html):
         parsed.errors.append("Missing subject/title")
     if not parsed.preheader.strip():
         parsed.errors.append("Missing preheader")
+    elif not parsed.plain_text().startswith(re.sub(r"\s+", " ", parsed.preheader).strip()):
+        parsed.errors.append("Summary must be the first visible body text, so it survives rendered copy/paste")
     if not parsed.canonical.endswith(".html"):
         parsed.errors.append("Missing canonical .html URL")
     if any(marker in html for marker in ("ZgotmplZ", "HAHAHUGOSHORTCODE", "{{<", "{{%")):
