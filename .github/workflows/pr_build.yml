@@ -26,6 +26,16 @@ jobs:
           extended: true
       - name: Build site
         run: hugo --minify
+      - name: Build and check email examples (including drafts)
+        run: |
+          hugo --minify --buildDrafts --destination "${{ runner.temp }}/ballroom-email-check"
+          python3 scripts/check_emails.py "${{ runner.temp }}/ballroom-email-check"
+      - name: Upload email drafts for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: ballroom-emails-preview
+          path: ${{ runner.temp }}/ballroom-email-check/
+          retention-days: 7
       - name: Upload site for review
         uses: actions/upload-artifact@v4
         with:

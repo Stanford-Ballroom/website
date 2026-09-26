@@ -1,0 +1,1 @@
+**Beginners are always welcome!** We offer lessons from professional coaches :). Depending on the distribution of attendees, sometimes experienced mentors teach more focused groups to get everyone up to speed. Come join us, and make the most of this opportunity!

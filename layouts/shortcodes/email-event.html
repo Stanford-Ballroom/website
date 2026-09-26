@@ -1,0 +1,8 @@
+{{ if not (.Get "title") }}{{ errorf "email-event needs title at %s" .Position }}{{ end }}
+{{ $status := .Get "status" | default "confirmed" }}
+{{ if not (in (slice "confirmed" "tentative" "cancelled" "tbd") $status) }}{{ errorf "Unknown event status %q at %s" $status .Position }}{{ end }}
+<h2 class="email-heading" style="margin:28px 0 14px;font-size:23px;line-height:30px;color:#820000;">{{ .Get "title" }}</h2>
+{{ if ne $status "confirmed" }}<p style="margin:0 0 10px;font-weight:bold;">{{ index (dict "tentative" "Tentative — check the schedule for updates" "cancelled" "Cancelled" "tbd" "Time / location to be confirmed") $status }}</p>{{ end }}
+{{ with .Get "when" }}<p style="margin:0 0 6px;"><strong>When:</strong> {{ . }}</p>{{ end }}
+{{ with .Get "where" }}<p style="margin:0 0 14px;"><strong>Where:</strong> {{ . }}</p>{{ end }}
+{{ .Page.RenderString (dict "display" "block") .Inner }}

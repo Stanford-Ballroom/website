@@ -1,0 +1,24 @@
+{{- /* Resolve against the public origin, never hugo server or a preview host. */ -}}
+{{- $url := strings.TrimSpace .url -}}
+{{- $base := strings.TrimSuffix "/" site.Data.emails.base_url -}}
+{{- /* Hugo-generated permalinks may contain a preview deployment subdirectory. */ -}}
+{{- if .generated -}}
+  {{- $prefix := strings.TrimSuffix "/" (urls.Parse site.BaseURL).Path -}}
+  {{- if $prefix }}{{ $url = strings.TrimPrefix $prefix $url }}{{ end -}}
+{{- end -}}
+{{- if not (hasPrefix $base "https://") -}}
+  {{- errorf "data/emails.yaml: base_url must be an absolute HTTPS URL" -}}
+{{- end -}}
+{{- if not $url -}}
+  {{- errorf "Empty email URL in %s" .page.Path -}}
+{{- else if hasPrefix $url "//" -}}
+  {{- $url = print "https:" $url -}}
+{{- else if hasPrefix $url "/" -}}
+  {{- $url = print $base $url -}}
+{{- else if hasPrefix $url "#" -}}
+  {{- $pageURL := partial "email/url.html" (dict "url" .page.RelPermalink "page" .page "generated" true) -}}
+  {{- $url = print $pageURL $url -}}
+{{- else if not (findRE `(?i)^(https?://|mailto:|tel:)` $url) -}}
+  {{- errorf "Email URL %q in %s must be absolute or start with / (site root)" $url .page.Path -}}
+{{- end -}}
+{{- return $url -}}

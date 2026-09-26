@@ -1,0 +1,7 @@
+{{- $tone := .Get "tone" | default "info" -}}
+{{- if not (in (slice "info" "warning" "celebrate") $tone) }}{{ errorf "Unknown email-notice tone %q at %s" $tone .Position }}{{ end -}}
+{{- $color := index (dict "info" "#8c1515" "warning" "#a65f00" "celebrate" "#327347") $tone -}}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:20px 0;"><tr><td class="email-notice" bgcolor="#f6f1e9" style="background:#f6f1e9;padding:16px;border-left:4px solid {{ $color }};">
+  {{ with .Get "title" }}<p style="margin:0 0 8px;font-weight:bold;">{{ . }}</p>{{ end }}
+  {{ .Page.RenderString (dict "display" "block") .Inner }}
+</td></tr></table>

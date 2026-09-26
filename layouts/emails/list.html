@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article class="prose dark:prose-invert max-w-prose mx-auto py-12">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    {{ range .Sections.ByTitle }}
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <ul>
+        {{ range .RegularPages.ByDate.Reverse }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Date.Format "Jan 2" }}{{ if .Draft }} (draft){{ end }}</li>
+        {{ else }}<li>No published announcements yet.</li>{{ end }}
+      </ul>
+    {{ end }}
+    {{ with .RegularPages }}
+      <ul>{{ range .ByDate.Reverse }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Date.Format "Jan 2, 2006" }}{{ if .Draft }} (draft){{ end }}</li>
+      {{ end }}</ul>
+    {{ end }}
+  </article>
+{{ end }}

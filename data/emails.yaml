@@ -1,0 +1,5 @@
+# Stable public origin for links in messages, even during localhost/Pages builds.
+base_url: https://stanfordballroom.com
+club: Stanford Ballroom
+logo: logo.png
+list_settings: https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford

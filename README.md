@@ -72,3 +72,10 @@ hugo --minify
 
 Pull requests run a build check and attach the generated site as an artifact.
 Existing production deployment workflows still run on pushes to `main`.
+
+## Weekly announcement emails
+
+Write announcements in Markdown under `content/emails/<quarter>/`. Hugo generates
+standalone HTML emails and a website archive from the same source. Start with
+[the email workflow guide](docs/emails.md), including the shortcode reference,
+Spring 2026 examples, and the HTML/plain-text/draft-email export command.

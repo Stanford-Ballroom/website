@@ -1,0 +1,7 @@
+{{- $name := .Get 0 -}}
+{{- if not (findRE `^[a-z0-9-]+$` $name) }}{{ errorf "Invalid email snippet name %q" $name }}{{ end -}}
+{{- with resources.Get (printf "emails/snippets/%s.md" $name) -}}
+  {{- $.Page.RenderString (dict "display" "block") .Content -}}
+{{- else -}}
+  {{- errorf "Email snippet %q missing at %s" $name .Position -}}
+{{- end -}}
