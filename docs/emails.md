@@ -168,6 +168,11 @@ PNG/JPEG/GIF for remote or static images, and avoid SVG. Photographs keep their
 aspect ratios. Prefer committed local assets or immutable remote URLs for a
 durable archive; a remote repository's `main` branch can change after sending.
 
+The header uses the already-public PNG from the original spring emails, configured
+as `logo_url` in `data/emails.yaml`. It loads in drafts and exports before any site
+deployment. When replacing it, use a publicly reachable HTTPS image URL; do not
+point it at an unpublished Hugo-generated image.
+
 Normal Markdown images work too, with the optional title used as a caption:
 
 ```markdown
@@ -225,7 +230,7 @@ Migration notes:
 | File or directory | Responsibility |
 | --- | --- |
 | `archetypes/emails.md` | New-issue starter, including a schedule to review |
-| `data/emails.yaml` | Public origin, club name/logo, mailing-list settings URL |
+| `data/emails.yaml` | Public origin, club name, public logo URL, mailing-list settings URL |
 | `layouts/emails/single.html` | Complete email document, preheader, header, footer |
 | `layouts/emails/list.html` | Archive pages within the existing website |
 | `layouts/emails/_markup/` | Email-specific Markdown links, headings, images, tables |

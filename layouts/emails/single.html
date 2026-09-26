@@ -25,10 +25,7 @@
         <a class="email-link" href="{{ $url }}" style="color:#8c1515;text-decoration:underline;">View in browser</a>
       </td></tr>
       <tr><td align="center" bgcolor="#ffffff" style="padding:24px;background:#ffffff;border-top:4px solid #8c1515;">
-        {{ $logo := resources.Get $data.logo }}
-        {{ if not $logo }}{{ errorf "Email logo asset %q missing" $data.logo }}{{ end }}
-        {{ with $logo }}{{ $logo = .Resize "720x png" }}{{ end }}
-        <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $logo.RelPermalink "page" . "generated" true) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+        <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
       </td></tr>
       <tr><td class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:12px 24px 22px;color:#242421;">
         <p class="email-muted" style="margin:0 0 10px;color:#62615d;font-size:12px;line-height:18px;letter-spacing:1px;text-transform:uppercase;">{{ with .Params.quarter }}{{ . }} · {{ end }}{{ .Date.Format "January 2, 2006" }}</p>
