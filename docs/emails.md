@@ -6,6 +6,10 @@ address is also the email body: it has no website navigation, theme scripts, or
 external stylesheet. `/emails/` and `/emails/spring26/` provide normal website
 archive pages.
 
+The hosted page also includes a small browser helper for the WhatsApp copy view.
+It only changes the page when `?format=whatsapp` is requested. The email exporter
+builds with `--environment email`, which omits this script entirely.
+
 ## Weekly workflow
 
 Use the same **Hugo 0.150.0 extended** installation as the rest of the site. The
@@ -79,6 +83,45 @@ export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
 
 To use a non-default Hugo binary, set `HUGO=/path/to/hugo`. To change where exports
 are written, use `--output /path/to/folder`. Generated exports are ignored by git.
+
+## Copying an announcement to WhatsApp
+
+Append `?format=whatsapp` to an issue's URL:
+
+```text
+https://stanfordballroom.com/emails/fall26/week1.html?format=whatsapp
+```
+
+The same query works with `hugo server --buildDrafts --disableFastRender` and with
+preview sites hosted under a subdirectory. The page shows an editable message
+and a **Copy for WhatsApp** button. Shorten it as needed, copy it, and paste into
+your group. Changes stay in the text box for this visit; they are not saved back
+to Markdown and are lost on reload or navigation. Nothing sends a message.
+
+Hugo expands all shortcodes as usual. The browser converts the rendered title
+and announcement body, so there is no second set of event details to maintain
+and no additional build command or external service. Conversion preserves the
+full wording; it does not automatically summarize the announcement.
+
+- Headings and bold become `*text*`, italics `_text_`, and strikethrough `~text~`.
+- Lists keep separate lines. Ordered lists retain their starting number.
+- Lesson tables become a line per time slot, with track and instructor labels.
+- Links become `Label: URL`; matching URL labels are not repeated.
+- Notices and buttons retain their text. Photos are omitted, while captions and
+  linked-image destinations remain as text.
+- The email preview summary, logo, date banner, and mailing-list footer are
+  excluded. A link to the full announcement is appended using its public URL.
+
+The text box shows literal WhatsApp formatting markers. Formatting appears when
+pasted into WhatsApp. Clipboard access normally needs HTTPS (or localhost); if
+it is unavailable or blocked, the button selects the text for manual copying.
+**View email** returns to the normal page. JavaScript must be enabled for this
+view; without it, the regular email remains visible. Draft links only become
+public after publishing the issue.
+
+For raw HTML insertion, continue using `scripts/export_email.py` so the browser
+helper is excluded. Selecting and copying the rendered normal email continues
+to work as before. The `?format=whatsapp` query has no effect on exported files.
 
 ## Writing an issue
 
@@ -247,6 +290,8 @@ Migration notes:
 | `layouts/shortcodes/email-*.html` | Author-facing components, separate from theme shortcodes |
 | `scripts/export_email.py` | Fresh build, portability validation, HTML/text/EML export |
 | `scripts/check_emails.py` | Validate a directory of built email issues |
+| `assets/emails/whatsapp-format.js` | Rendered announcement to WhatsApp text, including lists and schedules |
+| `assets/emails/whatsapp-view.js` | Query handling, editable message, and clipboard fallback |
 
 The email shell uses presentation tables, system fonts, inline baseline styles,
 and an Outlook conditional width wrapper. Media queries enhance mobile/dark
@@ -259,12 +304,29 @@ of the workflow.
 hugo --minify
 hugo --minify --buildDrafts --destination /tmp/ballroom-email-check
 python3 scripts/check_emails.py /tmp/ballroom-email-check
+hugo --environment email --minify --buildDrafts --destination /tmp/ballroom-email-export
+python3 scripts/check_emails.py --email-only /tmp/ballroom-email-export
 ```
 
 Pull requests run both builds and the email checker, and attach a separate
 `ballroom-emails-preview` site artifact including drafts. The checker rejects missing
-subjects/preheaders/alt text, relative or localhost URLs, scripts, external
-stylesheets, and unresolved template output. Hugo also rejects missing snippets,
+subjects/preheaders/alt text, relative or localhost content URLs, scripts, external
+stylesheets, and unresolved template output. Hosted builds allow only the explicitly
+marked, fingerprinted WhatsApp helper, and verify that the asset exists and matches
+its SHA-256 fingerprint. `--email-only` rejects every script. Hugo also rejects missing snippets,
 bad component options, and mismatched timetable rows. The export command reports
 HTML size and warns on large messages. These checks do not verify whether remote
 links still work or whether the prose accurately describes the current week.
+
+Converter and copy-view tests use Node 22+ and a development-only DOM library:
+
+```sh
+npm ci --ignore-scripts
+EMAIL_TEST_SITE=/tmp/ballroom-email-check npm test
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+CI runs these against the minified site and all five example issues, including
+clipboard success/failure, edited-message copying, nested lists, and single- and
+multi-track schedules. Normal Hugo builds and Python exports need no npm packages.
+These DOM tests do not replace checking a pasted message in WhatsApp itself.

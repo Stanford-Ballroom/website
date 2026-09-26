@@ -3,3 +3,5 @@
 .hugo_build.lock
 /email-dist/
 __pycache__/
+/node_modules/
+/assets/jsconfig.json

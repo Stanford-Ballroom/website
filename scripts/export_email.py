@@ -23,7 +23,7 @@ BLOCK = {"p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "table", "tr", "
 class EmailHTML(HTMLParser):
     """Check mail portability while deriving text from the exact rendered HTML."""
 
-    def __init__(self):
+    def __init__(self, allow_browser_script=False):
         super().__init__(convert_charrefs=True)
         self.stack = []
         self.parts = []
@@ -33,6 +33,8 @@ class EmailHTML(HTMLParser):
         self.canonical = ""
         self.preheader = ""
         self.images = []
+        self.allow_browser_script = allow_browser_script
+        self.browser_scripts = []
 
     @property
     def hidden(self):
@@ -41,11 +43,18 @@ class EmailHTML(HTMLParser):
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         hidden = self.hidden or tag in {"head", "style", "script"} or bool({"email-preheader", "email-logo-dark"}.intersection(attrs.get("class", "").split()))
-        if tag == "script" or (tag == "link" and attrs.get("rel") == "stylesheet"):
+        browser_script = (self.allow_browser_script and tag == "script"
+                          and set(attrs) == {"src", "defer", "data-email-browser"}
+                          and re.fullmatch(r"/(?:[^/?#]+/)*emails/whatsapp\.[0-9a-f]{64}\.js", attrs.get("src") or ""))
+        if browser_script:
+            self.browser_scripts.append(attrs["src"])
+        if (tag == "script" and not browser_script) or (tag == "link" and attrs.get("rel") == "stylesheet"):
             self.errors.append(f"Unexpected {tag}: email must not depend on JavaScript or external CSS")
         if any(key.startswith("on") for key in attrs):
             self.errors.append("Unexpected JavaScript event handler")
         for key in ("href", "src"):
+            if browser_script and key == "src":
+                continue
             if key in attrs:
                 url = urlsplit(attrs[key])
                 allowed = {"https", "http", "mailto", "tel"} if key == "href" else {"https", "http"}
@@ -103,8 +112,8 @@ class EmailHTML(HTMLParser):
         return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip() + "\n"
 
 
-def inspect_email(html):
-    parsed = EmailHTML()
+def inspect_email(html, *, allow_browser_script=False):
+    parsed = EmailHTML(allow_browser_script=allow_browser_script)
     parsed.feed(html)
     if not "".join(parsed.title).strip():
         parsed.errors.append("Missing subject/title")
@@ -131,7 +140,9 @@ def main():
         parser.error("Use quarter/issue with lowercase letters, numbers, and hyphens")
     try:
         with tempfile.TemporaryDirectory(prefix="ballroom-email-") as build:
-            command = [os.environ.get("HUGO", "hugo"), "--minify", "--destination", build]
+            # The hosted page has a browser-only WhatsApp helper. Email exports
+            # must not contain that script, its UI, or any other JavaScript.
+            command = [os.environ.get("HUGO", "hugo"), "--environment", "email", "--minify", "--destination", build]
             if args.draft:
                 command.append("--buildDrafts")
             subprocess.run(command, cwd=ROOT, check=True)
