@@ -15,6 +15,10 @@
   <meta name="description" content="{{ .Params.preheader }}" />
   <link rel="canonical" href="{{ $url }}" />
   {{ partial "email/styles.html" . }}
+  {{ if ne hugo.Environment "email" }}
+    {{ $whatsapp := resources.Get "emails/whatsapp-view.js" | js.Build (dict "targetPath" "emails/whatsapp.js" "target" "es2018" "minify" true) | fingerprint "sha256" }}
+    <script src="{{ $whatsapp.RelPermalink }}" defer data-email-browser></script>
+  {{ end }}
 </head>
 <body class="email-bg" style="margin:0;padding:0;background:#f2f1ee;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;"><tr><td class="email-shell" align="center" style="padding:28px 16px;">
@@ -39,7 +43,7 @@
         <p class="email-muted" style="margin:0 0 10px;color:#62615d;font-size:12px;line-height:18px;letter-spacing:1px;text-transform:uppercase;">{{ with .Params.quarter }}{{ . }} · {{ end }}{{ .Date.Format "January 2, 2006" }}</p>
         <h1 class="email-title email-heading" style="margin:0;font-family:Georgia,serif;font-size:30px;line-height:37px;color:#820000;font-weight:700;">{{ .Title }}</h1>
       </td></tr>
-      <tr><td class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:0 24px 24px;color:#242421;">{{ $body }}</td></tr>
+      <tr><td id="email-announcement" class="email-card email-content" bgcolor="#ffffff" style="background:#ffffff;padding:0 24px 24px;color:#242421;">{{ $body }}</td></tr>
       <tr><td class="email-muted" align="center" style="padding:24px 16px;color:#62615d;font-size:13px;line-height:20px;">
         You're receiving this because you're subscribed to the {{ $data.club }} mailing list.<br />
         <a class="email-link" href="{{ $data.list_settings }}" style="color:#8c1515;text-decoration:underline;">Mailing list settings</a>

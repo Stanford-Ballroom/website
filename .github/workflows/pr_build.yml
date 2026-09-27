@@ -30,6 +30,22 @@ jobs:
         run: |
           hugo --minify --buildDrafts --destination "${{ runner.temp }}/ballroom-email-check"
           python3 scripts/check_emails.py "${{ runner.temp }}/ballroom-email-check"
+      - name: Set up Node for WhatsApp converter tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Test WhatsApp conversion and copy view
+        env:
+          EMAIL_TEST_SITE: ${{ runner.temp }}/ballroom-email-check
+        run: |
+          npm ci --ignore-scripts
+          npm test
+      - name: Check script-free email exports
+        run: |
+          hugo --environment email --minify --buildDrafts --destination "${{ runner.temp }}/ballroom-email-export"
+          python3 scripts/check_emails.py --email-only "${{ runner.temp }}/ballroom-email-export"
+          python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Upload email drafts for review
         uses: actions/upload-artifact@v4
         with:
