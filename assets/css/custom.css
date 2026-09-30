@@ -43,22 +43,39 @@ body.ballroom-site {
 .ballroom-tools button:hover { background: var(--ballroom-wash); color: var(--ballroom-cardinal); }
 .ballroom-tools .icon { width: 1rem; height: 1rem; }
 .ballroom-home-content { width: 100%; max-width: 1800px; margin-inline: auto; }
-.ballroom-hero { display: grid; grid-template-columns: 48% 52%; min-height: 620px; }
-.ballroom-hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem, 5vw, 6rem) var(--ballroom-gutter); }
+.ballroom-hero { display: grid; grid-template-columns: minmax(0, 1fr); }
+.ballroom-hero-copy {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center; gap: 2rem 3rem;
+  padding: 2.5rem var(--ballroom-gutter);
+}
 .ballroom-hero h1 {
-  margin: 0 0 2.25rem; max-width: 11ch; color: var(--ballroom-ink);
+  margin: 0; max-width: 18ch; color: var(--ballroom-ink);
   font-family: var(--ballroom-display); font-weight: 400;
-  font-size: clamp(3.75rem, 6.8vw, 7.6rem); line-height: .98; letter-spacing: -.065em;
+  font-size: clamp(2.4rem, 4.5vw, 4rem); line-height: 1.04; letter-spacing: -.05em;
   text-wrap: balance;
 }
-.ballroom-hero-body { max-width: 28rem; font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.55; }
+.ballroom-hero-body { max-width: 26rem; font-size: 1.05rem; line-height: 1.55; }
 .ballroom-hero-body p { margin: 0; }
-.ballroom-hero-body p + p { display: flex; flex-wrap: wrap; align-items: center; column-gap: 1.7rem; row-gap: 1rem; margin-top: 2rem; }
+.ballroom-hero-body p + p { display: flex; flex-wrap: wrap; align-items: center; column-gap: 1.25rem; row-gap: .75rem; margin-top: 1rem; }
 .ballroom-hero-body a { font-size: .95rem; color: var(--ballroom-cardinal); text-decoration: underline; text-underline-offset: .4em; padding-block: .75rem; }
 .ballroom-hero-body a:first-child { padding: .9rem 1.5rem; background: #8c1515; color: #fff; text-decoration: none; border: 1px solid #8c1515; transition: background .2s ease, transform .2s ease; }
 .ballroom-hero-body a:first-child:hover { background: #671010; transform: translateY(-2px); }
-.ballroom-hero-photo { position: relative; min-width: 0; overflow: hidden; background: #1c1b1a; }
-.ballroom-hero-photo img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: 51% center; }
+.ballroom-hero-photo { min-width: 0; background: #fbf7ee; }
+.ballroom-hero-photo img { display: block; width: 100%; height: auto; }
+/* The cover's upper-left paper area leaves room for copy at desktop widths.
+   Keep the artwork at its natural ratio so none of the dancers are cropped. */
+@media (min-width: 1200px) {
+  .ballroom-hero-copy, .ballroom-hero-photo { grid-area: 1 / 1; }
+  .ballroom-hero-copy {
+    --ballroom-ink: #201d1a;
+    --ballroom-cardinal: #8c1515;
+    z-index: 1; align-self: start; display: block; width: 49%;
+    padding: clamp(2.25rem, 3.3vw, 3.75rem) 1.5rem 0 var(--ballroom-gutter);
+    color: var(--ballroom-ink);
+  }
+  .ballroom-hero h1 { margin-bottom: 1rem; font-size: clamp(2.4rem, 3.25vw, 3.65rem); }
+}
 .ballroom-announcement { padding: 2.3rem var(--ballroom-gutter); background: #8c1515; color: #fff8f0; text-align: center; }
 .ballroom-announcement h2 { margin: 0 0 .8rem; font: 400 clamp(1.8rem, 2.8vw, 2.7rem)/1.1 var(--ballroom-display); letter-spacing: -.035em; }
 .ballroom-announcement p { margin: 0 auto; max-width: 75rem; font-size: 1rem; line-height: 1.65; }
@@ -111,10 +128,6 @@ body.ballroom-site {
 @media (max-width: 1000px) {
   .ballroom-header { gap: 1.2rem; }
   .ballroom-nav { gap: 1rem; }
-  .ballroom-hero { min-height: 580px; }
-  .ballroom-hero h1 { font-size: clamp(3.4rem, 6.8vw, 4.5rem); }
-  .ballroom-hero-copy { padding-inline: 1.75rem; }
-  .ballroom-hero-body p + p { column-gap: 1rem; }
   .ballroom-photo-gallery { columns: 3; }
 }
 @media (max-width: 760px) {
@@ -125,12 +138,8 @@ body.ballroom-site {
   .ballroom-nav a { font-size: .9rem; }
   .ballroom-tools { grid-column: 2; grid-row: 1; }
   .ballroom-tools button { width: 40px; height: 44px; }
-  .ballroom-hero { grid-template-columns: 1fr; }
-  .ballroom-hero-copy { padding: 2.75rem var(--ballroom-gutter) 2.5rem; }
-  .ballroom-hero h1 { max-width: 13ch; font-size: clamp(3.6rem, 9.6vw, 5.5rem); margin-bottom: 1.5rem; }
-  .ballroom-hero-body { max-width: 32rem; font-size: 1.1rem; }
-  .ballroom-hero-body p + p { margin-top: 1.5rem; gap: 1.5rem; }
-  .ballroom-hero-photo { aspect-ratio: 4/3; }
+  .ballroom-hero-copy { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; padding-block: 2rem; }
+  .ballroom-hero h1 { font-size: clamp(2.4rem, 7vw, 3.75rem); }
   .ballroom-announcement { padding-block: 2rem; }
   .ballroom-photo-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ballroom-photo-strip img { aspect-ratio: 1.25; }
@@ -148,7 +157,6 @@ body.ballroom-site {
 }
 @media (max-width: 480px) {
   .ballroom-profiles { grid-template-columns: 1fr; }
-  .ballroom-hero h1 { font-size: clamp(3rem, 11vw, 4rem); }
   .ballroom-brand span { font-size: 1.2rem; }
   .ballroom-tools { gap: 0; }
   .ballroom-tools button { width: 36px; }
@@ -159,7 +167,8 @@ body.ballroom-site {
 }
 @media print {
   .ballroom-tools, .ballroom-nav { display: none; }
-  .ballroom-hero { min-height: 0; }
+  .ballroom-hero-copy, .ballroom-hero-photo { grid-area: auto; }
+  .ballroom-hero-copy { width: 100%; }
   .ballroom-hero h1 { font-size: 42pt; }
   .ballroom-faq-item { break-inside: avoid; }
 }

@@ -4,9 +4,17 @@
 {{- with $image -}}
   {{- $width := int ($.width | default 1200) -}}
   {{- $large := .Resize (printf "%dx webp q85" (int (math.Min .Width $width))) -}}
-  {{- $small := .Resize (printf "%dx webp q85" (int (math.Min .Width 640))) -}}
+  {{- $srcset := slice -}}
+  {{- $widths := slice -}}
+  {{- range ($.widths | default (slice 640 $width)) -}}
+    {{- $widths = $widths | append (int (math.Min $large.Width .)) -}}
+  {{- end -}}
+  {{- range ($widths | uniq | sort) -}}
+    {{- $variant := $image.Resize (printf "%dx webp q85" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $variant.Width) -}}
+  {{- end -}}
   <img src="{{ $large.RelPermalink }}"
-    srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w"
+    srcset="{{ delimit $srcset `, ` }}"
     sizes="{{ $.sizes | default `(min-width: 900px) 50vw, 100vw` }}"
     width="{{ $large.Width }}" height="{{ $large.Height }}"
     alt="{{ $.alt | default `` }}" class="{{ $.class | default `nozoom` }}"

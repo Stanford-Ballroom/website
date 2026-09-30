@@ -27,6 +27,13 @@ hero photograph, put the image in `assets/` and use its path relative to that
 folder (for example, `gallery/03.png`). `alt` describes the photograph for screen
 readers. Keep dates and other announcements up to date in the Markdown file.
 
+The current cover is `assets/ballroom-cover.png`. Its full composition is shown at
+every size. At desktop widths (1200px and above), the heading and introduction sit
+in the artwork's open upper-left area; on smaller screens they appear above it.
+Keep that area clear when replacing the artwork, or use the stacked layout for
+all sizes. The source stays unchanged; Hugo generates responsive WebP images for
+the full-width cover, with eager loading and high fetch priority.
+
 The photo grids include every image matching their `images` pattern. Rename files
 to control their alphabetical order. Hugo generates responsive WebP copies at
 build time; original photographs stay unchanged. The competition poster is shown
