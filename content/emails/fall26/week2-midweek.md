@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Practice, TREEFEST & Fall Kickoff!"
+title: "Mid-week Update: Practice, TREEFEST & Fall Kickoff!"
 date: 2026-09-30T00:00:00-07:00
 draft: true
 url: /emails/fall26/week2-midweek.html
