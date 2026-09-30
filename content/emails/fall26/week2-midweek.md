@@ -1,7 +1,7 @@
 ---
 title: "Mid-week Update: Practice, TREEFEST & Fall Kickoff!"
 date: 2026-09-30T00:00:00-07:00
-draft: true
+draft: false
 url: /emails/fall26/week2-midweek.html
 quarter: Fall 2026
 preheader: "TREEFEST tomorrow, practice Saturday, and our fall kickoff with Dancebreak on Monday!"
@@ -25,4 +25,4 @@ Our performance is scheduled for **around 7:50 pm**, and then we'll head over to
 
 {{< email-photo src="emails/fall26/kickoff-poster.png" alt="Stanford Ballroom Fall 2026 poster: fall kickoff October 5 at 7:30 pm in Roble 113 and 115, TREEFEST October 1, and weekly Monday classes." >}}
 
-{{< email-signoff closing="See you all soon!" >}}
+{{< email-signoff closing="Thanks," >}}
