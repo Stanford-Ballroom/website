@@ -15,7 +15,7 @@
     {{- $generated = true -}}
   {{- end -}}
 {{- end -}}
-{{- $src = partial "email/url.html" (dict "url" $src "page" .page "generated" $generated) -}}
+{{- $src = partial "email/url.html" (dict "url" $src "page" .page "generated" $generated "image" true) -}}
 {{- $width := int (.width | default 552) -}}
 {{- if or (lt $width 1) (gt $width 552) }}{{ errorf "Email photo width must be between 1 and 552" }}{{ end -}}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:20px 0;"><tr><td align="center">

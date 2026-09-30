@@ -31,11 +31,11 @@
       </td></tr>
       <tr><td class="email-logo-header" align="center" bgcolor="#ffffff" style="padding:24px;background:#ffffff;border-top:4px solid #8c1515;">
         <div class="email-logo-light" style="display:block;">
-          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_url "page" . "image" true) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
         </div>
         {{ `<!--[if !mso]><!-->` | safeHTML }}
         <div class="email-logo-dark" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_dark_url "page" .) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
+          <a href="{{ $data.base_url }}"><img src="{{ partial "email/url.html" (dict "url" $data.logo_dark_url "page" . "image" true) }}" width="320" alt="{{ $data.club }}" style="display:block;width:100%;max-width:320px;height:auto;border:0;" /></a>
         </div>
         {{ `<!--<![endif]-->` | safeHTML }}
       </td></tr>

@@ -7,7 +7,9 @@ quarter: Fall 2026
 preheader: "TREEFEST tomorrow, practice Saturday, and our fall kickoff with Dancebreak on Monday!"
 signer: Ro
 ---
+{{< email-event title="Saturday, October 3 — First Practice!" when="6:30 – 8:30 pm" where="Roble 113" >}}
 Great news! We have our first practice of the quarter on *Sat, Oct 3 in Roble 113 from 6:30 – 8:30 pm*. Mentors TBD.
+{{< /email-event >}}
 
 {{< email-event title="Tomorrow, October 1 — TREEFEST" when="2 – 5 pm" where="White Plaza" >}}
 A reminder that we'll be at [TREEFEST](https://ose.stanford.edu/programs/treefest) tomorrow! Come say hi, ask questions, and bring along a friend who's curious about ballroom :).

@@ -1,8 +1,9 @@
-{{- /* Resolve against the public origin, never hugo server or a preview host. */ -}}
+{{- /* Links and exported images use the public origin; local preview images stay local. */ -}}
 {{- $url := strings.TrimSpace .url -}}
 {{- $base := strings.TrimSuffix "/" site.Data.emails.base_url -}}
+{{- $previewImage := and .image (ne hugo.Environment "email") (or hugo.IsServer (eq hugo.Environment "development")) (hasPrefix $url "/") (not (hasPrefix $url "//")) -}}
 {{- /* Hugo-generated permalinks may contain a preview deployment subdirectory. */ -}}
-{{- if .generated -}}
+{{- if and .generated (not $previewImage) -}}
   {{- $prefix := strings.TrimSuffix "/" (urls.Parse site.BaseURL).Path -}}
   {{- if $prefix }}{{ $url = strings.TrimPrefix $prefix $url }}{{ end -}}
 {{- end -}}
@@ -14,7 +15,11 @@
 {{- else if hasPrefix $url "//" -}}
   {{- $url = print "https:" $url -}}
 {{- else if hasPrefix $url "/" -}}
-  {{- $url = print $base $url -}}
+  {{- if $previewImage -}}
+    {{- if not .generated }}{{ $url = strings.TrimPrefix "/" $url | relURL }}{{ end -}}
+  {{- else -}}
+    {{- $url = print $base $url -}}
+  {{- end -}}
 {{- else if hasPrefix $url "#" -}}
   {{- $pageURL := partial "email/url.html" (dict "url" .page.RelPermalink "page" .page "generated" true) -}}
   {{- $url = print $pageURL $url -}}

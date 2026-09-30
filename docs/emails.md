@@ -72,9 +72,11 @@ export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
    the recipient client's control, including any AI-generated summaries.
 
 5. Send yourself a test through your normal mail client. Confirm the subject,
-   inbox preview, links, images, timetable, phone layout, and dark mode. New local
-   images have production URLs and will not load remotely until deployed. A local
-   browser preview can therefore show a missing new image before publication.
+   inbox preview, links, images, timetable, phone layout, and dark mode. Local
+   images use server-relative paths in `hugo server` and `--environment development`
+   previews, so unpublished images load locally, including under a base URL subdirectory.
+   Production builds and email exports use absolute public image URLs; publish new
+   images before sending an email that references them. External image URLs are unchanged.
 
 6. Set `draft: false`, commit/review/merge using the existing website workflow, and
    wait for deployment. Open the public issue and its new images. Then export
