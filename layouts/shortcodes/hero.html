@@ -4,6 +4,6 @@
     <div class="ballroom-hero-body">{{ .Inner | markdownify }}</div>
   </div>
   <div class="ballroom-hero-photo">
-    {{ partial "ballroom/image.html" (dict "page" .Page "src" (.Get "image") "alt" (.Get "alt") "eager" true "width" 1600) }}
+    {{ partial "ballroom/image.html" (dict "page" .Page "src" (.Get "image") "alt" (.Get "alt") "eager" true "width" 1800 "widths" (slice 480 640 960 1280 1800) "sizes" "(min-width: 1800px) 1800px, 100vw") }}
   </div>
 </section>
