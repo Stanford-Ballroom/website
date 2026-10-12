@@ -16,9 +16,9 @@ lessons:
     - name: Standard
       teacher: "'Ikaika"
   rows:
-    - time: "8:30 – 9:30 pm"
-      classes: [Beginner, Intermediate]
     - time: "7:30 – 8:30 pm"
+      classes: [Beginner, Intermediate]
+    - time: "8:30 – 9:30 pm"
       classes: [Intermediate, Beginner]
 ---
 Happy Week 4!
