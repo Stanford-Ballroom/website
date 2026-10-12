@@ -1,7 +1,7 @@
 ---
 title: "Week 4: Classes Tomorrow, Practice Today and Saturday"
 date: 2026-10-11T17:09:00-07:00
-draft: true
+draft: false
 url: /emails/fall26/week4.html
 quarter: Fall 2026
 preheader: "Practice with Dasha today, 6–8 pm in Roble 113! Classes tomorrow and another mentored practice Saturday, 1–3 pm."
