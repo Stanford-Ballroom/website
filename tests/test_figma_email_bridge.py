@@ -1,7 +1,9 @@
 """Editable Figma content compiles deterministically through the existing Hugo API."""
 from copy import deepcopy
 import json
+import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -10,6 +12,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from sync_figma_email import DesignError, compile_snapshot
+from export_email import inspect_email, make_copy_html
 
 
 def text(name, characters, **properties):
@@ -136,6 +139,30 @@ class FigmaLessonTests(unittest.TestCase):
         _, metadata, _, _ = parts(fixture(lesson))
         self.assertEqual(metadata["lessons"]["rows"][0]["classes"], ["Beginner", "Intermediate"])
 
+    def test_hidden_intro_after_and_note_content_is_omitted(self):
+        lesson = timetable()
+        lesson["children"].extend([
+            text("intro", "Hidden introduction", visible=False),
+            frame("optional copy", text("after", "Hidden follow-up"), visible=False),
+        ])
+        first_row = lesson["children"][4]["children"][0]
+        first_row["children"].append(text("note", "Hidden note must not replace classes", visible=False))
+        _, metadata, _, generated = parts(fixture(lesson))
+        self.assertNotIn("intro", metadata["lessons"])
+        self.assertNotIn("after", metadata["lessons"])
+        self.assertEqual(metadata["lessons"]["rows"][0]["classes"], ["Beginner", "Intermediate"])
+        self.assertNotIn("Hidden", generated)
+
+    def test_visible_shared_note_and_class_cells_cannot_silently_discard_classes(self):
+        lesson = timetable()
+        row = lesson["children"][-1]["children"][0]
+        row["children"].append(text("note", "Shared practice"))
+        with self.assertRaisesRegex(DesignError, "either a shared note or class cells"):
+            compile_snapshot(fixture(lesson))
+        row["children"][1]["visible"] = False
+        _, metadata, _, _ = parts(fixture(lesson))
+        self.assertEqual(metadata["lessons"]["rows"][0], {"time": "6:30–7:30 pm", "note": "Shared practice"})
+
     def test_repeated_lesson_components_receive_distinct_snapshot_keys(self):
         second = timetable()
         second["children"][0]["characters"] = "Saturday workshop"
@@ -181,6 +208,26 @@ class FigmaRichTextTests(unittest.TestCase):
         _, _, body, _ = parts(fixture(photo))
         self.assertIn("&lt;img", body)
         self.assertNotIn("caption=\"<img", body)
+
+    def test_hidden_photo_metadata_remains_readable_while_hidden_caption_is_omitted(self):
+        photo = block("Photo")
+        photo["children"] = [
+            frame("metadata", text("src", "emails/fall26/team.png", visible=False),
+                  text("alt", "The team", visible=False), text("href", "/schedule/", visible=False),
+                  text("width", "400", visible=False), visible=False),
+            text("caption", "Hidden caption", visible=False),
+        ]
+        source = fixture(photo)
+        for node in source["document"]["children"][0]["children"]:
+            node["visible"] = False
+        _, metadata, body, _ = parts(source)
+        self.assertEqual(metadata["subject"], "[Stanford Ballroom] Week 5")
+        self.assertIn('src="emails/fall26/team.png"', body)
+        self.assertIn('alt="The team"', body)
+        self.assertIn('href="/schedule/"', body)
+        self.assertIn('width="400"', body)
+        self.assertNotIn("caption=", body)
+        self.assertNotIn("Hidden caption", body)
 
     def test_stale_segments_and_figma_node_links_fail_loudly(self):
         for properties in ({"segments": [{"characters": "Stale"}]},
@@ -298,6 +345,49 @@ class FigmaCheckTests(unittest.TestCase):
             drift = run("--check")
             self.assertNotEqual(drift.returncode, 0)
             self.assertEqual(output.read_bytes(), original, "Check overwrote source with changed Figma content")
+
+
+HUGO = os.environ.get("HUGO", "hugo")
+
+
+@unittest.skipUnless(shutil.which(HUGO), "Hugo is required for rendered-bridge checks")
+class RenderedFigmaBridgeTests(unittest.TestCase):
+    def test_actual_hugo_render_preserves_rich_content_and_treats_injections_as_text(self):
+        prose = block("Prose")
+        segments = [{"characters": "Bold", "fontWeight": 700},
+                    {"characters": " and "}, {"characters": "italic", "fontName": {"style": "Italic"}},
+                    {"characters": "\nSchedule", "hyperlink": {"type": "URL", "value": "/schedule/"}},
+                    {"characters": "\nBring shoes\nFind a partner", "listOptions": {"type": "UNORDERED"}},
+                    {"characters": '\n<b>literal</b> {{< email-event title="oops" >}}'}]
+        prose["children"] = [text("body", "".join(s["characters"] for s in segments), segments=segments)]
+        photo = block("Photo", src="https://example.test/team.png", alt="The team",
+                      caption="<i>literal caption</i>")
+        source = fixture(prose, timetable(), timetable(), photo)
+        relative, markdown = compile_snapshot(source)
+        with tempfile.TemporaryDirectory(prefix="ballroom-figma-render-") as tmp:
+            root = Path(tmp)
+            output = root / relative
+            output.parent.mkdir(parents=True)
+            output.write_text(markdown, encoding="utf-8")
+            shutil.copyfile(ROOT / "content/emails/_index.md", root / "content/emails/_index.md")
+            destination = root / "public"
+            result = subprocess.run([HUGO, "--environment", "email", "--buildFuture", "--minify",
+                                     "--contentDir", str(root / "content"), "--destination", str(destination)],
+                                    cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            self.assertEqual(result.returncode, 0, result.stdout)
+            rendered = (destination / "emails/fall26/week5.html").read_text(encoding="utf-8")
+            parsed = inspect_email(rendered, require_shell=True)
+            plain = parsed.plain_text()
+            self.assertIn('<b>literal</b> {{< email-event title="oops" >}}', plain)
+            self.assertIn("<i>literal caption</i>", plain)
+            self.assertNotIn("<b>literal</b>", rendered)
+            self.assertNotIn("<i>literal caption</i>", rendered)
+            self.assertIn("<strong>Bold</strong>", rendered)
+            self.assertIn("<em>italic</em>", rendered)
+            self.assertIn("• Bring shoes", plain)
+            self.assertIn(("Schedule", "https://ballroom.stanford.edu/schedule/"), parsed.anchor_labels)
+            self.assertEqual(rendered.count("<caption"), 2)
+            self.assertEqual(inspect_email(make_copy_html(rendered)).plain_text(), plain)
 
 
 if __name__ == "__main__":

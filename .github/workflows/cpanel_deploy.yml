@@ -74,8 +74,14 @@ jobs:
           remote_key: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY }}"
           remote_key_pass: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}"
       - name: Verify public site
-        run: >-
-          curl --fail --silent --show-error --location
-          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
-          https://ballroom.stanford.edu/ --output /dev/null
+        run: |
+          curl --fail --silent --show-error --location \
+            --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+            https://ballroom.stanford.edu/ --output /dev/null
+          for path in public/emails/*/*.copy.html; do
+            [ -f "$path" ] || continue
+            curl --fail --silent --show-error --location \
+              --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+              "https://ballroom.stanford.edu/${path#public/}" --output /dev/null
+          done
 

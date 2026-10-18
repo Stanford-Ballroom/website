@@ -42,14 +42,17 @@ def kind(node):
     return ""
 
 
-def descendants(node):
+def descendants(node, *, include_hidden=False):
     for child in children(node):
+        if not include_hidden and not child.get("visible", True):
+            continue
         yield child
-        yield from descendants(child)
+        yield from descendants(child, include_hidden=include_hidden)
 
 
 def field_node(node, name, *, required=False):
-    found = [n for n in descendants(node) if n.get("type") == "TEXT" and n.get("name") == name]
+    metadata = kind(node) == "Settings" or name in {"src", "alt", "href", "width"}
+    found = [n for n in descendants(node, include_hidden=metadata) if n.get("type") == "TEXT" and n.get("name") == name]
     if len(found) > 1:
         raise DesignError(f"{kind(node) or node.get('name')}: duplicate field {name!r}")
     if not found:
@@ -70,7 +73,7 @@ def field(node, name, *, required=False):
 
 
 def container(node, name, *, required=False):
-    found = [n for n in children(node) if n.get("name") == name]
+    found = [n for n in children(node) if n.get("name") == name and n.get("visible", True)]
     if len(found) != 1:
         if not found and not required:
             return None
@@ -218,6 +221,9 @@ def lessons(node):
         entry = {"time": field(row, "time", required=True)}
         note = rich(row, "note")
         if note:
+            cells = container(row, "classes")
+            if cells and any(c.get("visible", True) and c.get("characters", "").strip() for c in children(cells)):
+                raise DesignError("A lesson row must show either a shared note or class cells")
             entry["note"] = note
         else:
             cells = container(row, "classes", required=True)
