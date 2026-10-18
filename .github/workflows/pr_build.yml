@@ -100,20 +100,89 @@ jobs:
           path: public/
           retention-days: 7
 
-  remove-temporary-preview:
-    name: Remove temporary SSH preview
-    if: github.event_name == 'pull_request' && github.event.pull_request.number == 9 && github.event.pull_request.head.repo.full_name == github.repository
+  preview:
+    name: Update PR preview
+    needs: build
+    if: >-
+      !cancelled() &&
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (needs.build.result == 'success' || github.event.action == 'closed')
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - name: Prepare empty preview directory
+      - name: Download PR preview
+        if: github.event.action != 'closed'
+        uses: actions/download-artifact@v5
+        with:
+          name: ballroom-pr-preview
+          path: preview/
+      - name: Prepare preview cleanup
+        if: github.event.action == 'closed'
         run: mkdir -p preview
-      - name: Clear temporary PR preview
+      - name: Sync PR preview
         uses: Burnett01/rsync-deployments@v8
         with:
           switches: -avzh --delete
           path: preview/
-          remote_path: /home/rohitnem/ballroom.stanford.edu/pr-preview-9/
+          # Only this PR's directory is synchronized, including on cleanup.
+          remote_path: /home/rohitnem/ballroom.stanford.edu/pr-preview-${{ github.event.pull_request.number }}/
           remote_host: ${{ secrets.STANFORD_DOMAINS_SSH_HOST }}
           remote_user: ${{ secrets.STANFORD_DOMAINS_SSH_USERNAME }}
           remote_key: ${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY }}
           remote_key_pass: ${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}
+      - name: Verify hosted preview
+        if: github.event.action != 'closed'
+        run: >-
+          curl --fail --silent --show-error --location
+          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
+          "$PREVIEW_URL" --output /dev/null
+      - name: Update preview comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const marker = '<!-- ballroom-pr-preview -->';
+            const pr = context.payload.pull_request;
+            const base = process.env.PREVIEW_URL;
+            const runURL = process.env.GITHUB_SERVER_URL + '/' +
+              process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID;
+            let body = marker + '\n### PR preview\n\n';
+            if (context.payload.action === 'closed') {
+              body += 'Preview removed because this pull request is closed.';
+            } else {
+              const fs = require('fs');
+              const pages = JSON.parse(fs.readFileSync('preview/preview-pages.json', 'utf8'));
+              const files = await github.paginate(github.rest.pulls.listFiles, {
+                ...context.repo, pull_number: pr.number, per_page: 100
+              });
+              body += '[Website](' + base + ') · [Email archive](' + base + 'emails/)\n';
+              const links = new Set();
+              for (const file of files) {
+                const page = pages[file.filename];
+                if (file.status === 'removed' || !page || !page.url.startsWith(base) || links.has(page.url)) {
+                  continue;
+                }
+                links.add(page.url);
+                const title = page.title.replace(/[\[\]\r\n]/g, ' ');
+                body += '\n- [' + title + '](<' + page.url + '>)';
+              }
+              body += '\n\nUpdated for ' + pr.head.sha.slice(0, 7) +
+                ' · [Workflow run](' + runURL + ').';
+            }
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              ...context.repo, issue_number: pr.number, per_page: 100
+            });
+            const existing = comments.find(comment =>
+              comment.user.type === 'Bot' && comment.body?.startsWith(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                ...context.repo, comment_id: existing.id, body
+              });
+            } else if (context.payload.action !== 'closed') {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: pr.number, body
+              });
+            }
+            await core.summary.addRaw(body).write();
