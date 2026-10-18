@@ -135,10 +135,13 @@ jobs:
           remote_key_pass: ${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}
       - name: Verify hosted preview
         if: github.event.action != 'closed'
-        run: >-
-          curl --fail --silent --show-error --location
-          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
-          "$PREVIEW_URL" --output /dev/null
+        run: |
+          for url in "$PREVIEW_URL" "$PREVIEW_URL""index.html" "$PREVIEW_URL""emails/fall26/week5.html" "https://ballroom.stanford.edu/" "https://stanfordballroom.com/"; do
+            curl --silent --show-error --location --connect-timeout 10 --max-time 30 \
+              --dump-header - --output /dev/null --write-out "HTTP %{http_code} URL %{url_effective}\n" "$url"
+          done
+          curl --fail --silent --show-error --location \
+            --connect-timeout 10 --max-time 30 "$PREVIEW_URL" --output /dev/null
       - name: Update preview comment
         uses: actions/github-script@v7
         with:
