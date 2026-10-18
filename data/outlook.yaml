@@ -1,0 +1,4 @@
+# Public application identifiers; never put a client secret here.
+client_id: ""
+tenant_id: ""
+recipient: ballroom-at-stanford@lists.stanford.edu

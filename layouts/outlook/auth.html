@@ -1,0 +1,4 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Microsoft sign-in</title>
+{{ $script := resources.Get "outlook/auth.js" | js.Build (dict "targetPath" "outlook/auth.js" "target" "es2022" "minify" true) | fingerprint }}
+<script src="{{ $script.RelPermalink }}" defer></script></head><body><p id="auth-status">Completing Microsoft sign-in…</p></body></html>

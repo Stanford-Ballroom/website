@@ -13,7 +13,9 @@ builds with `--environment email`, which omits this script entirely.
 ## Weekly workflow
 
 Use the same **Hugo 0.150.0 extended** installation as the rest of the site. The
-export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
+export/check scripts need **Python 3.9+**, with no extra Python packages. Install
+the site's browser dependencies with **Node 22+** and `npm ci --ignore-scripts`
+before running Hugo; the Outlook composer bundles Microsoft's MSAL library.
 
 1. Create an issue:
 
@@ -102,6 +104,43 @@ Previews use the existing Stanford Domains SSH deployment secrets and a separate
 directory for each PR. Closing or merging a PR clears that preview directory and
 updates the comment. Fork pull requests still run the build checks and produce the
 usual downloadable artifacts.
+
+## Creating an HTML draft in Outlook
+
+Open `/outlook/` from the email archive. Select an issue, review its subject and
+recipient, sign in with Microsoft, and click **Create Outlook draft**. The saved
+message opens through **Open draft in Outlook**. Sending remains a manual action
+in Outlook. You can link directly to an issue with `?issue=fall26/week5`.
+
+The composer's **Microsoft connection setup** links to the one-time Entra app
+registration guide at `/outlook/setup/`. Register the displayed callback as a SPA
+redirect URI, request only delegated `Mail.ReadWrite`, and enter the public client
+and tenant IDs. No client secret is used. IDs may be stored in browser storage;
+tokens stay in tab memory. The permission itself covers mailbox read/write access;
+the application only posts to `/v1.0/me/messages` to create unsent drafts. It never
+requests `Mail.Send` or calls a send endpoint. Disconnect clears the tab's cached
+Microsoft access, and reloading requires signing in again.
+
+CI generates the JSON payloads from the existing `--environment email` build,
+retaining the complete HTML rather than copying a rendered DOM fragment. The
+normal browser helper is excluded. For a local composer preview:
+
+```sh
+hugo --minify --buildDrafts --buildFuture
+hugo --environment email --minify --buildDrafts --buildFuture --destination email-dist/site
+python3 scripts/prepare_outlook.py --source email-dist/site --destination public
+```
+
+Serve `public/` over localhost or HTTPS. The Microsoft app must register the exact
+callback for that origin, including any PR-preview prefix. PR previews include
+draft/future issues; production payloads include only published issues. Public
+images must be deployed before sending. Outlook may normalize the HTML when
+storing or editing it, so review the actual draft before sending.
+
+The draft request is never automatically retried. If the connection fails after
+submitting, check Drafts before trying again to avoid creating a duplicate. App
+registration, administrator consent if required by Stanford, and a real mailbox
+sign-in are needed to verify the live Microsoft flow.
 
 ## Copying an announcement to WhatsApp
 
@@ -309,6 +348,9 @@ Migration notes:
 | `layouts/shortcodes/email-*.html` | Author-facing components, separate from theme shortcodes |
 | `scripts/export_email.py` | Fresh build, portability validation, HTML/text/EML export |
 | `scripts/check_emails.py` | Validate a directory of built email issues |
+| `scripts/prepare_outlook.py` | Publish validated script-free HTML as Outlook draft payloads |
+| `assets/outlook/`, `layouts/outlook/` | Microsoft sign-in, editable draft details, preview, and draft creation |
+| `data/outlook.yaml` | Default recipient and optional public Microsoft application IDs |
 | `assets/emails/whatsapp-format.js` | Rendered announcement to WhatsApp text, including lists and schedules |
 | `assets/emails/whatsapp-view.js` | Query handling, editable message, and clipboard fallback |
 
@@ -345,7 +387,9 @@ EMAIL_TEST_SITE=/tmp/ballroom-email-check npm test
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-CI runs these against the minified site and all five example issues, including
+CI runs these against the minified site and example issues, including
 clipboard success/failure, edited-message copying, nested lists, and single- and
-multi-track schedules. Normal Hugo builds and Python exports need no npm packages.
+multi-track schedules. Outlook tests cover exact HTML preservation, draft-only
+Graph requests, duplicate-submit protection, and setup/preview behavior. Hugo
+builds and Python exports require the installed browser dependencies.
 These DOM tests do not replace checking a pasted message in WhatsApp itself.

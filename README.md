@@ -63,6 +63,10 @@ Blowfish submodule, compare its base template with our local `baseof.html` overr
 
 Use Hugo **0.150.0 extended**, matching the deployment workflows:
 
+Install the browser dependencies with Node 22+ before building (including email
+exports): `npm ci --ignore-scripts`. Hugo bundles Microsoft's MSAL library locally
+for the Outlook composer; no external script CDN is used.
+
 ```sh
 git clone --recurse-submodules https://github.com/Stanford-Ballroom/website.git
 cd website
@@ -103,3 +107,8 @@ Write announcements in Markdown under `content/emails/<quarter>/`. Hugo generate
 standalone HTML emails and a website archive from the same source. Start with
 [the email workflow guide](docs/emails.md), including the shortcode reference,
 Spring 2026 examples, and the HTML/plain-text/draft-email export command.
+
+The [Outlook composer](https://ballroom.stanford.edu/outlook/) creates an unsent
+HTML draft directly in the signed-in mailbox. Its setup page explains the one-time
+Microsoft app registration. It requests `Mail.ReadWrite`, has no `Mail.Send`
+permission, and never sends email. See the email guide for local payload generation.
