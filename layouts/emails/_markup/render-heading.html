@@ -1,2 +1,4 @@
-{{ $size := cond (eq .Level 2) "23px" "19px" }}
-<h{{ .Level }} id="{{ .Anchor }}" class="email-heading" style="margin:28px 0 14px;font-size:{{ $size }};line-height:1.3;color:#820000;">{{ .Text | safeHTML }}</h{{ .Level }}>
+{{- $theme := partial "email/theme.html" .Page -}}
+{{ $size := cond (eq .Level 2) (printf "%dpx" $theme.type.heading_size) "19px" }}
+<h{{ .Level }} id="{{ .Anchor }}" class="email-heading" style="margin:28px 0 14px;font-size:{{ $size }};line-height:1.3;color:{{ $theme.light.heading }};">{{ .Text | safeHTML }}</h{{ .Level }}>
+

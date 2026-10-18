@@ -29,8 +29,24 @@ jobs:
           hugo-version: '0.150.0'
           extended: true
 
+      - name: Check Figma snapshots match generated emails
+        run: |
+          for snapshot in design/emails/*.json; do
+            [ -f "$snapshot" ] || continue
+            python3 scripts/sync_figma_email.py "$snapshot" --check
+          done
+
       - name: Build site
         run: hugo --minify --baseURL="https://ballroom.stanford.edu/"
+
+      - name: Build and validate Outlook copy pages
+        run: |
+          hugo --environment email --minify \
+            --baseURL="https://ballroom.stanford.edu/" \
+            --destination "$RUNNER_TEMP/ballroom-email-export"
+          python3 scripts/check_emails.py --email-only "$RUNNER_TEMP/ballroom-email-export"
+          python3 scripts/build_email_copy.py \
+            --email-dir "$RUNNER_TEMP/ballroom-email-export" --site-dir public
 
       - name: Upload public dir
         uses: actions/upload-artifact@v4
@@ -58,7 +74,14 @@ jobs:
           remote_key: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY }}"
           remote_key_pass: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}"
       - name: Verify public site
-        run: >-
-          curl --fail --silent --show-error --location
-          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
-          https://ballroom.stanford.edu/ --output /dev/null
+        run: |
+          curl --fail --silent --show-error --location \
+            --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+            https://ballroom.stanford.edu/ --output /dev/null
+          for path in public/emails/*/*.copy.html; do
+            [ -f "$path" ] || continue
+            curl --fail --silent --show-error --location \
+              --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+              "https://ballroom.stanford.edu/${path#public/}" --output /dev/null
+          done
+

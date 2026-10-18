@@ -1,0 +1,60 @@
+{{- /* Email-safe semantic tokens. Compile values into inline CSS; never emit CSS variables.
+     Validate here as well as in the Figma bridge so hand-edited front matter is safe. */ -}}
+{{- $theme := newScratch -}}
+{{- $theme.Set "light" (dict
+  "background" "#f2f1ee" "card" "#ffffff" "text" "#242421" "muted" "#62615d"
+  "heading" "#820000" "link" "#8c1515" "notice" "#f6f1e9" "table_header" "#f5efee"
+  "table_border" "#dedbd5" "warning" "#a65f00" "celebrate" "#327347") -}}
+{{- $theme.Set "dark" (dict
+  "background" "#141619" "card" "#202327" "text" "#eeeeef" "muted" "#b8bbc1"
+  "heading" "#f1d8d8" "link" "#ffb5b5" "notice" "#302b26" "table_header" "#302b2c") -}}
+{{- $theme.Set "type" (dict
+  "body_size" 17 "body_line" 26 "title_size" 30 "title_line" 37 "heading_size" 23 "heading_line" 30) -}}
+{{- $theme.Set "layout" (dict "content_padding" 24) -}}
+{{- $ranges := dict "body_size" (slice 14 20) "body_line" (slice 20 32)
+  "title_size" (slice 24 40) "title_line" (slice 30 48)
+  "heading_size" (slice 20 28) "heading_line" (slice 26 36)
+  "content_padding" (slice 16 32) -}}
+{{- if isset .Params "email_theme" -}}
+  {{- $config := .Params.email_theme -}}
+  {{- if not (reflect.IsMap $config) -}}
+    {{- errorf "email_theme must be a map in %s" $.Path -}}
+  {{- else -}}
+    {{- range $group, $tokens := $config -}}
+      {{- $defaults := $theme.Get $group -}}
+      {{- if not $defaults -}}
+        {{- errorf "Unknown email_theme group %q in %s" $group $.Path -}}
+      {{- else if not (reflect.IsMap $tokens) -}}
+        {{- errorf "email_theme.%s must be a map in %s" $group $.Path -}}
+      {{- else -}}
+        {{- range $key, $value := $tokens -}}
+          {{- if not (isset $defaults $key) -}}
+            {{- errorf "Unknown email_theme token %s.%s in %s" $group $key $.Path -}}
+          {{- else if in (slice "light" "dark") $group -}}
+            {{- if not (findRE `^#[0-9a-fA-F]{6}$` (printf "%v" $value)) -}}
+              {{- errorf "email_theme.%s.%s must be a six-digit hex color in %s" $group $key $.Path -}}
+            {{- else -}}
+              {{- $theme.SetInMap $group $key (lower $value) -}}
+            {{- end -}}
+          {{- else -}}
+            {{- $range := index $ranges $key -}}
+            {{- if not (findRE `^[0-9]+$` (printf "%v" $value)) -}}
+              {{- errorf "email_theme.%s.%s must be an integer in %s" $group $key $.Path -}}
+            {{- else if or (lt (int $value) (index $range 0)) (gt (int $value) (index $range 1)) -}}
+              {{- errorf "email_theme.%s.%s must be between %d and %d in %s" $group $key (index $range 0) (index $range 1) $.Path -}}
+            {{- else -}}
+              {{- $theme.SetInMap $group $key (int $value) -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $type := $theme.Get "type" -}}
+{{- range $name := slice "body" "title" "heading" -}}
+  {{- if lt (index $type (printf "%s_line" $name)) (index $type (printf "%s_size" $name)) -}}
+    {{- errorf "email_theme.type.%s_line must be at least %s_size in %s" $name $name $.Path -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "light" ($theme.Get "light") "dark" ($theme.Get "dark") "type" $type "layout" ($theme.Get "layout")) -}}
