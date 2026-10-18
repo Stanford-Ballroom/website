@@ -81,8 +81,8 @@ def container(node, name, *, required=False):
 def escape_text(text):
     # Goldmark has unsafe HTML enabled for the existing shortcodes. Source text
     # is data: escape HTML, Hugo delimiters, and Markdown metacharacters.
-    text = html.escape(text, quote=False).replace("{", "&#123;").replace("}", "&#125;")
-    return re.sub(r"([\\`*_\[\]#!|~])", r"\\\1", text)
+    text = re.sub(r"([\\`*_\[\]#!|~])", r"\\\1", html.escape(text, quote=False))
+    return text.replace("{", "&#123;").replace("}", "&#125;")
 
 
 def public_url(value, *, image=False):
@@ -221,7 +221,7 @@ def lessons(node):
             entry["note"] = note
         else:
             cells = container(row, "classes", required=True)
-            entry["classes"] = [rich({"children": [c]}, "class", required=True) for c in children(cells)]
+            entry["classes"] = [rich({"children": [c]}, "class", required=True) for c in children(cells) if c.get("visible", True)]
             if len(entry["classes"]) != len(lesson["tracks"]):
                 raise DesignError("Each lesson row needs one class per track")
         lesson["rows"].append(entry)
@@ -269,6 +269,9 @@ def compile_snapshot(source):
                 "quarter": meta["quarter"], "preheader": field(header, "preheader", required=True),
                 "signer": meta["signer"] or "Stanford Ballroom",
                 "figma_source": {"file_key": source.get("fileKey", ""), "node_id": source.get("nodeId", root.get("id", "")), "schema_version": SCHEMA_VERSION}}
+    for name, value in metadata.items():
+        if isinstance(value, str) and any(c in value for c in "\r\n\x00"):
+            raise DesignError(f"Issue {name} must be single-line text")
     tokens = theme(source)
     if tokens:
         metadata["email_theme"] = tokens
@@ -298,6 +301,7 @@ def compile_snapshot(source):
             body.append(shortcode("button", {"label": field(block, "label", required=True), "href": link_url(field(block, "href", required=True))}))
         elif role == "Photo":
             values = {k: field(block, k, required=k in {"src", "alt"}) for k in ("src", "alt", "caption", "href", "width")}
+            values["caption"] = rich(block, "caption")
             # Local committed Hugo asset paths stay supported; hosted sources
             # must be durable absolute HTTPS. Temporary Figma assets are rejected.
             src = values["src"]
@@ -305,6 +309,8 @@ def compile_snapshot(source):
                 public_url(src, image=True)
             elif ".." in Path(src).parts or "\\" in src or not re.fullmatch(r"/?[a-zA-Z0-9_./ -]+\.(?:png|jpe?g|gif|webp|avif)", src, re.I):
                 raise DesignError("Photo src must identify a committed asset or public PNG/JPEG/GIF")
+            elif src.startswith("/") and Path(src).suffix.lower() in {".webp", ".avif"}:
+                raise DesignError("Root-relative images bypass conversion; use PNG/JPEG/GIF or a processed assets path")
             if values["href"]:
                 values["href"] = link_url(values["href"])
             if values["width"] and (not values["width"].isdigit() or not 1 <= int(values["width"]) <= 552):
