@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>{{ .Title }} · Stanford Ballroom</title>
+  {{ $style := resources.Get "outlook/styles.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+  {{ $script := resources.Get "outlook/app.js" | js.Build (dict "targetPath" "outlook/app.js" "target" "es2022" "minify" true) | fingerprint }}
+  <script src="{{ $script.RelPermalink }}" defer></script>
+</head>
+<body>
+<main>
+  <header><a href="{{ "emails/" | relURL }}">← Email archive</a><h1>Create an Outlook draft</h1><p>Choose an announcement, review its details, and save the formatted email to Outlook.</p></header>
+  <div class="workspace">
+    <section class="card editor" aria-label="Draft details">
+      <form id="draft-form">
+        <label for="issue">Announcement</label>
+        <select id="issue">
+          {{ $issues := slice }}
+          {{ with site.GetPage "/emails" }}{{ range .RegularPagesRecursive.ByDate.Reverse }}
+            {{ $prefix := strings.TrimSuffix "/" (urls.Parse site.BaseURL).Path }}
+            {{ $relative := strings.TrimPrefix $prefix .RelPermalink }}
+            {{ $id := strings.TrimSuffix ".html" (strings.TrimPrefix "/emails/" $relative) }}
+            {{ $url := print "outlook/issues/" $id ".json" | relURL }}
+            {{ $issues = $issues | append (dict "id" $id "url" $url) }}
+            <option value="{{ $id }}">{{ .Title }}</option>
+          {{ end }}{{ end }}
+        </select>
+        <label for="subject">Subject</label>
+        <input id="subject" required disabled>
+        <label for="recipient">To</label>
+        <input id="recipient" type="email" multiple required disabled>
+        <p id="account" class="muted">Sign in to choose the Outlook mailbox.</p>
+        <div class="actions"><button id="sign-in" type="button" disabled>Sign in with Microsoft</button><button id="disconnect" type="button" class="secondary" hidden>Disconnect</button></div>
+        <button id="create-draft" type="submit" disabled>Create Outlook draft</button>
+        <p id="status" role="status" aria-live="polite">Loading announcements…</p>
+        <a id="open-draft" class="button" target="_blank" rel="noopener noreferrer" hidden>Open draft in Outlook</a>
+      </form>
+      <details id="setup">
+        <summary>Microsoft connection setup</summary>
+        <p>Enter the two IDs from your Microsoft app registration. <a href="{{ "outlook/setup/" | relURL }}">Setup instructions</a></p>
+        <form id="configuration">
+          <label for="client-id">Application (client) ID</label><input id="client-id" required autocomplete="off">
+          <label for="tenant-id">Directory (tenant) ID</label><input id="tenant-id" required autocomplete="off">
+          <div class="actions"><button id="save-config" type="submit" class="secondary">Save connection settings</button></div>
+        </form>
+        <small>These public IDs stay in this browser. Microsoft sign-in tokens stay in this tab. The requested Microsoft Graph permission is <code>Mail.ReadWrite</code>.</small>
+      </details>
+    </section>
+    <section class="card preview-card" aria-label="Email preview"><h2>Preview</h2><iframe id="preview" title="Announcement preview" sandbox="" referrerpolicy="no-referrer"></iframe></section>
+  </div>
+  {{ $callback := site.GetPage "/outlook/auth" }}
+  <script id="outlook-settings" type="application/json">{{ dict "clientId" site.Data.outlook.client_id "tenantId" site.Data.outlook.tenant_id "recipient" site.Data.outlook.recipient "redirectUri" $callback.RelPermalink "issues" $issues | jsonify | safeJS }}</script>
+  <noscript><p>This composer needs JavaScript to connect to Microsoft and create your draft.</p></noscript>
+</main>
+</body>
+</html>

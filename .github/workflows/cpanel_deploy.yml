@@ -29,6 +29,14 @@ jobs:
           hugo-version: '0.150.0'
           extended: true
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install browser dependencies
+        run: npm ci --ignore-scripts
       - name: Check Figma snapshots match generated emails
         run: |
           for snapshot in design/emails/*.json; do
@@ -47,6 +55,7 @@ jobs:
           python3 scripts/check_emails.py --email-only "$RUNNER_TEMP/ballroom-email-export"
           python3 scripts/build_email_copy.py \
             --email-dir "$RUNNER_TEMP/ballroom-email-export" --site-dir public
+          python3 scripts/prepare_outlook.py --source "$RUNNER_TEMP/ballroom-email-export" --destination public
 
       - name: Upload public dir
         uses: actions/upload-artifact@v4

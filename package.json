@@ -2,9 +2,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/whatsapp.test.js"
+    "test": "node --test tests/*.test.js"
   },
   "devDependencies": {
     "linkedom": "0.18.12"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "5.25.1"
   }
 }

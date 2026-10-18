@@ -29,8 +29,13 @@ jobs:
         with:
           hugo-version: '0.150.0'
           extended: true
-      - name: Test email bridge and portability
-        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install browser dependencies
+        run: npm ci --ignore-scripts
       - name: Check Figma snapshots match generated emails
         run: |
           for snapshot in design/emails/*.json; do
@@ -43,29 +48,29 @@ jobs:
         run: |
           hugo --minify --buildDrafts --destination "${{ runner.temp }}/ballroom-email-check"
           python3 scripts/check_emails.py "${{ runner.temp }}/ballroom-email-check"
-      - name: Set up Node for WhatsApp converter tests
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-      - name: Test WhatsApp conversion and copy view
-        env:
-          EMAIL_TEST_SITE: ${{ runner.temp }}/ballroom-email-check
-        run: |
-          npm ci --ignore-scripts
-          npm test
       - name: Check script-free email exports
         run: |
           hugo --environment email --minify --buildDrafts --buildFuture --destination "${{ runner.temp }}/ballroom-email-export"
           python3 scripts/check_emails.py --email-only "${{ runner.temp }}/ballroom-email-export"
           python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir public
           python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir "${{ runner.temp }}/ballroom-email-check"
+          python3 scripts/prepare_outlook.py --source "${{ runner.temp }}/ballroom-email-export" --destination public
+          python3 scripts/prepare_outlook.py --source "${{ runner.temp }}/ballroom-email-export" --destination "${{ runner.temp }}/ballroom-email-check"
+      - name: Test email tools and Outlook draft composer
+        env:
+          EMAIL_TEST_SITE: ${{ runner.temp }}/ballroom-email-check
+          EMAIL_EXPORT_SITE: ${{ runner.temp }}/ballroom-email-export
+        run: |
+          npm test
+          python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Build PR preview
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         run: |
           hugo --environment development --minify --buildDrafts --buildFuture \
             --baseURL "$PREVIEW_URL" \
             --destination "$RUNNER_TEMP/ballroom-pr-preview"
+          python3 scripts/prepare_outlook.py --source "$RUNNER_TEMP/ballroom-email-export" --destination "$RUNNER_TEMP/ballroom-pr-preview"
+          EMAIL_TEST_SITE="$RUNNER_TEMP/ballroom-pr-preview" node --test --test-name-pattern="built composer" tests/outlook-view.test.js
           python3 scripts/build_email_copy.py \
             --email-dir "$RUNNER_TEMP/ballroom-email-export" \
             --site-dir "$RUNNER_TEMP/ballroom-pr-preview"
@@ -159,6 +164,24 @@ jobs:
               --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
               "${PREVIEW_URL}${path#preview/}" --output /dev/null
           done
+      - name: Verify hosted Outlook composer
+        if: github.event.action != 'closed'
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          from urllib.request import urlopen
+
+          root = Path("preview")
+          payload = next((root / "outlook/issues").rglob("*.json"))
+          for relative in ["outlook/index.html", "outlook/auth.html", payload.relative_to(root).as_posix()]:
+              with urlopen(os.environ["PREVIEW_URL"] + relative, timeout=20) as response:
+                  if relative == "outlook/auth.html" and response.headers.get("Cross-Origin-Opener-Policy"):
+                      raise SystemExit("Microsoft's redirect bridge must not have a COOP header")
+                  if response.read() != (root / relative).read_bytes():
+                      raise SystemExit("Hosted Outlook file differs from the build: " + relative)
+          print("Composer, redirect bridge, and exact HTML payload verified on the hosted preview.")
+          PY
       - name: Update preview comment
         uses: actions/github-script@v7
         with:
