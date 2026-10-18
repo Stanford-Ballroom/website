@@ -57,7 +57,7 @@ jobs:
           hugo --environment development --minify --buildDrafts --buildFuture \
             --baseURL "$PREVIEW_URL" \
             --destination "$RUNNER_TEMP/ballroom-pr-preview"
-          hugo list all --environment development --baseURL "$PREVIEW_URL" \
+          HUGO_BASEURL="$PREVIEW_URL" hugo list all --environment development \
             > "$RUNNER_TEMP/ballroom-pr-pages.csv"
           python3 - <<'PY'
           import csv
