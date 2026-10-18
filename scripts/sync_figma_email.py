@@ -73,7 +73,7 @@ def field(node, name, *, required=False):
 
 
 def container(node, name, *, required=False):
-    found = [n for n in children(node) if n.get("name") == name and n.get("visible", True)]
+    found = [n for n in descendants(node) if n.get("name") == name and n.get("type") != "TEXT"]
     if len(found) != 1:
         if not found and not required:
             return None
@@ -84,7 +84,7 @@ def container(node, name, *, required=False):
 def escape_text(text):
     # Goldmark has unsafe HTML enabled for the existing shortcodes. Source text
     # is data: escape HTML, Hugo delimiters, and Markdown metacharacters.
-    text = re.sub(r"([\\`*_\[\]#!|~])", r"\\\1", html.escape(text, quote=False))
+    text = html.escape(re.sub(r"([\\`*_\[\]#!|~])", r"\\\1", text), quote=True)
     return text.replace("{", "&#123;").replace("}", "&#125;")
 
 
@@ -222,7 +222,7 @@ def lessons(node):
         note = rich(row, "note")
         if note:
             cells = container(row, "classes")
-            if cells and any(c.get("visible", True) and c.get("characters", "").strip() for c in children(cells)):
+            if cells and any(c.get("characters", "").strip() for c in descendants(cells) if c.get("type") == "TEXT"):
                 raise DesignError("A lesson row must show either a shared note or class cells")
             entry["note"] = note
         else:

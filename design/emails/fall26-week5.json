@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "fileKey": "UaIeCFn2H4Z65ByxNCg0pP",
+  "nodeId": "8:216",
+  "document": {
+    "name": "Email/Issue",
+    "type": "FRAME",
+    "id": "8:216",
+    "visible": true,
+    "width": 600,
+    "children": [
+      {
+        "name": "Email/Settings",
+        "type": "INSTANCE",
+        "id": "8:217",
+        "visible": false,
+        "componentName": "Email/Settings",
+        "variants": {},
+        "children": [
+          {
+            "name": "subject",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Week 5. Classes Tomorrow and Practice Friday"
+          },
+          {
+            "name": "date",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "2026-10-18T12:53:00-07:00"
+          },
+          {
+            "name": "url",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "/emails/fall26/week5.html"
+          },
+          {
+            "name": "quarter",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Fall 2026"
+          },
+          {
+            "name": "signer",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Ro"
+          }
+        ]
+      },
+      {
+        "name": "Email/Header",
+        "type": "INSTANCE",
+        "id": "8:223",
+        "visible": true,
+        "componentName": "Email/Header",
+        "variants": {},
+        "children": [
+          {
+            "name": "summary",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "preheader",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Classes tomorrow, 7:30–9:30 pm in Roble 115, and practice Friday, 6–9 pm in Roble 113!"
+              },
+              {
+                "name": "browserLink",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "View in browser",
+                "linkTargets": [
+                  "https://ballroom.stanford.edu/emails/fall26/week5.html"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "brandRule",
+            "type": "RECTANGLE",
+            "visible": true
+          },
+          {
+            "name": "logoCard",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "brandLogo",
+                "type": "FRAME",
+                "visible": true,
+                "children": [
+                  {
+                    "name": "brandLogoLight",
+                    "type": "RECTANGLE",
+                    "visible": true
+                  },
+                  {
+                    "name": "brandLogoDark",
+                    "type": "RECTANGLE",
+                    "visible": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Title",
+        "type": "INSTANCE",
+        "id": "8:231",
+        "visible": true,
+        "componentName": "Email/Title",
+        "variants": {},
+        "children": [
+          {
+            "name": "eyebrow",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "FALL 2026 · OCTOBER 18, 2026"
+          },
+          {
+            "name": "title",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Week 5: Classes Tomorrow and Practice Friday"
+          }
+        ]
+      },
+      {
+        "name": "Email/Prose",
+        "type": "INSTANCE",
+        "id": "8:234",
+        "visible": true,
+        "componentName": "Email/Prose",
+        "variants": {},
+        "children": [
+          {
+            "name": "body",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Happy Week 5!\nHope you had a good weekend! We have classes as usual tomorrow and practice this Friday :). Details below!",
+            "segments": [
+              {
+                "characters": "Happy Week 5!\nHope you had a good weekend! We have classes as usual tomorrow and practice this Friday :). Details below!"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Lessons",
+        "type": "INSTANCE",
+        "id": "8:236",
+        "visible": true,
+        "componentName": "Email/Lessons",
+        "variants": {},
+        "children": [
+          {
+            "name": "title",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Tomorrow, Monday, October 19 — Classes"
+          },
+          {
+            "name": "intro",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Classes as usual tomorrow from 7:30 – 9:30 pm in Roble 115, with 'Ikaika teaching Standard and Stacey teaching Latin. We run the Latin and Standard classes concurrently but for different levels! As a beginner, you can first attend the Latin class and then switch to Standard. Please see the schedule below.",
+            "segments": [
+              {
+                "characters": "Classes as usual "
+              },
+              {
+                "characters": "tomorrow from 7:30 – 9:30 pm in Roble 115",
+                "fontWeight": 700
+              },
+              {
+                "characters": ", with "
+              },
+              {
+                "characters": "'Ikaika teaching Standard",
+                "fontWeight": 700
+              },
+              {
+                "characters": " and "
+              },
+              {
+                "characters": "Stacey teaching Latin",
+                "fontWeight": 700
+              },
+              {
+                "characters": ". We run the Latin and Standard classes concurrently but for different levels! As a beginner, you can first attend the Latin class and then switch to Standard. Please see the schedule below."
+              }
+            ]
+          },
+          {
+            "name": "timetable",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "caption",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Lesson schedule",
+                "segments": [
+                  {
+                    "characters": "Lesson schedule",
+                    "fontWeight": 700
+                  }
+                ]
+              },
+              {
+                "name": "tableHeader",
+                "type": "FRAME",
+                "visible": true,
+                "children": [
+                  {
+                    "name": "timeLabel",
+                    "type": "FRAME",
+                    "visible": true,
+                    "children": [
+                      {
+                        "name": "timeHeading",
+                        "type": "TEXT",
+                        "visible": true,
+                        "characters": "Time"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "tracks",
+                    "type": "FRAME",
+                    "visible": true,
+                    "children": [
+                      {
+                        "name": "track",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "name",
+                            "type": "TEXT",
+                            "visible": true,
+                            "characters": "Latin"
+                          },
+                          {
+                            "name": "byline",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "by",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "by"
+                              },
+                              {
+                                "name": "teacher",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "Stacey"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "track",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "name",
+                            "type": "TEXT",
+                            "visible": true,
+                            "characters": "Standard"
+                          },
+                          {
+                            "name": "byline",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "by",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "by"
+                              },
+                              {
+                                "name": "teacher",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "'Ikaika"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "rows",
+                "type": "FRAME",
+                "visible": true,
+                "children": [
+                  {
+                    "name": "row",
+                    "type": "FRAME",
+                    "visible": true,
+                    "children": [
+                      {
+                        "name": "timeCell",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "time",
+                            "type": "TEXT",
+                            "visible": true,
+                            "characters": "7:30 – 8:30 pm"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "classes",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "classCell",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "class",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "Beginner",
+                                "segments": [
+                                  {
+                                    "characters": "Beginner"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "classCell",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "class",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "Intermediate",
+                                "segments": [
+                                  {
+                                    "characters": "Intermediate"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "row",
+                    "type": "FRAME",
+                    "visible": true,
+                    "children": [
+                      {
+                        "name": "timeCell",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "time",
+                            "type": "TEXT",
+                            "visible": true,
+                            "characters": "8:30 – 9:30 pm"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "classes",
+                        "type": "FRAME",
+                        "visible": true,
+                        "children": [
+                          {
+                            "name": "classCell",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "class",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "Intermediate",
+                                "segments": [
+                                  {
+                                    "characters": "Intermediate"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "name": "classCell",
+                            "type": "FRAME",
+                            "visible": true,
+                            "children": [
+                              {
+                                "name": "class",
+                                "type": "TEXT",
+                                "visible": true,
+                                "characters": "Beginner",
+                                "segments": [
+                                  {
+                                    "characters": "Beginner"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "locationRow",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "locationLabel",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Where:"
+              },
+              {
+                "name": "location",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Roble 115 (375 Santa Teresa St.)"
+              }
+            ]
+          },
+          {
+            "name": "after",
+            "type": "TEXT",
+            "visible": false,
+            "characters": "",
+            "segments": []
+          }
+        ]
+      },
+      {
+        "name": "Email/Notice",
+        "type": "INSTANCE",
+        "id": "8:276",
+        "visible": true,
+        "componentName": "Email/Notice",
+        "variants": {
+          "tone": "info"
+        },
+        "children": [
+          {
+            "name": "noticeCard",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "noticeRule",
+                "type": "FRAME",
+                "visible": true,
+                "children": []
+              },
+              {
+                "name": "noticeContent",
+                "type": "FRAME",
+                "visible": true,
+                "children": [
+                  {
+                    "name": "title",
+                    "type": "TEXT",
+                    "visible": true,
+                    "characters": "New to Ballroom?"
+                  },
+                  {
+                    "name": "body",
+                    "type": "TEXT",
+                    "visible": true,
+                    "characters": "Beginners are always welcome! No dance experience, registration, or partner is needed. We frequently rotate partners in class, so just bring yourself :). We're open to all Stanford affiliates.\nWear comfortable clothes that let you move freely, and bring socks or non-marking dance shoes/sneakers. Come learn, meet people, and enjoy dancing!",
+                    "segments": [
+                      {
+                        "characters": "Beginners are always welcome! No dance experience, registration, or partner is needed.",
+                        "fontWeight": 700
+                      },
+                      {
+                        "characters": " We frequently rotate partners in class, so just bring yourself :). We're open to all Stanford affiliates.\nWear comfortable clothes that let you move freely, and bring socks or non-marking dance shoes/sneakers. Come learn, meet people, and enjoy dancing!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Event",
+        "type": "INSTANCE",
+        "id": "8:280",
+        "visible": true,
+        "componentName": "Email/Event",
+        "variants": {
+          "status": "confirmed"
+        },
+        "children": [
+          {
+            "name": "title",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Friday, October 23 — Practice"
+          },
+          {
+            "name": "whenRow",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "whenLabel",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "When:"
+              },
+              {
+                "name": "when",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "6 – 9 pm"
+              }
+            ]
+          },
+          {
+            "name": "whereRow",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "whereLabel",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Where:"
+              },
+              {
+                "name": "where",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Roble 113"
+              }
+            ]
+          },
+          {
+            "name": "body",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Practice this week is Friday from 6 – 9 pm in Roble 113! Come work on what you've learned in class, and bring your questions and anything you'd like to practice :).",
+            "segments": [
+              {
+                "characters": "Practice this week is "
+              },
+              {
+                "characters": "Friday from 6 – 9 pm in Roble 113",
+                "fontWeight": 700
+              },
+              {
+                "characters": "! Come work on what you've learned in class, and bring your questions and anything you'd like to practice :)."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Prose",
+        "type": "INSTANCE",
+        "id": "8:289",
+        "visible": true,
+        "componentName": "Email/Prose",
+        "variants": {},
+        "children": [
+          {
+            "name": "body",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Schedule for practice, lessons, and other club events can always be found on our website.",
+            "segments": [
+              {
+                "characters": "Schedule for practice, lessons, and other club events can always be found on "
+              },
+              {
+                "characters": "our website",
+                "hyperlink": {
+                  "type": "URL",
+                  "value": "https://ballroom.stanford.edu/schedule/"
+                }
+              },
+              {
+                "characters": "."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Signoff",
+        "type": "INSTANCE",
+        "id": "8:291",
+        "visible": true,
+        "componentName": "Email/Signoff",
+        "variants": {},
+        "children": [
+          {
+            "name": "closing",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Thanks, and see you all soon!"
+          },
+          {
+            "name": "name",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Ro"
+          },
+          {
+            "name": "club",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Stanford Ballroom"
+          }
+        ]
+      },
+      {
+        "name": "Email/Button",
+        "type": "INSTANCE",
+        "id": "8:295",
+        "visible": false,
+        "componentName": "Email/Button",
+        "variants": {},
+        "children": [
+          {
+            "name": "button",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "label",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "See the full schedule"
+              }
+            ]
+          },
+          {
+            "name": "href",
+            "type": "TEXT",
+            "visible": false,
+            "characters": "https://ballroom.stanford.edu/schedule/"
+          }
+        ]
+      },
+      {
+        "name": "Email/Photo",
+        "type": "INSTANCE",
+        "id": "8:299",
+        "visible": false,
+        "componentName": "Email/Photo",
+        "variants": {},
+        "children": [
+          {
+            "name": "image",
+            "type": "FRAME",
+            "visible": true,
+            "children": [
+              {
+                "name": "imageInstruction",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "Add a club photo, then set src and descriptive alt text."
+              }
+            ]
+          },
+          {
+            "name": "caption",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "A moment from Stanford Ballroom",
+            "segments": [
+              {
+                "characters": "A moment from Stanford Ballroom"
+              }
+            ]
+          },
+          {
+            "name": "metadata",
+            "type": "FRAME",
+            "visible": false,
+            "children": [
+              {
+                "name": "src",
+                "type": "TEXT",
+                "visible": true,
+                "characters": ""
+              },
+              {
+                "name": "alt",
+                "type": "TEXT",
+                "visible": true,
+                "characters": ""
+              },
+              {
+                "name": "href",
+                "type": "TEXT",
+                "visible": true,
+                "characters": ""
+              },
+              {
+                "name": "width",
+                "type": "TEXT",
+                "visible": true,
+                "characters": "552"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Email/Footer",
+        "type": "INSTANCE",
+        "id": "8:304",
+        "visible": true,
+        "componentName": "Email/Footer",
+        "variants": {},
+        "children": [
+          {
+            "name": "subscription",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "You're receiving this because you're subscribed to the Stanford Ballroom mailing list."
+          },
+          {
+            "name": "links",
+            "type": "TEXT",
+            "visible": true,
+            "characters": "Mailing list settings · Announcement archive",
+            "linkTargets": [
+              "https://mailman.stanford.edu/mailman/listinfo/ballroom-at-stanford",
+              "https://ballroom.stanford.edu/emails/"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "theme": {
+    "light": {
+      "background": "#f2f1ee",
+      "card": "#ffffff",
+      "text": "#242421",
+      "muted": "#62615d",
+      "heading": "#820000",
+      "link": "#8c1515",
+      "notice": "#f6f1e9",
+      "table_header": "#f5efee",
+      "table_border": "#dedbd5",
+      "warning": "#a65f00",
+      "celebrate": "#327347"
+    },
+    "dark": {
+      "background": "#141619",
+      "card": "#202327",
+      "text": "#eeeeef",
+      "muted": "#b8bbc1",
+      "heading": "#f1d8d8",
+      "link": "#ffb5b5",
+      "notice": "#302b26",
+      "table_header": "#302b2c"
+    },
+    "type": {
+      "body_size": 17,
+      "body_line": 26,
+      "title_size": 30,
+      "title_line": 37,
+      "heading_size": 23,
+      "heading_line": 30
+    },
+    "layout": {
+      "content_padding": 24
+    }
+  },
+  "unsupportedEdits": []
+}

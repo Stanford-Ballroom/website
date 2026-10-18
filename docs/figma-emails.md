@@ -1,6 +1,6 @@
 # Drafting Ballroom emails in Figma
 
-The [Ballroom email kit](https://www.figma.com/design/UaIeCFn2H4Z65ByxNCg0pP)
+The [Ballroom email kit](https://www.figma.com/design/UaIeCFn2H4Z65ByxNCg0pP?node-id=8-307)
 provides editable components and a Week 5 sample based on the existing
 announcements. Figma holds the issue being edited. A versioned JSON snapshot in
 the repository records each exported issue, and the bridge generates the normal
@@ -9,11 +9,20 @@ archive pages, and Stanford-hosted webpages.
 
 ## Weekly workflow
 
-1. Duplicate the weekly template in Figma. Edit its subject, title, send date,
+1. Duplicate the [weekly template](https://www.figma.com/design/UaIeCFn2H4Z65ByxNCg0pP?node-id=8-124) in Figma. Edit its subject, title, send date,
    quarter, visible preview summary, and announcement components. Review dates,
    times, rooms, instructors, and links for the new week. Keep the component
    identities and named content fields so the bridge can recognize them.
-2. Export the edited issue using `design/figma/read-email.js` through the connected
+   Select the hidden `Email/Settings` instance in Layers to edit subject, date,
+   archive URL, quarter, and signer in its component properties. Edit the title
+   and visible summary directly in their components. The
+   [Week 5 sample](https://www.figma.com/design/UaIeCFn2H4Z65ByxNCg0pP?node-id=8-216)
+   and its [dark preview](https://www.figma.com/design/UaIeCFn2H4Z65ByxNCg0pP?node-id=11-213)
+   are separate from the reusable template.
+2. With `Email/Issue` selected, run `design/figma/refresh-issue.js` through Figma
+   after changing metadata. It refreshes the generated date eyebrow and browser
+   link while preserving announcement copy. Then export using
+   `design/figma/read-email.js` through the connected
    Figma MCP tool. This workflow needs no `FIGMA_TOKEN`. Save the resulting
    snapshot under `design/emails/`, using a new
    name for each issue. The Week 5 example is
@@ -30,6 +39,10 @@ archive pages, and Stanford-hosted webpages.
    same pull request. The check command catches edits that have not been
    regenerated. CI uses committed snapshots and generated content, so publishing
    needs no Figma token.
+   The read script includes intentionally hidden metadata, checks protected
+   logos and footer, and reports unsupported visual edits. Set its
+   `ISSUE_NODE_ID` to an exact node ID when selection is unavailable. IDs,
+   original logo hashes, and font mappings are recorded in `design/figma/kit.json`.
 4. Open the PR's email preview and **Copy to Outlook** link. After review and
    merge, both pages are deployed at their permanent addresses. For Week 5:
 
@@ -97,6 +110,11 @@ logo and inline baseline styles, with no stylesheet or script, because Outlook
 may discard head styles during paste. Outlook and recipient clients can still
 apply their own dark-mode or paste transformations. An Outlook test message is
 the final check for the chosen sending path.
+
+The Figma body uses Arimo as the editable counterpart to the email's Arial /
+Helvetica stack, and Gelasio for its Georgia headings. HTML keeps the existing
+system fonts, so line wrapping can differ slightly. The two original PNG logos
+are preserved exactly and swap with the preview's light/dark mode.
 
 ## Build and validation
 
