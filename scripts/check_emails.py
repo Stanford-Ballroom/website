@@ -11,6 +11,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", nargs="?", type=Path, default=Path("public"))
     parser.add_argument("--email-only", action="store_true", help="Reject all JavaScript, including the hosted WhatsApp helper")
+    parser.add_argument("--preview", action="store_true",
+                        help="Allow root-relative preview image paths; never use this mode to approve an email for sending")
     args = parser.parse_args()
     root = args.root
     files = sorted((root / "emails").rglob("*.html"))
@@ -20,7 +22,8 @@ def main():
     failed = False
     for path in issues:
         try:
-            parsed = inspect_email(path.read_text(encoding="utf-8"), allow_browser_script=not args.email_only)
+            parsed = inspect_email(path.read_text(encoding="utf-8"), allow_browser_script=not args.email_only,
+                                   allow_preview_images=args.preview, require_shell=True)
             if len(parsed.browser_scripts) > 1:
                 raise ValueError("Duplicate browser helper")
             for src in parsed.browser_scripts:
@@ -38,3 +41,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

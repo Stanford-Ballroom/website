@@ -1,1 +1,3 @@
-<a class="email-link" href="{{ partial "email/url.html" (dict "url" .Destination "page" .Page) }}"{{ with .Title }} title="{{ . }}"{{ end }} style="color:#8c1515;text-decoration:underline;overflow-wrap:anywhere;">{{ .Text | safeHTML }}</a>{{- "" -}}
+{{- $theme := partial "email/theme.html" .Page -}}
+<a class="email-link" href="{{ partial "email/url.html" (dict "url" .Destination "page" .Page) }}"{{ with .Title }} title="{{ . }}"{{ end }} style="color:{{ $theme.light.link }};text-decoration:underline;overflow-wrap:anywhere;">{{ .Text | safeHTML }}</a>{{- "" -}}
+

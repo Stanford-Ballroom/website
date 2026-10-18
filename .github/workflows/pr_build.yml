@@ -29,6 +29,14 @@ jobs:
         with:
           hugo-version: '0.150.0'
           extended: true
+      - name: Test email bridge and portability
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Check Figma snapshots match generated emails
+        run: |
+          for snapshot in design/emails/*.json; do
+            [ -f "$snapshot" ] || continue
+            python3 scripts/sync_figma_email.py "$snapshot" --check
+          done
       - name: Build site
         run: hugo --minify
       - name: Build and check email examples (including drafts)
@@ -48,15 +56,19 @@ jobs:
           npm test
       - name: Check script-free email exports
         run: |
-          hugo --environment email --minify --buildDrafts --destination "${{ runner.temp }}/ballroom-email-export"
+          hugo --environment email --minify --buildDrafts --buildFuture --destination "${{ runner.temp }}/ballroom-email-export"
           python3 scripts/check_emails.py --email-only "${{ runner.temp }}/ballroom-email-export"
-          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir public
+          python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir "${{ runner.temp }}/ballroom-email-check"
       - name: Build PR preview
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         run: |
           hugo --environment development --minify --buildDrafts --buildFuture \
             --baseURL "$PREVIEW_URL" \
             --destination "$RUNNER_TEMP/ballroom-pr-preview"
+          python3 scripts/build_email_copy.py \
+            --email-dir "$RUNNER_TEMP/ballroom-email-export" \
+            --site-dir "$RUNNER_TEMP/ballroom-pr-preview"
           HUGO_BASEURL="$PREVIEW_URL" hugo list all --environment development \
             > "$RUNNER_TEMP/ballroom-pr-pages.csv"
           python3 - <<'PY'
@@ -78,6 +90,8 @@ jobs:
                   target = root / (relative + "index.html" if not relative or relative.endswith("/") else relative)
                   if target.is_file():
                       pages[page["path"]] = {"title": page["title"], "url": url}
+                      if target.with_suffix(".copy.html").is_file():
+                          pages[page["path"]]["copy_url"] = url.removesuffix(".html") + ".copy.html"
           (root / "preview-pages.json").write_text(json.dumps(pages), encoding="utf-8")
           PY
       - name: Upload PR preview
@@ -167,6 +181,9 @@ jobs:
                 links.add(page.url);
                 const title = page.title.replace(/[\[\]\r\n]/g, ' ');
                 body += '\n- [' + title + '](<' + page.url + '>)';
+                if (page.copy_url?.startsWith(base)) {
+                  body += ' · [Copy to Outlook](<' + page.copy_url + '>)';
+                }
               }
               body += '\n\nUpdated for ' + pr.head.sha.slice(0, 7) +
                 ' · [Workflow run](' + runURL + ').';
@@ -186,3 +203,4 @@ jobs:
               });
             }
             await core.summary.addRaw(body).write();
+
