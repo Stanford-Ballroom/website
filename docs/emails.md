@@ -108,7 +108,7 @@ usual downloadable artifacts.
 Append `?format=whatsapp` to an issue's URL:
 
 ```text
-https://stanfordballroom.com/emails/fall26/week1.html?format=whatsapp
+https://ballroom.stanford.edu/emails/fall26/week1.html?format=whatsapp
 ```
 
 The same query works with `hugo server --buildDrafts --disableFastRender` and with

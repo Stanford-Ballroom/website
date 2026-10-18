@@ -6,6 +6,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+concurrency:
+  group: stanford-production
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +30,7 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo --minify --baseURL="https://ballroom.stanford.edu"
+        run: hugo --minify --baseURL="https://ballroom.stanford.edu/"
 
       - name: Upload public dir
         uses: actions/upload-artifact@v4
@@ -50,4 +57,8 @@ jobs:
           remote_user: "${{ secrets.STANFORD_DOMAINS_SSH_USERNAME }}"
           remote_key: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY }}"
           remote_key_pass: "${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}"
-          debug: true
+      - name: Verify public site
+        run: >-
+          curl --fail --silent --show-error --location
+          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
+          https://ballroom.stanford.edu/ --output /dev/null

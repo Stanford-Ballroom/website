@@ -9,7 +9,7 @@ from export_email import inspect_email
 
 BASE = '''<!doctype html><html><head><title>Welcome</title>
 <meta name="description" content="First class Monday">
-<link rel="canonical" href="https://stanfordballroom.com/emails/fall26/week1.html">
+<link rel="canonical" href="https://ballroom.stanford.edu/emails/fall26/week1.html">
 {script}</head><body><p>First class Monday</p><p>Welcome!</p></body></html>'''
 HELPER = '<script src="/emails/whatsapp.' + 'a' * 64 + '.js" defer data-email-browser></script>'
 
