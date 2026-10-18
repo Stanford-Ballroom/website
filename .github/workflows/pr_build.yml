@@ -36,6 +36,12 @@ jobs:
           cache: npm
       - name: Install browser dependencies
         run: npm ci --ignore-scripts
+      - name: Check Figma snapshots match generated emails
+        run: |
+          for snapshot in design/emails/*.json; do
+            [ -f "$snapshot" ] || continue
+            python3 scripts/sync_figma_email.py "$snapshot" --check
+          done
       - name: Build site
         run: hugo --minify
       - name: Build and check email examples (including drafts)
@@ -46,6 +52,8 @@ jobs:
         run: |
           hugo --environment email --minify --buildDrafts --buildFuture --destination "${{ runner.temp }}/ballroom-email-export"
           python3 scripts/check_emails.py --email-only "${{ runner.temp }}/ballroom-email-export"
+          python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir public
+          python3 scripts/build_email_copy.py --email-dir "${{ runner.temp }}/ballroom-email-export" --site-dir "${{ runner.temp }}/ballroom-email-check"
           python3 scripts/prepare_outlook.py --source "${{ runner.temp }}/ballroom-email-export" --destination public
           python3 scripts/prepare_outlook.py --source "${{ runner.temp }}/ballroom-email-export" --destination "${{ runner.temp }}/ballroom-email-check"
       - name: Test email tools and Outlook draft composer
@@ -63,6 +71,9 @@ jobs:
             --destination "$RUNNER_TEMP/ballroom-pr-preview"
           python3 scripts/prepare_outlook.py --source "$RUNNER_TEMP/ballroom-email-export" --destination "$RUNNER_TEMP/ballroom-pr-preview"
           EMAIL_TEST_SITE="$RUNNER_TEMP/ballroom-pr-preview" node --test --test-name-pattern="built composer" tests/outlook-view.test.js
+          python3 scripts/build_email_copy.py \
+            --email-dir "$RUNNER_TEMP/ballroom-email-export" \
+            --site-dir "$RUNNER_TEMP/ballroom-pr-preview"
           HUGO_BASEURL="$PREVIEW_URL" hugo list all --environment development \
             > "$RUNNER_TEMP/ballroom-pr-pages.csv"
           python3 - <<'PY'
@@ -84,6 +95,8 @@ jobs:
                   target = root / (relative + "index.html" if not relative or relative.endswith("/") else relative)
                   if target.is_file():
                       pages[page["path"]] = {"title": page["title"], "url": url}
+                      if target.with_suffix(".copy.html").is_file():
+                          pages[page["path"]]["copy_url"] = url.removesuffix(".html") + ".copy.html"
           (root / "preview-pages.json").write_text(json.dumps(pages), encoding="utf-8")
           PY
       - name: Upload PR preview
@@ -141,10 +154,16 @@ jobs:
           remote_key_pass: ${{ secrets.STANFORD_DOMAINS_SSH_PRIV_KEY_PASSPHRASE }}
       - name: Verify hosted preview
         if: github.event.action != 'closed'
-        run: >-
-          curl --fail --silent --show-error --location
-          --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2
-          "$PREVIEW_URL" --output /dev/null
+        run: |
+          curl --fail --silent --show-error --location \
+            --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+            "$PREVIEW_URL" --output /dev/null
+          for path in preview/emails/*/*.copy.html; do
+            [ -f "$path" ] || continue
+            curl --fail --silent --show-error --location \
+              --connect-timeout 10 --max-time 30 --retry 3 --retry-delay 2 \
+              "${PREVIEW_URL}${path#preview/}" --output /dev/null
+          done
       - name: Verify hosted Outlook composer
         if: github.event.action != 'closed'
         run: |
@@ -191,6 +210,9 @@ jobs:
                 links.add(page.url);
                 const title = page.title.replace(/[\[\]\r\n]/g, ' ');
                 body += '\n- [' + title + '](<' + page.url + '>)';
+                if (page.copy_url?.startsWith(base)) {
+                  body += ' · [Copy to Outlook](<' + page.copy_url + '>)';
+                }
               }
               body += '\n\nUpdated for ' + pr.head.sha.slice(0, 7) +
                 ' · [Workflow run](' + runURL + ').';
@@ -210,3 +232,4 @@ jobs:
               });
             }
             await core.summary.addRaw(body).write();
+

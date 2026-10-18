@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "fileKey": "UaIeCFn2H4Z65ByxNCg0pP",
+  "pageId": "0:1",
+  "nodes": {
+    "weeklyTemplate": "8:124",
+    "week5": "8:216",
+    "darkPreview": "11:213",
+    "componentShowcase": "8:307"
+  },
+  "components": {
+    "Settings": "4:2",
+    "Header": "4:8",
+    "Title": "4:175",
+    "Prose": "4:178",
+    "Heading": "4:180",
+    "Lessons": "4:182",
+    "Notice": "4:232",
+    "Event": "4:272",
+    "Button": "4:273",
+    "Photo": "4:277",
+    "Signoff": "4:286",
+    "Footer": "4:290"
+  },
+  "rendering": {
+    "shellWidth": 600,
+    "logoWidth": 320,
+    "bodyFont": {
+      "figma": "Arimo",
+      "html": "Arial,Helvetica,sans-serif"
+    },
+    "titleFont": {
+      "figma": "Gelasio",
+      "html": "Georgia,serif"
+    },
+    "logos": {
+      "light": {
+        "githubBlob": "4ce513400eadee4400ff37d96854ee739b0d6684",
+        "figmaImageHash": "401421ab91aa216c2a9ffd2696a048b04bc4d406"
+      },
+      "dark": {
+        "githubBlob": "bb906dcde62a47094fa0af3c45e22448a927f1f0",
+        "figmaImageHash": "a6f1a6959dc0aa23721c9ec5d3bcadd20b14ebb4"
+      }
+    }
+  }
+}
