@@ -2,7 +2,7 @@
 title: "{{ .Name | replaceRE `^week([0-9]+)$` `Week $1` }}: This week at Stanford Ballroom"
 subject: ""
 date: {{ .Date }}
-draft: true
+draft: false
 type: emails
 url: /{{ .File.Path | strings.TrimSuffix ".md" }}.html
 quarter: "Quarter YYYY"

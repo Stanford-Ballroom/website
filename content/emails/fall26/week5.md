@@ -2,7 +2,7 @@
 title: "Week 5: Classes Tomorrow and Practice Friday"
 subject: "Week 5. Classes Tomorrow and Practice Friday"
 date: 2026-10-18T12:53:00-07:00
-draft: true
+draft: false
 url: /emails/fall26/week5.html
 quarter: Fall 2026
 preheader: "Classes tomorrow, 7:30–9:30 pm in Roble 115, and practice Friday, 6–9 pm in Roble 113!"
@@ -41,3 +41,4 @@ Practice this week is **Friday from 6 – 9 pm in Roble 113**! Come work on what
 {{< email-snippet "schedule-v1" >}}
 
 {{< email-signoff closing="Thanks, and see you all soon!" >}}
+
