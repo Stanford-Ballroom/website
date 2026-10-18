@@ -15,14 +15,14 @@ builds with `--environment email`, which omits this script entirely.
 Use the same **Hugo 0.150.0 extended** installation as the rest of the site. The
 export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
 
-1. Create a draft:
+1. Create an issue:
 
    ```sh
    hugo new content emails/autumn26/week1.md
    ```
 
    Or copy last week's Markdown file. When copying, immediately change `url`,
-   `title`, `date`, `preheader`, and `draft: true`, then review every event date,
+   `title`, `date`, `preheader`, and keep `draft: false`, then review every event date,
    room, instructor, and deadline. Each issue must have a unique `.html` URL.
 
 2. Edit the front matter and the Markdown underneath. `title` is the visible
@@ -86,12 +86,29 @@ export/check scripts need **Python 3.9+**, with no extra Python or npm packages.
 To use a non-default Hugo binary, set `HUGO=/path/to/hugo`. To change where exports
 are written, use `--output /path/to/folder`. Generated exports are ignored by git.
 
+
+## Pull request previews
+
+Each pull request from a branch in this repository gets a hosted preview at
+`https://ballroom.stanford.edu/pr-preview-<PR number>/` after its build and checks pass.
+The workflow updates one **PR preview** comment with links to the website, email
+archive, and changed content pages. Later pushes refresh the same preview and comment.
+
+The preview includes draft and future-dated content, with local images and assets
+built for its own URL. New emails use `draft: false`; keep them on the pull request
+branch while reviewing. The email's normal public URL becomes available after merge.
+
+Previews use the existing Stanford Domains SSH deployment secrets and a separate
+directory for each PR. Closing or merging a PR clears that preview directory and
+updates the comment. Fork pull requests still run the build checks and produce the
+usual downloadable artifacts.
+
 ## Copying an announcement to WhatsApp
 
 Append `?format=whatsapp` to an issue's URL:
 
 ```text
-https://stanfordballroom.com/emails/fall26/week1.html?format=whatsapp
+https://ballroom.stanford.edu/emails/fall26/week1.html?format=whatsapp
 ```
 
 The same query works with `hugo server --buildDrafts --disableFastRender` and with

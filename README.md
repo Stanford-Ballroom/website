@@ -78,7 +78,24 @@ hugo --minify
 ```
 
 Pull requests run a build check and attach the generated site as an artifact.
-Existing production deployment workflows still run on pushes to `main`.
+The Stanford Domains production deployment runs on pushes to `main`.
+
+
+## Deployment and PR previews
+
+The canonical site is **https://ballroom.stanford.edu/**. Pushes to `main` build
+with Hugo and deploy through `.github/workflows/cpanel_deploy.yml` using the
+existing Stanford Domains SSH secrets. Production deployments run in sequence.
+
+Pull requests get a preview at
+`https://ballroom.stanford.edu/pr-preview-<PR number>/` after their checks pass.
+A single PR comment links to the site, email archive, and changed pages. New
+commits refresh the preview; closing a PR clears its preview directory.
+Production uploads preserve the separate PR preview directories.
+
+When retiring the former GitHub Pages site, configure `stanfordballroom.com`
+to redirect to `ballroom.stanford.edu`, preserving the path. The repository no
+longer deploys to GitHub Pages.
 
 ## Weekly announcement emails
 

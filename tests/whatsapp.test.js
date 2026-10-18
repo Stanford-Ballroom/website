@@ -8,7 +8,7 @@ import { announcementText } from "../assets/emails/whatsapp-format.js";
 import { showWhatsAppView } from "../assets/emails/whatsapp-view.js";
 
 function page(body = "<p>Hello <strong>dancers</strong>!</p>") {
-  return parseHTML(`<!doctype html><html><head><link rel="canonical" href="https://stanfordballroom.com/emails/fall26/week1.html"></head>
+  return parseHTML(`<!doctype html><html><head><link rel="canonical" href="https://ballroom.stanford.edu/emails/fall26/week1.html"></head>
     <body class="email-bg" style="padding:0;background:white"><p>Summary and logo</p><h1 class="email-title">Welcome!</h1>
     <div id="email-announcement">${body}</div><footer>Mailing list settings</footer></body></html>`).document;
 }
@@ -69,7 +69,7 @@ test("query view removes email chrome and copies the edited message", async () =
   assert.equal(showWhatsAppView(doc, win), true);
   const field = doc.querySelector("textarea");
   assert.match(field.value, /^\*Welcome!\*\n\nHello \*dancers\*!/);
-  assert.match(field.value, /Full announcement: https:\/\/stanfordballroom.com\/emails\/fall26\/week1.html/);
+  assert.match(field.value, /Full announcement: https:\/\/ballroom\.stanford\.edu\/emails\/fall26\/week1.html/);
   assert.doesNotMatch(field.value, /Summary and logo|Mailing list/);
   assert.equal(doc.body.hasAttribute("style"), false);
   assert.equal(doc.querySelector("a").href, "https://example.test/preview/emails/fall26/week1.html?utm_source=test#first");
@@ -115,7 +115,7 @@ test("built and minified Hugo assets work on all five real announcements", { ski
     const text = doc.querySelector("textarea").value;
     assert.ok(text.length > 300, `${issue}: missing content`);
     assert.doesNotMatch(text, /<table|<p>|HAHAHUGOSHORTCODE|Mailing list settings|Text%20on%20Side/);
-    assert.match(text, new RegExp(`Full announcement: https://stanfordballroom.com/emails/${issue}\\.html`));
+    assert.match(text, new RegExp(`Full announcement: https://ballroom.stanford.edu/emails/${issue}\\.html`));
     if (issue === "fall26/week1") {
       assert.match(text, /‘Ikaika/);
       assert.match(text, /- 7:30 – 8:30 pm — Beginner/);

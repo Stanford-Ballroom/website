@@ -5,7 +5,7 @@ summaryLength = 0
 buildDrafts = false
 buildFuture = false
 enableEmoji = true
-baseURL = "/"
+baseURL = "https://ballroom.stanford.edu/"
 
 [markup.goldmark.renderer]
 unsafe = true

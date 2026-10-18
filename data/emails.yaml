@@ -1,5 +1,5 @@
-# Stable public origin for links in messages, even during localhost/Pages builds.
-base_url: https://stanfordballroom.com
+# Stable public origin for links in messages, even during local and PR preview builds.
+base_url: https://ballroom.stanford.edu
 club: Stanford Ballroom
 # Already-public PNG used by the original spring emails. Drafts and exports must
 # not depend on a generated Hugo image that has not been deployed yet.
