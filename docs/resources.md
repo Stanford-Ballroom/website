@@ -30,13 +30,6 @@ local files render a labeled panel without requesting a broken image URL.
 | Leaders: Latin clothes | `leaders-latin-clothes.png` | `da57bddb-acda-44c1-a1dc-d438ea4f869a` |
 | Leaders: Standard clothes | `leaders-standard-clothes.png` | `63b64670-adeb-4465-b0e6-7a346de1b084` |
 
-## Content still linked to Notion
-
-Competition preparation, routines, donated clothes, competition info, and FAQs
-retain their original links because their page bodies were unavailable. Replace
-these links with migrated content when it is supplied. Leadership and coaches
-already have a page on this website and use its internal link.
-
 ## Check changes
 
 Build with `hugo --minify` and review `/resources/` in light and dark mode at phone

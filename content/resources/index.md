@@ -1,6 +1,6 @@
 ---
 title: "Resources"
-description: "Practice playlists, dance demonstrations, stores, clothes, shoes, and competition resources from Stanford Ballroom."
+description: "Practice playlists, dance demonstrations, stores, clothes, shoes, and other dance groups at Stanford."
 showDate: false
 showDateUpdated: false
 showTableOfContents: true
@@ -77,17 +77,6 @@ Followers' heel height varies with dance experience and partner height. Practice
 {{< resource-image src="images/resources/leaders-standard-clothes.png" caption="Standard" alt="Example of leaders' Standard dance clothes" >}}
 {{< /resource-gallery >}}
 
-## Competition preparation
+## Other dance groups at Stanford
 
-See the club's [competition preparation guide on Notion](https://stanford-ballroom.notion.site/Competition-Preparation-8b9dcaf4d6b345c0b4e400a7cda06f54?pvs=21). For Cardinal Classic, check the [competition rules and information]({{< relref "/cardinal_classic/rules" >}}), including clothing and shoe requirements.
-
-<!-- TODO: Migrate the preparation guide here once its source content is available. -->
-
-## More resources
-
-- [Routines](https://stanford-ballroom.notion.site/Routines-4cc64af294f24f3eb241ffd04e91d157?pvs=21)
-- [Donated clothes](https://stanford-ballroom.notion.site/Donated-Clothes-5b67840f9d8b4b20bf9d041e20a826d0?pvs=21)
-- [Competition info](https://stanford-ballroom.notion.site/Competition-Info-75f0f257bc32425a9bb95524caa72165?pvs=21)
-- [FAQs](https://stanford-ballroom.notion.site/FAQs-1a44c30f7eec4e659e893b7ee290d8ee?pvs=21)
-- [Leadership and coaches]({{< relref "/about" >}})
-- [Other dance groups at Stanford](https://docs.google.com/document/d/e/2PACX-1vTRtjA1OP5ZBP9HW46LGrR-HitYhv7nIZHZogPkj1tiYgZ7tjZwKMKwUsKVEVWm9A/pub)
+[Explore other dance groups at Stanford](https://docs.google.com/document/d/e/2PACX-1vTRtjA1OP5ZBP9HW46LGrR-HitYhv7nIZHZogPkj1tiYgZ7tjZwKMKwUsKVEVWm9A/pub).
