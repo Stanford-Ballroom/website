@@ -1,11 +1,11 @@
 ---
-title: "Week 6: Classes Monday and Mentored Practice Friday"
-subject: "Week 6: Classes Monday and Mentored Practice Friday"
+title: "Week 6: Our First Competition Is Here!"
+subject: "Week 6: Our First Competition Is Here!"
 date: 2026-10-25T12:00:00-07:00
 draft: false
 url: /emails/fall26/week6.html
 quarter: Fall 2026
-preheader: "Classes Monday, 7:30–9:30 pm in Roble 115, and mentored practice Friday, 6–9 pm in Roble 113!"
+preheader: "Our first competition is Saturday, November 7 at UC Santa Cruz! Plus classes Monday and mentored practice Friday."
 signer: Ro
 lessons:
   title: "Monday, October 26 — Classes"
@@ -22,7 +22,25 @@ lessons:
 ---
 Happy Week 6!
 
-Hope you had a good weekend! We have classes Monday and mentored practice this Friday :). Details below!
+Our first competition of the season is here! We also have classes Monday and mentored practice this Friday :). Details below!
+
+{{< email-notice title="Our First Competition Is Here! Saturday, November 7" >}}
+**UC Santa Cruz is hosting a one-day newcomer/beginner competition on Saturday, November 7.**
+
+If you have only been dancing for a few weeks, this event is for you! Most competitors will have about as much experience as you do. It's a fun chance to dance, cheer on your teammates, and meet beginners from other schools :).
+
+**Fill out the competition form to let us know you want to join.** We'll add you to a WhatsApp group using the phone number you provide on the form. We'll use the group to coordinate transportation and share day-of logistics.
+
+**You do not need a partner to compete.** The competition includes Rookie-Vet events, where a beginner dancer, the rookie, competes with a more experienced dancer, the vet. We'll have several experienced Stanford dancers joining us who would love to dance with you :). After you fill out the form, I'll reach out to help coordinate partners. You may also sign up with someone you have already spoken with and would like to dance with.
+
+**What is competing actually like?** You'll dance in short rounds called heats. Before each heat, you'll check the posted schedule, listen for your event, and walk onto the floor with your partner when called. You do not need to memorize the schedule or understand everything beforehand. We'll help you find your heats, get to the right place, and know when to dance.
+
+We'll also spend time in class covering everything you need to feel comfortable on the competition floor: how to walk on, how to begin dancing, bowing at the end, floor presence, navigating around other couples, and more. We'll walk through the whole process together before competition day.
+
+**What should I wear?** Wear something comfortable that you can move in. We encourage dressing up a little, such as a button-down shirt, skirt, dress, or another outfit that makes you feel confident. Bring dance shoes if you have them. If you do not, please reach out; we may be able to help with donated shoes or other options.
+
+We'll have experienced team members with you throughout the day, so you will not be figuring this out alone. Your job is to fill out the form, practice what you know, and come ready to have fun :). **Spectators are welcome too**, so you can still join us even if you are not ready to compete.
+{{< /email-notice >}}
 
 {{< email-lessons >}}
 
