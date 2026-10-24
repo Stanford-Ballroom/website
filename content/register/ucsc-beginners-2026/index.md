@@ -7,11 +7,11 @@ showTableOfContents: false
 ---
 
 <iframe
+  class="ballroom-registration-form"
   src="https://stanford-ballroom.notion.site/ebd//9fe1b84b0077827b93b2816f23696813"
   title="UCSC Beginners 2026 registration form"
   width="100%"
   height="600"
-  style="border: 0;"
   allowfullscreen
 ></iframe>
 
