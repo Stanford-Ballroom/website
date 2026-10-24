@@ -1,0 +1,13 @@
+{{- $src := .Get "src" -}}
+{{- $remote := or (strings.HasPrefix $src "https://") (strings.HasPrefix $src "http://") -}}
+<figure class="ballroom-resource-image">
+  {{- if or $remote (fileExists (printf "static/%s" (strings.TrimPrefix "/" $src))) -}}
+    <img src="{{ if $remote }}{{ $src }}{{ else }}{{ strings.TrimPrefix "/" $src | relURL }}{{ end }}"
+      alt="{{ .Get "alt" }}" loading="lazy" decoding="async">
+  {{- else -}}
+    <div class="ballroom-resource-placeholder" role="img" aria-label="{{ .Get "alt" }} — photo coming soon">
+      <span aria-hidden="true">Photo coming soon</span>
+    </div>
+  {{- end -}}
+  <figcaption>{{ .Get "caption" }}</figcaption>
+</figure>
