@@ -7,6 +7,20 @@ url: /emails/fall26/week6.html
 quarter: Fall 2026
 preheader: "Our first competition is Saturday, November 7 at UC Santa Cruz! Register by Friday, October 30."
 signer: Ro
+email_overview:
+  - kicker: "Register by Friday"
+    title: "First Competition"
+    detail: "UC Santa Cruz · November 7"
+    href: "https://ballroom.stanford.edu/register/ucsc-beginners-2026"
+    tone: celebrate
+  - kicker: "Monday"
+    title: "Classes"
+    detail: "7:30 – 9:30 pm · Roble 115"
+    tone: info
+  - kicker: "Friday"
+    title: "Mentored Practice"
+    detail: "6 – 9 pm · Roble 113"
+    tone: warning
 lessons:
   title: "Monday, October 26 — Classes"
   intro: "Classes are **Monday from 7:30 – 9:30 pm in Roble 115**. Beginner and intermediate Latin and Standard lessons run concurrently. No dance experience or partner is required for the beginner level. Please see the schedule below."
@@ -21,6 +35,8 @@ lessons:
       classes: [Intermediate, Beginner]
 ---
 Happy Week 6!
+
+{{< email-overview >}}
 
 Our first competition of the season is here! We also have classes Monday and mentored practice this Friday :). Details below!
 

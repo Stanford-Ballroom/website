@@ -177,6 +177,7 @@ Use `##` for headings instead of inventing a shortcode for every section.
 | `email-lessons` | Reads the issue's `lessons` object. Optional `key="workshop"` selects another front-matter object with the same structure. |
 | `email-event` | Heading, optional `when` and `where`, and a Markdown body. Required `title`. `status` is `confirmed` (default), `tentative`, `cancelled`, or `tbd`. |
 | `email-notice` | Highlighted Markdown, optional `title`. `tone` is `info` (default), `warning`, or `celebrate`; write the important fact in words as well. |
+| `email-overview` | Renders one to three compact summary tiles from the page's `email_overview` front matter. Each item requires `title` and `detail`; optional fields are `kicker`, `href`, and `tone` (`info`, `warning`, or `celebrate`). |
 | `email-button` | Form, registration, volunteer, or event link. Required `href` and `label`. |
 | `email-photo` | Required `src` and descriptive `alt`; optional Markdown `caption`, linked `href`, and maximum `width` from 1–552 pixels. |
 | `email-snippet` | Includes a named versioned Markdown snippet, e.g. `"beginners-v1"` or `"schedule-v1"`. |
