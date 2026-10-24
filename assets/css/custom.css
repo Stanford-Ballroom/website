@@ -124,6 +124,11 @@ body.ballroom-site {
 .ballroom-calendar { display: block; border: 0; width: 100%; height: clamp(650px, 80vh, 900px); }
 .ballroom-page:has(.ballroom-calendar) .article-content,
 .ballroom-page:has(.ballroom-calendar) .prose > div { width: 100%; max-width: 100%; }
+/* Registration embeds need the full page width instead of the article column. */
+.ballroom-registration-form { display: block; width: 100%; border: 0; }
+.ballroom-page:has(.ballroom-registration-form) #single_header,
+.ballroom-page:has(.ballroom-registration-form) .article-content,
+.ballroom-page:has(.ballroom-registration-form) .prose > div { width: 100%; max-width: 100%; }
 @media (min-width: 1800px) { .ballroom-header { padding-inline: max(var(--ballroom-gutter), calc((100vw - 1640px)/2)); } }
 @media (max-width: 1000px) {
   .ballroom-header { gap: 1.2rem; }
