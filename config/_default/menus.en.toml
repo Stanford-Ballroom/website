@@ -25,5 +25,11 @@ pageRef = "cardinal_classic"
 identifier = "fzeVJXz7O2"
 weight = 3
 
+[[main]]
+name = "Resources"
+pageRef = "resources"
+identifier = "resources"
+weight = 4
+
 [[footer]]
 none = "none"

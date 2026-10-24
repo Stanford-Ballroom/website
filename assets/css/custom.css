@@ -35,7 +35,7 @@ body.ballroom-site {
 .ballroom-brand { display: flex; align-items: center; gap: 1rem; min-width: 0; text-decoration: none; }
 .ballroom-brand img { width: 52px; height: 52px; flex-shrink: 0; }
 .ballroom-brand span { font-family: var(--ballroom-display); font-size: clamp(1.3rem, 2vw, 1.8rem); letter-spacing: -.035em; }
-.ballroom-nav { display: flex; align-items: center; justify-content: flex-end; gap: clamp(1rem, 2.6vw, 2.5rem); margin-left: auto; }
+.ballroom-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: clamp(1rem, 2.6vw, 2.5rem); margin-left: auto; }
 .ballroom-nav a { padding: .65rem 0; font-size: .95rem; text-decoration: none; white-space: nowrap; }
 .ballroom-nav a:hover, .ballroom-nav a[aria-current] { color: var(--ballroom-cardinal); text-decoration: underline; text-underline-offset: .4em; }
 .ballroom-tools { display: flex; gap: .3rem; }
@@ -122,6 +122,13 @@ body.ballroom-site {
 .ballroom-profile-bio { font-size: .95rem; line-height: 1.65; }
 .ballroom-profile-bio p { margin: 0; }
 .ballroom-calendar { display: block; border: 0; width: 100%; height: clamp(650px, 80vh, 900px); }
+/* Resource examples reserve space until the original photographs are uploaded. */
+.ballroom-resource-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 1rem; margin-block: 1.5rem; }
+.ballroom-page .prose .ballroom-resource-image { min-width: 0; margin: 0; }
+.ballroom-resource-image > img,
+.ballroom-resource-placeholder { display: block; width: 100%; height: 11rem; margin: 0; border: 1px solid var(--ballroom-rule); background: var(--ballroom-wash); object-fit: contain; }
+.ballroom-resource-placeholder { display: grid; place-items: center; padding: 1rem; color: var(--ballroom-muted); font-size: .85rem; text-align: center; }
+.ballroom-page .prose .ballroom-resource-image figcaption { margin-top: .5rem; color: var(--ballroom-muted); font-size: .85rem; line-height: 1.4; }
 .ballroom-page:has(.ballroom-calendar) .article-content,
 .ballroom-page:has(.ballroom-calendar) .prose > div { width: 100%; max-width: 100%; }
 /* Registration embeds need the full page width instead of the article column. */

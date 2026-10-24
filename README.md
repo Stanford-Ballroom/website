@@ -21,6 +21,7 @@ in a pull request using the same file.
 | Final photo gallery | Existing files in `assets/gallery/` |
 | Leadership and coach profiles | `content/about/index.md` |
 | Calendar | Keep editing the existing Google Calendar |
+| Playlists, dance examples, stores, clothes, and shoes | `content/resources/index.md` ([image upload guide](docs/resources.md)) |
 
 To add a question, copy one complete `faq` block inside `faq-list`. To replace the
 hero photograph, put the image in `assets/` and use its path relative to that
