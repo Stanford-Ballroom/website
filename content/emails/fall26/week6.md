@@ -35,7 +35,7 @@ Happy Week 6!
 
 ## UC Santa Cruz Beginners — Saturday, November 7
 
-Only been dancing a few weeks? This one-day beginner competition is for you! Come try competing, cheer on your teammates, and meet dancers from other schools :).
+This one-day competition is for beginners—even if you've only been dancing for a few weeks! We'll be going together as a team to dance, cheer each other on, and meet dancers from other schools :).
 
 {{< email-notice tone="celebrate" >}}
 **[Register by Friday, October 30](https://ballroom.stanford.edu/register/ucsc-beginners-2026).**
