@@ -5,7 +5,7 @@ date: 2026-10-25T12:00:00-07:00
 draft: false
 url: /emails/fall26/week6.html
 quarter: Fall 2026
-preheader: "A beginner's guide to your first competition, plus this week's dancing."
+preheader: "Join us at UC Santa Cruz Beginners on Saturday, November 7! Register by Friday, October 30—no partner needed. We also have Latin and Standard classes on Monday and mentored practice on Friday."
 signer: Ro
 email_overview:
   - title: "First Competition"
