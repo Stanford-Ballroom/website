@@ -1,0 +1,31 @@
+{{- $theme := partial "email/theme.html" .Page -}}
+{{- $items := .Page.Params.email_overview -}}
+{{- if not $items }}{{ errorf "email-overview needs email_overview front matter at %s" .Position }}{{ end -}}
+{{- if or (lt (len $items) 1) (gt (len $items) 3) }}{{ errorf "email-overview needs one to three items at %s" .Position }}{{ end -}}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:18px 0 22px;">
+  <tr>
+    {{- range $item := $items -}}
+      {{- if not $item.title }}{{ errorf "email-overview items need title at %s" $.Position }}{{ end -}}
+      {{- if not $item.detail }}{{ errorf "email-overview items need detail at %s" $.Position }}{{ end -}}
+      {{- $tone := $item.tone | default "info" -}}
+      {{- if not (in (slice "info" "warning" "celebrate") $tone) }}{{ errorf "Unknown email-overview tone %q at %s" $tone $.Position }}{{ end -}}
+      {{- $accent := index (dict "info" $theme.light.link "warning" $theme.light.warning "celebrate" $theme.light.celebrate) $tone -}}
+      <td class="email-overview-cell" width="{{ div 100 (len $items) }}%" valign="top" style="width:{{ div 100.0 (len $items) }}%;padding:0 5px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:separate;">
+          <tr>
+            <td class="email-overview-card" bgcolor="{{ $theme.light.notice }}" style="background:{{ $theme.light.notice }};padding:13px 12px 14px;border:1px solid {{ $theme.light.table_border }};border-top:4px solid {{ $accent }};">
+              {{- with $item.kicker }}<p class="email-overview-muted" style="margin:0 0 5px;color:{{ $theme.light.muted }};font-size:11px;line-height:16px;letter-spacing:.6px;text-transform:uppercase;font-weight:bold;">{{ . }}</p>{{ end -}}
+              {{- with $item.href -}}
+                {{- $href := partial "email/url.html" (dict "url" . "page" $.Page) -}}
+                <p style="margin:0 0 5px;font-size:16px;line-height:21px;font-weight:bold;"><a class="email-link" href="{{ $href }}" style="color:{{ $theme.light.link }};text-decoration:underline;">{{ $item.title }}</a></p>
+              {{- else -}}
+                <p class="email-heading" style="margin:0 0 5px;color:{{ $theme.light.heading }};font-size:16px;line-height:21px;font-weight:bold;">{{ $item.title }}</p>
+              {{- end -}}
+              <p style="margin:0;font-size:13px;line-height:19px;">{{ $item.detail }}</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    {{- end -}}
+  </tr>
+</table>

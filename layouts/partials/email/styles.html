@@ -7,6 +7,7 @@
     .email-title { font-size:26px !important; line-height:32px !important; }
     .email-timetable { font-size:14px !important; line-height:20px !important; }
     .email-timetable th, .email-timetable td { padding:7px 5px !important; }
+    .email-overview-cell { display:block !important; width:100% !important; padding:0 0 10px !important; }
   }
   @media (prefers-color-scheme:dark) {
     .email-logo-header { background:{{ $theme.dark.card }} !important; }
@@ -17,6 +18,8 @@
     .email-muted { color:{{ $theme.dark.muted }} !important; }
     .email-heading { color:{{ $theme.dark.heading }} !important; }
     .email-notice { background:{{ $theme.dark.notice }} !important; color:{{ $theme.dark.text }} !important; }
+    .email-overview-card { background:{{ $theme.dark.notice }} !important; color:{{ $theme.dark.text }} !important; }
+    .email-overview-muted { color:{{ $theme.dark.muted }} !important; }
     .email-timetable th { background:{{ $theme.dark.table_header }} !important; }
     .email-link { color:{{ $theme.dark.link }} !important; }
     .email-button { background:{{ $theme.light.link }} !important; color:#ffffff !important; }
@@ -29,6 +32,8 @@
   [data-ogsc] .email-heading { color:{{ $theme.dark.heading }} !important; }
   [data-ogsc] .email-link { color:{{ $theme.dark.link }} !important; }
   [data-ogsc] .email-notice { background:{{ $theme.dark.notice }} !important; color:{{ $theme.dark.text }} !important; }
+  [data-ogsc] .email-overview-card { background:{{ $theme.dark.notice }} !important; color:{{ $theme.dark.text }} !important; }
+  [data-ogsc] .email-overview-muted { color:{{ $theme.dark.muted }} !important; }
   [data-ogsc] .email-timetable th { background:{{ $theme.dark.table_header }} !important; }
 </style>
 
