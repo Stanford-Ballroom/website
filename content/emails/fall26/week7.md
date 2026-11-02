@@ -45,7 +45,7 @@ Registration is still open so please reach out to me if you’re still intereste
 
 **New to ballroom?** Beginner classes are open to all Stanford affiliates; no experience, class registration, or partner required. We rotate partners, so just bring yourself :). Wear comfortable clothes and socks or non-marking dance shoes/sneakers.
 
-{{< email-event title="Tuesday, November 3 — Mentored Practice" when="5:30 – 7:30 pm" where="Roble 115" status="tentative" >}}
+{{< email-event title="Tuesday, November 3 — Open Practice" when="5:30 – 7:30 pm" where="Roble 115" status="tentative" >}}
 We're waiting on the room booking but expect this practice to be confirmed. Please check the schedule before heading over.
 {{< /email-event >}}
 
