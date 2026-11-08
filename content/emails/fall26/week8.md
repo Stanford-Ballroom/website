@@ -1,13 +1,13 @@
 ---
-title: "Week 8: UCSC Beginners Was Super Fun! Classes and Practice as usual"
-subject: "Week 8: UCSC Beginners Was Super Fun! Classes and Practice as usual"
+title: "Week 8: UCSC Beginners Was Super Fun! Classes and Practice as Usual"
+subject: "Week 8: UCSC Beginners Was Super Fun! Classes and Practice as Usual"
 date: 2026-11-08T12:00:00-08:00
 draft: false
 url: /emails/fall26/week8.html
 quarter: Fall 2026
 preheader: "Our beginners did an amazing job at UC Santa Cruz! We have Latin and Standard classes Monday and mentored practice Saturday."
 signer: Ro
-email_overview: 
+email_overview:
   - title: "Monday Classes"
     detail: "Latin & Standard: 7:30 – 9:30 pm"
     tone: info
@@ -30,7 +30,7 @@ Happy Week 8!
 
 {{< email-overview >}}
 
-The team was at Santa Cruz on Saturday for the season’s first competition! (See pictures below.) Our beginners did incredibly well—so many finals, podiums, and rumor has it Manuel and Iza may have _swept_ Latin 👀. We're so proud of everyone who stepped onto the floor :). For those that missed it and want to compete, don’t worry, there will be more upcoming!
+The team was at Santa Cruz on Saturday for the season’s first competition! (See pictures below.) Our beginners did incredibly well—so many finals, podiums, and rumor has it Manuel and Iza may have _swept_ Latin 👀. We're so proud of everyone who stepped onto the floor :). For those who missed it and want to compete, don’t worry—there will be more competitions coming up!
 
 Thank you to everyone who competed, came along, and supported the team. You brought so much energy and encouragement to the day, and it was wonderful to see all your hard work in class come together! Beginners, we will debrief with coaches 😈.
 
@@ -44,12 +44,9 @@ Come practice what you've learned and make the most of the big space!
 
 ## Pictures from UC Santa Cruz Beginners
 
+{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-standard.jpeg" alt="Stanford team at UC Santa Cruz Beginners 2026, Standard" caption="Stanford team at UC Santa Cruz Beginners 2026 (Standard)" >}}
 
-{{< email-photo src=“https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-standard.jpeg” alt=“Stanford team at UC Santa Cruz Beginners 2026, Standard” caption=“Stanford team at UC Santa Cruz Beginners 2026 (Standard)” >}}
-
-{{< email-photo src=“https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-latin.jpeg” alt=“Stanford team at UC Santa Cruz Beginners 2026, Latin” caption=“Stanford team at UC Santa Cruz Beginners 2026 (Latin)” >}}
-
-
+{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-latin.jpeg" alt="Stanford team at UC Santa Cruz Beginners 2026, Latin" caption="Stanford team at UC Santa Cruz Beginners 2026 (Latin)" >}}
 
 {{< email-snippet "schedule-v1" >}}
 
