@@ -5,7 +5,7 @@ date: 2026-11-08T12:00:00-08:00
 draft: false
 url: /emails/fall26/week8.html
 quarter: Fall 2026
-preheader: "Our beginners did an amazing job at UC Santa Cruz! We also have Latin and Standard classes Monday and tentative mentored practice Saturday."
+preheader: "Our beginners did an amazing job at UC Santa Cruz! We also have Latin and Standard classes Monday and mentored practice Saturday."
 signer: Ro
 email_overview:
   - title: "What a Weekend!"
@@ -15,8 +15,8 @@ email_overview:
     detail: "Latin & Standard"
     tone: info
   - title: "Saturday Practice"
-    detail: "1 – 3 pm · Tentative"
-    tone: warning
+    detail: "1 – 3 pm"
+    tone: info
 lessons:
   title: "Monday, November 9 — Classes"
   location: "Roble Arts Gym, Room 115 (375 Santa Teresa St.)"
@@ -53,8 +53,8 @@ Thank you to everyone who competed, came along, and supported the team. You brou
 
 **New to ballroom?** Beginner classes are open to all Stanford affiliates; no experience, class registration, or partner required. We rotate partners, so just bring yourself :). Wear comfortable clothes and socks or non-marking dance shoes/sneakers.
 
-{{< email-event title="Saturday, November 14 — Mentored Practice" when="1 – 3 pm" where="Roble 113" status="tentative" >}}
-Mentored open floor practice! This session is still tentative, so please check the schedule before heading over.
+{{< email-event title="Saturday, November 14 — Mentored Practice" when="1 – 3 pm" where="Roble 113" >}}
+Come practice what you've learned and make the most of the big space!
 {{< /email-event >}}
 
 {{< email-snippet "schedule-v1" >}}
