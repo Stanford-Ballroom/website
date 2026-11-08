@@ -54,3 +54,9 @@ Mentored open floor practice! This session is still tentative, so please check t
 {{< email-snippet "schedule-v1" >}}
 
 {{< email-signoff closing="Thanks, and see you all soon!" >}}
+
+## Pictures from UC Santa Cruz Beginners!
+
+{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-latin.jpeg" alt="Stanford team at UC Santa Cruz Beginners 2026, Latin" caption="Stanford team at UC Santa Cruz Beginners 2026 (Latin)" >}}
+
+{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/refs/heads/main/Fall%202026/ucsc-beginners-2026-standard.jpeg" alt="Stanford team at UC Santa Cruz Beginners 2026, Standard" caption="Stanford team at UC Santa Cruz Beginners 2026 (Standard)" >}}
