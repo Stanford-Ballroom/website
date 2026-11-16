@@ -1,6 +1,6 @@
 ---
-title: "Week 9: Group Picture Today! Classes and Friday Practice"
-subject: "Week 9: Group Picture Today! Classes and Friday Practice"
+title: "Week 9: Classes (and Group Picture) TODAY and Friday Practice"
+subject: "Week 9: Classes (and Group Picture) TODAY, Friday Practice"
 date: 2026-11-16T09:00:00-08:00
 draft: false
 url: /emails/fall26/week9.html
@@ -33,15 +33,11 @@ Happy Week 9!
 
 {{< email-overview >}}
 
-We have our usual Latin and Standard classes today, and mentored practice on Friday :).
+Classes as usual today, and mentored practice on Friday :). We’ll take a group picture during class today. If you have a team jacket, please wear it today!
 
-{{< email-notice title="Group Picture Today!" tone="celebrate" >}}
-We'll take a group picture during class today! **If you have a team jacket, please wear it.**
-{{< /email-notice >}}
+We’ll take a break next week for Thanksgiving break, so don’t miss out on practice and lessons before you all stuff yourself with food over the break 😈.
 
 {{< email-lessons >}}
-
-**New to ballroom?** Beginner classes are open to all Stanford affiliates; no experience, class registration, or partner required. We rotate partners, so just bring yourself :). Wear comfortable clothes and socks or non-marking dance shoes/sneakers.
 
 {{< email-event title="Friday, November 20 — Mentored Practice" when="6 – 9 pm" where="Roble 113" >}}
 Come practice what you've learned and make the most of the big space!
