@@ -1,26 +1,26 @@
 ---
-title: "Thanksgiving Week"
+title: "Thanksgiving Week — No Class But Practice!"
 subject: "Thanksgiving Week — No Monday Class, Mentored Practice Saturday"
 date: 2026-11-22T21:25:00-08:00
 draft: false
 url: /emails/fall26/thanksgiving-week.html
 quarter: Fall 2026
-preheader: "Roble 115 is still ours on Monday! Mentored practice is Saturday, 6 – 9 pm in Roble 113. Pictures from class and Claremont below :)."
+preheader: "Roble 115 is still available tomorrow! Mentored practice is Saturday, 6 – 9 pm in Roble 113. Pictures from class and Claremont below."
 signer: Ro
 ---
 Happy Thanksgiving week, everyone!
 
-I’m so grateful to you all for a lovely quarter dancing together. You guys have been such an amazing team ❤️
+So grateful to you all for a lovely quarter dancing together. You guys have been such an amazing team ❤️.
 
 {{< email-notice title="Monday, November 23 — No Class" tone="warning" >}}
-We’re taking Monday off from lessons for Thanksgiving break, but **we still have Roble 115 from 7:30 – 9:30 pm**. If you’re on campus, you’re welcome to use the room to practice! We’ll be back next week for our final class of the quarter!
+We’re taking Monday off from lessons for Thanksgiving break, but **we still have Roble 115 from 7:30 – 9:30 pm**. If you’re on campus, you’re welcome to use the room to practice. We’ll be back next week for our final class of the quarter! (Time flies...)
 {{< /email-notice >}}
 
-{{< email-event title="Saturday, November 28 — Mentored Practice" when="6 – 9 pm" where="Roble 113" >}}
-Come dance with us and bring anything you’d like to work on with the mentors. It’s a great way to burn off that Thanksgiving supper 😈.
-{{< /email-event >}}
+Yijia and I were at Claremont Collegiate Showdown this weekend! I’ve included a couple of pictures from the trip below, along with the group pictures we took in class last week :).
 
-A few of us from Stanford went down to the Claremont Collegiate Showdown! I’ve included a couple of pictures from the trip below, along with the group pictures we took in class last week :).
+{{< email-event title="Saturday, November 28 — Mentored Practice" when="6 – 9 pm" where="Roble 113" >}}
+We might have a break from classes, but there’s no break from practice 😈. It’s a great way to burn off that Thanksgiving supper.
+{{< /email-event >}}
 
 {{< email-snippet "schedule-v1" >}}
 
@@ -28,7 +28,7 @@ A few of us from Stanford went down to the Claremont Collegiate Showdown! I’ve
 
 ## Group pictures from last week’s class
 
-{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/7d07618ac10a2d735bda71f204530ce222570c63/Fall%202026/week9-team-photo.jpg" alt="The team smiles for a group photo in front of the studio mirrors, holding the Stanford Ballroom banner." >}}
+{{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/7d07618ac10a2d735bda71f204530ce222570c63/Fall%202026/week9-team-photo.jpg" alt="The team smiles for a group photo, holding the Stanford Ballroom banner." >}}
 
 {{< email-photo src="https://raw.githubusercontent.com/Stanford-Ballroom/assets/7d07618ac10a2d735bda71f204530ce222570c63/Fall%202026/week9-team-photo-pose.jpg" alt="The team strikes a dance pose with arms raised behind the Stanford Ballroom banner." >}}
 
