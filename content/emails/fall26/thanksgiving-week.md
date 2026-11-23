@@ -24,7 +24,7 @@ We might have a break from classes, but there’s no break from practice 😈. I
 
 {{< email-snippet "schedule-v1" >}}
 
-{{< email-signoff closing="Have a lovely Thanksgiving!" >}}
+{{< email-signoff closing="Have a lovely break!" >}}
 
 ## Group pictures from last week’s class
 
